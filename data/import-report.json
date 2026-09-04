@@ -1,0 +1,268 @@
+{
+  "sourceFile": "قوائم الفصول 2026.xls",
+  "sheetCount": 39,
+  "studentCount": 1395,
+  "classCount": 39,
+  "skippedBlankNumberedRows": 177,
+  "formattingIssueCount": 11,
+  "formattingIssues": [
+    {
+      "sheet": "ثامن3",
+      "excelRow": 39,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "سابع6",
+      "excelRow": 23,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "سابع5",
+      "excelRow": 35,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "سابع2",
+      "excelRow": 9,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "سادس8",
+      "excelRow": 32,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "سادس8",
+      "excelRow": 33,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "سادس8",
+      "excelRow": 38,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "خامس9",
+      "excelRow": 5,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "خامس9",
+      "excelRow": 10,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "خامس6",
+      "excelRow": 27,
+      "issue": "multiple_spaces"
+    },
+    {
+      "sheet": "خامس2",
+      "excelRow": 18,
+      "issue": "multiple_spaces"
+    }
+  ],
+  "gradeCounts": {
+    "5": 389,
+    "6": 362,
+    "7": 323,
+    "8": 321
+  },
+  "classCounts": [
+    {
+      "grade": 5,
+      "section": 1,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 2,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 3,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 4,
+      "count": 35
+    },
+    {
+      "grade": 5,
+      "section": 5,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 6,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 7,
+      "count": 35
+    },
+    {
+      "grade": 5,
+      "section": 8,
+      "count": 35
+    },
+    {
+      "grade": 5,
+      "section": 9,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 10,
+      "count": 36
+    },
+    {
+      "grade": 5,
+      "section": 11,
+      "count": 32
+    },
+    {
+      "grade": 6,
+      "section": 1,
+      "count": 36
+    },
+    {
+      "grade": 6,
+      "section": 2,
+      "count": 37
+    },
+    {
+      "grade": 6,
+      "section": 3,
+      "count": 36
+    },
+    {
+      "grade": 6,
+      "section": 4,
+      "count": 38
+    },
+    {
+      "grade": 6,
+      "section": 5,
+      "count": 37
+    },
+    {
+      "grade": 6,
+      "section": 6,
+      "count": 35
+    },
+    {
+      "grade": 6,
+      "section": 7,
+      "count": 35
+    },
+    {
+      "grade": 6,
+      "section": 8,
+      "count": 35
+    },
+    {
+      "grade": 6,
+      "section": 9,
+      "count": 36
+    },
+    {
+      "grade": 6,
+      "section": 10,
+      "count": 37
+    },
+    {
+      "grade": 7,
+      "section": 1,
+      "count": 38
+    },
+    {
+      "grade": 7,
+      "section": 2,
+      "count": 33
+    },
+    {
+      "grade": 7,
+      "section": 3,
+      "count": 37
+    },
+    {
+      "grade": 7,
+      "section": 4,
+      "count": 37
+    },
+    {
+      "grade": 7,
+      "section": 5,
+      "count": 36
+    },
+    {
+      "grade": 7,
+      "section": 6,
+      "count": 35
+    },
+    {
+      "grade": 7,
+      "section": 7,
+      "count": 34
+    },
+    {
+      "grade": 7,
+      "section": 8,
+      "count": 36
+    },
+    {
+      "grade": 7,
+      "section": 9,
+      "count": 37
+    },
+    {
+      "grade": 8,
+      "section": 1,
+      "count": 36
+    },
+    {
+      "grade": 8,
+      "section": 2,
+      "count": 38
+    },
+    {
+      "grade": 8,
+      "section": 3,
+      "count": 37
+    },
+    {
+      "grade": 8,
+      "section": 4,
+      "count": 36
+    },
+    {
+      "grade": 8,
+      "section": 5,
+      "count": 35
+    },
+    {
+      "grade": 8,
+      "section": 6,
+      "count": 36
+    },
+    {
+      "grade": 8,
+      "section": 7,
+      "count": 35
+    },
+    {
+      "grade": 8,
+      "section": 8,
+      "count": 34
+    },
+    {
+      "grade": 8,
+      "section": 9,
+      "count": 34
+    }
+  ]
+}
