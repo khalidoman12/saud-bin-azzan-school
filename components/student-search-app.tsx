@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BookOpen,
+  CalendarDays,
   ChevronLeft,
   CircleX,
   ListFilter,
@@ -35,8 +36,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TeacherDirectory } from "@/components/teacher-directory";
 import { filterAndRankStudents } from "@/lib/search-core.mjs";
-import type { ClassSummary, StudentRecord, StudentResult } from "@/lib/types";
+import type { ClassSummary, StudentRecord, StudentResult, TeacherRecord } from "@/lib/types";
 
 type GradeCount = { grade: number; count: number; sections: number };
 type Props = {
@@ -44,6 +46,11 @@ type Props = {
   gradeCounts: GradeCount[];
   students: StudentRecord[];
   totalStudents: number;
+  teachers: TeacherRecord[];
+  teacherGradeCounts: Array<{ grade: number; count: number }>;
+  teacherSubjects: string[];
+  schoolDays: string[];
+  periodTimes: Record<string, string>;
 };
 
 const GRADE_LABELS: Record<number, string> = {
@@ -150,7 +157,18 @@ function toResult(student: StudentRecord): StudentResult {
   };
 }
 
-export function StudentSearchApp({ classSummaries, gradeCounts, students, totalStudents }: Props) {
+export function StudentSearchApp({
+  classSummaries,
+  gradeCounts,
+  students,
+  totalStudents,
+  teachers,
+  teacherGradeCounts,
+  teacherSubjects,
+  schoolDays,
+  periodTimes,
+}: Props) {
+  const [directoryMode, setDirectoryMode] = useState<"students" | "teachers">("students");
   const [activeTab, setActiveTab] = useState("search");
   const [query, setQuery] = useState("");
   const [searchGrade, setSearchGrade] = useState<number | null>(null);
@@ -239,7 +257,7 @@ export function StudentSearchApp({ classSummaries, gradeCounts, students, totalS
           <div className="flex min-w-0 items-center gap-3">
             <div className="brand-mark" aria-hidden="true">س</div>
             <div className="min-w-0">
-              <h1 className="truncate text-base font-black text-foreground sm:text-xl">نظام البحث عن الطلبة</h1>
+              <h1 className="truncate text-base font-black text-foreground sm:text-xl">الدليل المدرسي</h1>
               <p className="truncate text-xs text-muted-foreground sm:text-sm">مدرسة سعود بن عزان للتعليم الأساسي (5–8)</p>
             </div>
           </div>
@@ -253,6 +271,17 @@ export function StudentSearchApp({ classSummaries, gradeCounts, students, totalS
           </div>
         </header>
 
+        <nav className="module-switch" aria-label="أقسام الدليل المدرسي">
+          <button type="button" data-active={directoryMode === "students"} onClick={() => setDirectoryMode("students")}>
+            <UsersRound /><span><strong>الطلبة والفصول</strong><small>بحث وتصفح القوائم</small></span>
+          </button>
+          <button type="button" data-active={directoryMode === "teachers"} onClick={() => setDirectoryMode("teachers")}>
+            <CalendarDays /><span><strong>المعلمون والجداول</strong><small>بحث وجدول أسبوعي</small></span>
+          </button>
+        </nav>
+
+        {directoryMode === "students" ? (
+          <>
         <section className="search-deck" aria-labelledby="search-heading">
           <div className="deck-heading">
             <div>
@@ -336,6 +365,16 @@ export function StudentSearchApp({ classSummaries, gradeCounts, students, totalS
           )}
           <ResultsList results={results} total={total} hasMore={hasMore} ready={currentReady} onSelect={setSelectedStudent} onLoadMore={() => findStudents({ append: true, browse: activeTab === "browse" })} />
         </section>
+          </>
+        ) : (
+          <TeacherDirectory
+            teachers={teachers}
+            teacherGradeCounts={teacherGradeCounts}
+            teacherSubjects={teacherSubjects}
+            schoolDays={schoolDays}
+            periodTimes={periodTimes}
+          />
+        )}
 
         <footer className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-border/60 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-right">
           <span>البيانات مخصصة للاستخدام المدرسي المصرح به فقط.</span><span>العام الدراسي 2026/2027م</span>

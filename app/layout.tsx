@@ -4,9 +4,9 @@ import "./globals.css";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  title: "نظام البحث عن الطلبة | مدرسة سعود بن عزان",
-  description: "نظام مدرسي للبحث في قوائم الطلبة والصفوف والشعب.",
-  applicationName: "نظام البحث عن الطلبة",
+  title: "الدليل المدرسي | مدرسة سعود بن عزان",
+  description: "دليل مدرسي للبحث في قوائم الطلبة وجداول المعلمين والصفوف والشعب.",
+  applicationName: "الدليل المدرسي",
   robots: { index: false, follow: false, nocache: true },
   manifest: `${basePath}/manifest.webmanifest`,
   icons: {

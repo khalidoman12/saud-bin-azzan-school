@@ -1,0 +1,78 @@
+{
+  "sourceFile": "جدول المعلمين نهائي 1 (1).pdf",
+  "pageCount": 85,
+  "teacherCount": 85,
+  "uniqueTeacherNameCount": 85,
+  "lessonBlockCount": 1510,
+  "occupiedPeriodCount": 1548,
+  "mergedDoublePeriodBlockCount": 38,
+  "classLabelsRecoveredFromVisibleLargeText": 117,
+  "unparsedLessonBlockCount": 0,
+  "teachersWithEmptySchedules": [
+    {
+      "page": 80,
+      "name": "حمد خليفه راشد المشايخى"
+    },
+    {
+      "page": 81,
+      "name": "فهد خميس على السنيدى"
+    },
+    {
+      "page": 82,
+      "name": "حمد عبدالله حمد الحكمانى"
+    },
+    {
+      "page": 83,
+      "name": "راشد سالم راشد السنيدى"
+    },
+    {
+      "page": 84,
+      "name": "محمد يوسف حمد المشايخي"
+    },
+    {
+      "page": 85,
+      "name": "منصور غاسي دغيميل راشد الجنيبي"
+    }
+  ],
+  "sourceNameWarnings": [
+    {
+      "page": 60,
+      "name": "س س"
+    },
+    {
+      "page": 61,
+      "name": "ص ص"
+    }
+  ],
+  "teacherCountByGrade": {
+    "5": 25,
+    "6": 24,
+    "7": 20,
+    "8": 24
+  },
+  "lessonBlockCountByGrade": {
+    "5": 429,
+    "6": 390,
+    "7": 340,
+    "8": 351
+  },
+  "lessonBlockCountBySubject": {
+    "التربية الاسلامية": 195,
+    "التربية والصحية البدنية": 78,
+    "الدراسات الاجتماعية": 146,
+    "الرياضيات": 273,
+    "العلوم": 213,
+    "الفنون البصرية": 39,
+    "الفنون الموسيقية": 39,
+    "اللغة الانجليزية": 234,
+    "اللغة العربية": 255,
+    "تقنية المعلومات": 38
+  },
+  "validation": {
+    "allPagesRead": true,
+    "allLessonRectanglesParsed": true,
+    "uniqueTeacherNames": true,
+    "page1CheckedAgainstRenderedPdf": true,
+    "blankFinalPageCheckedAgainstRenderedPdf": true
+  }
+}

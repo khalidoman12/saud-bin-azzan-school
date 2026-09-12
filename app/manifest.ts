@@ -6,9 +6,9 @@ export default function manifest(): MetadataRoute.Manifest {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return {
-    name: "نظام البحث عن الطلبة — مدرسة سعود بن عزان",
-    short_name: "بحث الطلبة",
-    description: "نظام مدرسي للبحث في قوائم الطلبة والصفوف والشعب.",
+    name: "الدليل المدرسي — مدرسة سعود بن عزان",
+    short_name: "الدليل المدرسي",
+    description: "دليل للبحث في قوائم الطلبة وجداول المعلمين والصفوف والشعب.",
     start_url: `${basePath}/`,
     display: "standalone",
     background_color: "#f2f8f7",
