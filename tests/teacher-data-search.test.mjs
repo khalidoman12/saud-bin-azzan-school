@@ -61,3 +61,34 @@ test("preserves merged double periods and source placeholder names", () => {
   assert.ok(teachers.some((item) => item.fullName === "س س"));
   assert.ok(teachers.some((item) => item.fullName === "ص ص"));
 });
+
+test("keeps Thursday in every weekly view and filters a selected day and period", () => {
+  assert.equal(payload.days.at(-1), "الخميس");
+  assert.equal(teachers[0].lessons.filter((lesson) => lesson.day === "الخميس").length, 3);
+
+  const sundayFirst = filterAndRankTeachers(teachers, { day: "الأحد", period: 1 });
+  assert.equal(sundayFirst.length, 39);
+  assert.ok(sundayFirst.every(({ teacher }) => teacher.lessons.some((lesson) =>
+    lesson.day === "الأحد" && lesson.periodStart <= 1 && lesson.periodEnd >= 1,
+  )));
+});
+
+test("counts a double-period lesson in either selected period", () => {
+  const teacher = teachers.find((item) => item.fullName === "على عبدالله على المشايخى");
+  assert.ok(teacher.lessons.some((lesson) =>
+    lesson.day === "الأحد" && lesson.periodStart === 1 && lesson.periodEnd === 2,
+  ));
+  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 1 }).length === 1);
+  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 2 }).length === 1);
+});
+
+test("indexes every occupied teacher slot across all five days and eight periods", () => {
+  const searchableSlots = payload.days.reduce((dayTotal, day) =>
+    dayTotal + Array.from({ length: 8 }, (_, index) => index + 1).reduce(
+      (periodTotal, period) => periodTotal + filterAndRankTeachers(teachers, { day, period }).length,
+      0,
+    ), 0);
+  const occupiedPeriods = teachers.reduce((sum, teacher) => sum + teacher.occupiedPeriodCount, 0);
+  assert.equal(searchableSlots, occupiedPeriods);
+  assert.equal(searchableSlots, 1548);
+});

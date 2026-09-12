@@ -267,7 +267,7 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 
 .teacher-filter-grid {
   display: grid;
-  grid-template-columns: auto minmax(17rem, 1fr) minmax(10rem, .55fr) minmax(8rem, .4fr) auto;
+  grid-template-columns: auto minmax(17rem, 1fr) minmax(10rem, .55fr) minmax(8rem, .4fr) minmax(8rem, .4fr) auto;
   align-items: center;
   gap: .75rem;
 }
@@ -442,7 +442,46 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 .teacher-card-count strong { color: var(--foreground); font-size: 1.05rem; }
 .teacher-card-count small { font-size: .68rem; }
 
-.teacher-dialog { max-height: min(94dvh, 58rem); overflow: hidden; }
+.teacher-slot-match,
+.slot-results-heading {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, var(--border));
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--primary) 7%, var(--card));
+}
+
+.teacher-slot-match {
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin-top: .65rem;
+  padding: .45rem .65rem;
+  border-radius: .75rem;
+  font-size: .75rem;
+}
+
+.teacher-slot-match > svg,
+.slot-results-heading > svg { width: 1rem; flex: 0 0 auto; color: var(--primary); }
+.teacher-slot-match strong { font-size: .75rem; }
+
+.slot-results-heading {
+  margin-bottom: .8rem;
+  padding: .7rem .85rem;
+  border-radius: .85rem;
+  font-size: .82rem;
+}
+
+.slot-results-heading [data-slot="badge"] { margin-right: auto; }
+
+.teacher-dialog {
+  height: min(94dvh, 58rem);
+  max-height: min(94dvh, 58rem);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0;
+  overflow: hidden;
+}
 .teacher-detail-header {
   display: flex;
   flex-direction: row;
@@ -459,7 +498,14 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 .teacher-detail-total strong { color: var(--foreground); font-size: 1.3rem; }
 .teacher-detail-total span { font-size: .7rem; }
 
-.teacher-schedule-scroll { overflow-y: auto; padding: 1rem; }
+.teacher-schedule-scroll {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1rem;
+  scrollbar-gutter: stable;
+}
+.schedule-day-nav { display: none; }
 .teacher-week-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .65rem; }
 .day-schedule {
   min-width: 0;
@@ -474,11 +520,11 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 .day-schedule-title [data-slot="badge"] { margin-right: auto; }
 .day-lessons { display: grid; align-content: start; gap: .55rem; padding: .6rem; }
 .lesson-card { padding: .7rem; border: 1px solid var(--border); border-radius: .8rem; background: var(--card); box-shadow: 0 4px 12px rgba(23, 63, 57, .04); }
-.lesson-card strong { font-size: .74rem; line-height: 1.55; }
-.lesson-meta { display: grid; gap: .25rem; margin-top: .5rem; color: var(--muted-foreground); font-size: .62rem; }
+.lesson-card strong { font-size: .82rem; line-height: 1.55; }
+.lesson-meta { display: grid; gap: .25rem; margin-top: .5rem; color: var(--muted-foreground); font-size: .72rem; }
 .lesson-meta span { display: flex; align-items: center; gap: .3rem; }
 .lesson-meta svg { width: .75rem; }
-.day-empty { padding: 1.2rem .4rem; color: var(--muted-foreground); text-align: center; font-size: .72rem; }
+.day-empty { padding: 1.2rem .4rem; color: var(--muted-foreground); text-align: center; font-size: .78rem; }
 .teacher-empty { min-height: 20rem; }
 
 .student-card:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--primary) 58%, var(--border)); box-shadow: 0 12px 28px rgba(18, 74, 65, .08); }
@@ -543,6 +589,23 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
   .teacher-filter-grid .grade-chips { grid-column: 1 / -1; }
   .teacher-filter-grid > button:last-child { grid-column: 1 / -1; }
   .teacher-week-grid { grid-template-columns: 1fr 1fr; }
+  .schedule-day-nav {
+    position: sticky;
+    top: -1rem;
+    z-index: 3;
+    display: flex;
+    gap: .45rem;
+    overflow-x: auto;
+    margin: -1rem -1rem .75rem;
+    padding: .7rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--card) 96%, transparent);
+    backdrop-filter: blur(12px);
+    scrollbar-width: none;
+  }
+  .schedule-day-nav::-webkit-scrollbar { display: none; }
+  .schedule-day-nav button { min-width: 4.7rem; min-height: 2.5rem; padding: .45rem .65rem; border: 1px solid var(--border); border-radius: .7rem; background: var(--background); font-size: .75rem; font-weight: 800; }
+  .day-schedule { scroll-margin-top: 3.8rem; }
 }
 
 @media (max-width: 420px) {

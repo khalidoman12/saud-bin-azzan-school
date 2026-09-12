@@ -64,7 +64,25 @@ function periodLabel(lesson: TeacherLesson) {
   return `الحصتان ${arabicNumber(lesson.periodStart)}–${arabicNumber(lesson.periodEnd)}`;
 }
 
-function TeacherCard({ teacher, onSelect }: { teacher: TeacherRecord; onSelect: (teacher: TeacherRecord) => void }) {
+function TeacherCard({
+  teacher,
+  onSelect,
+  matchDay,
+  matchPeriod,
+}: {
+  teacher: TeacherRecord;
+  onSelect: (teacher: TeacherRecord) => void;
+  matchDay?: string | null;
+  matchPeriod?: number | null;
+}) {
+  const matchingLesson = matchDay && matchPeriod
+    ? teacher.lessons.find((lesson) =>
+      lesson.day === matchDay
+      && lesson.periodStart <= matchPeriod
+      && lesson.periodEnd >= matchPeriod,
+    )
+    : null;
+
   return (
     <button
       type="button"
@@ -86,6 +104,14 @@ function TeacherCard({ teacher, onSelect }: { teacher: TeacherRecord; onSelect: 
             <Badge variant="outline" className="rounded-full text-muted-foreground">لا توجد حصص مدرجة</Badge>
           )}
         </span>
+        {matchingLesson && (
+          <span className="teacher-slot-match">
+            <CalendarDays />
+            <span>{matchDay}، الحصة {arabicNumber(matchPeriod ?? matchingLesson.periodStart)}:</span>
+            <strong>{matchingLesson.subject}</strong>
+            <Badge>{matchingLesson.classCode}</Badge>
+          </span>
+        )}
       </span>
       <span className="teacher-card-count">
         <strong>{arabicNumber(teacher.lessonCount)}</strong>
@@ -96,9 +122,9 @@ function TeacherCard({ teacher, onSelect }: { teacher: TeacherRecord; onSelect: 
   );
 }
 
-function DaySchedule({ day, lessons, periodTimes }: { day: string; lessons: TeacherLesson[]; periodTimes: Record<string, string> }) {
+function DaySchedule({ day, dayIndex, lessons, periodTimes }: { day: string; dayIndex: number; lessons: TeacherLesson[]; periodTimes: Record<string, string> }) {
   return (
-    <section className="day-schedule" aria-label={`جدول يوم ${day}`}>
+    <section id={`teacher-schedule-day-${dayIndex}`} className="day-schedule" aria-label={`جدول يوم ${day}`}>
       <div className="day-schedule-title"><CalendarDays /><h3>{day}</h3><Badge variant="secondary">{arabicNumber(lessons.length)}</Badge></div>
       <div className="day-lessons">
         {lessons.length === 0 ? (
@@ -157,16 +183,30 @@ function TeacherScheduleDialog({
                   <p>الصفحة الخاصة به موجودة في الملف الأصلي، لكن جدولها الأسبوعي خالٍ.</p>
                 </div>
               ) : (
-                <div className="teacher-week-grid">
-                  {schoolDays.map((day) => (
+                <>
+                  <nav className="schedule-day-nav" aria-label="الانتقال بين أيام جدول المعلم">
+                    {schoolDays.map((day, index) => (
+                      <button
+                        key={day}
+                        type="button"
+                        onClick={() => document.getElementById(`teacher-schedule-day-${index}`)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      >
+                        {day}
+                      </button>
+                    ))}
+                  </nav>
+                  <div className="teacher-week-grid">
+                  {schoolDays.map((day, index) => (
                     <DaySchedule
                       key={day}
                       day={day}
+                      dayIndex={index}
                       lessons={teacher.lessons.filter((lesson) => lesson.day === day)}
                       periodTimes={periodTimes}
                     />
                   ))}
-                </div>
+                  </div>
+                </>
               )}
             </div>
 
@@ -186,12 +226,13 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
   const [grade, setGrade] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
   const [day, setDay] = useState<string | null>(null);
+  const [period, setPeriod] = useState<number | null>(null);
   const [browseGrade, setBrowseGrade] = useState<number | null>(null);
   const [selectedTeacher, setSelectedTeacher] = useState<TeacherRecord | null>(null);
 
   const searchResults = useMemo(
-    () => filterAndRankTeachers(teachers, { query, grade, subject, day }).map(({ teacher }) => teacher as TeacherRecord),
-    [day, grade, query, subject, teachers],
+    () => filterAndRankTeachers(teachers, { query, grade, subject, day, period }).map(({ teacher }) => teacher as TeacherRecord),
+    [day, grade, period, query, subject, teachers],
   );
   const gradeResults = useMemo(
     () => browseGrade === null ? [] : teachers.filter((teacher) => teacher.grades.includes(browseGrade)),
@@ -205,6 +246,7 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
     setGrade(null);
     setSubject(null);
     setDay(null);
+    setPeriod(null);
   }
 
   return (
@@ -255,11 +297,15 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
                 <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="المادة" /></SelectTrigger>
                 <SelectContent><SelectItem value="all">كل المواد</SelectItem>{teacherSubjects.map((item) => <SelectItem key={item} value={item}>{item}</SelectItem>)}</SelectContent>
               </Select>
-              <Select value={day ?? "all"} onValueChange={(value) => setDay(value === "all" ? null : value)} dir="rtl">
+              <Select value={day ?? "all"} onValueChange={(value) => { setDay(value === "all" ? null : value); setPeriod(null); }} dir="rtl">
                 <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="اليوم" /></SelectTrigger>
                 <SelectContent><SelectItem value="all">كل الأيام</SelectItem>{schoolDays.map((item) => <SelectItem key={item} value={item}>{item}</SelectItem>)}</SelectContent>
               </Select>
-              {(query || grade !== null || subject || day) && <Button type="button" variant="ghost" className="h-11 rounded-xl" onClick={clearFilters}><CircleX /> مسح الفلاتر</Button>}
+              <Select value={period === null ? "all" : String(period)} onValueChange={(value) => setPeriod(value === "all" ? null : Number(value))} disabled={day === null} dir="rtl">
+                <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="رقم الحصة" /></SelectTrigger>
+                <SelectContent><SelectItem value="all">كل الحصص</SelectItem>{Array.from({ length: 8 }, (_, index) => index + 1).map((item) => <SelectItem key={item} value={String(item)}>الحصة {arabicNumber(item)}</SelectItem>)}</SelectContent>
+              </Select>
+              {(query || grade !== null || subject || day || period !== null) && <Button type="button" variant="ghost" className="h-11 rounded-xl" onClick={clearFilters}><CircleX /> مسح الفلاتر</Button>}
             </div>
           </TabsContent>
 
@@ -289,8 +335,15 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
           <div className="empty-state"><div className="empty-icon"><UserRoundCheck /></div><h3>لا توجد نتائج مطابقة</h3><p>جرّب جزءًا آخر من الاسم أو أزل أحد الفلاتر.</p></div>
         ) : (
           <div>
+            {activeTab === "search" && day && period !== null && (
+              <div className="slot-results-heading">
+                <Clock3 />
+                <span>معلمو <strong>{day}</strong> في الحصة <strong>{arabicNumber(period)}</strong></span>
+                <Badge>{arabicNumber(displayedTeachers.length)} معلمًا</Badge>
+              </div>
+            )}
             <div className="mb-3 flex items-center justify-between gap-3"><p className="text-sm font-semibold">{arabicNumber(displayedTeachers.length)} معلمًا</p><span className="text-xs text-muted-foreground">اضغط على الاسم لفتح الجدول</span></div>
-            <div className="space-y-3">{displayedTeachers.map((teacher) => <TeacherCard key={teacher.id} teacher={teacher} onSelect={setSelectedTeacher} />)}</div>
+            <div className="space-y-3">{displayedTeachers.map((teacher) => <TeacherCard key={teacher.id} teacher={teacher} onSelect={setSelectedTeacher} matchDay={activeTab === "search" ? day : null} matchPeriod={activeTab === "search" ? period : null} />)}</div>
           </div>
         )}
       </section>
