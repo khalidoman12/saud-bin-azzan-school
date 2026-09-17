@@ -13,7 +13,7 @@ test("imports every teacher page and every detected lesson block", () => {
   assert.equal(teachers.length, 85);
   assert.equal(new Set(teachers.map((teacher) => teacher.id)).size, 85);
   assert.equal(new Set(teachers.map((teacher) => teacher.fullName)).size, 85);
-  assert.equal(teachers.reduce((sum, teacher) => sum + teacher.lessonCount, 0), 1510);
+  assert.equal(teachers.reduce((sum, teacher) => sum + teacher.lessonCount, 0), 1520);
   assert.equal(teachers.filter((teacher) => teacher.lessonCount === 0).length, 6);
 });
 
@@ -24,16 +24,16 @@ test("matches the visually verified first teacher schedule", () => {
   assert.deepEqual(
     teacher.lessons.map((lesson) => [lesson.day, lesson.periodStart, lesson.periodEnd, lesson.classCode]),
     [
-      ["الأحد", 1, 1, "6/2"],
-      ["الأحد", 4, 4, "6/2"],
-      ["الأحد", 7, 7, "6/1"],
-      ["الاثنين", 4, 4, "6/1"],
-      ["الأربعاء", 3, 3, "6/1"],
+      ["الأحد", 3, 3, "6/1"],
+      ["الأحد", 5, 5, "6/1"],
+      ["الأحد", 7, 7, "6/2"],
+      ["الاثنين", 3, 3, "6/1"],
+      ["الاثنين", 5, 5, "6/2"],
+      ["الثلاثاء", 6, 6, "6/1"],
+      ["الثلاثاء", 8, 8, "6/2"],
+      ["الأربعاء", 3, 3, "6/2"],
       ["الأربعاء", 5, 5, "6/2"],
-      ["الأربعاء", 7, 7, "6/2"],
-      ["الخميس", 3, 3, "6/1"],
-      ["الخميس", 7, 7, "6/1"],
-      ["الخميس", 8, 8, "6/2"],
+      ["الأربعاء", 7, 7, "6/1"],
     ],
   );
 });
@@ -57,20 +57,24 @@ test("combines teacher name, grade, subject, and day filters", () => {
 test("preserves merged double periods and source placeholder names", () => {
   const teacher = teachers.find((item) => item.fullName === "خميس سعيد سالم الساعدي");
   assert.ok(teacher);
-  assert.ok(teacher.lessons.some((lesson) => lesson.periodStart === 2 && lesson.periodEnd === 3));
+  assert.ok(teacher.lessons.some((lesson) => lesson.periodStart === 3 && lesson.periodEnd === 4));
   assert.ok(teachers.some((item) => item.fullName === "س س"));
   assert.ok(teachers.some((item) => item.fullName === "ص ص"));
 });
 
 test("keeps Thursday in every weekly view and filters a selected day and period", () => {
   assert.equal(payload.days.at(-1), "الخميس");
-  assert.equal(teachers[0].lessons.filter((lesson) => lesson.day === "الخميس").length, 3);
+  assert.equal(teachers[0].lessons.filter((lesson) => lesson.day === "الخميس").length, 0);
 
   const sundayFirst = filterAndRankTeachers(teachers, { day: "الأحد", period: 1 });
   assert.equal(sundayFirst.length, 39);
   assert.ok(sundayFirst.every(({ teacher }) => teacher.lessons.some((lesson) =>
     lesson.day === "الأحد" && lesson.periodStart <= 1 && lesson.periodEnd >= 1,
   )));
+
+  for (let period = 1; period <= 8; period += 1) {
+    assert.equal(filterAndRankTeachers(teachers, { day: "الخميس", period }).length, 39);
+  }
 });
 
 test("counts a double-period lesson in either selected period", () => {
@@ -90,5 +94,33 @@ test("indexes every occupied teacher slot across all five days and eight periods
     ), 0);
   const occupiedPeriods = teachers.reduce((sum, teacher) => sum + teacher.occupiedPeriodCount, 0);
   assert.equal(searchableSlots, occupiedPeriods);
-  assert.equal(searchableSlots, 1548);
+  assert.equal(searchableSlots, 1558);
+});
+
+test("covers every school class without teacher or class timetable collisions", () => {
+  const expectedClasses = new Set([
+    ...Array.from({ length: 11 }, (_, index) => `5/${index + 1}`),
+    ...Array.from({ length: 10 }, (_, index) => `6/${index + 1}`),
+    ...Array.from({ length: 9 }, (_, index) => `7/${index + 1}`),
+    ...Array.from({ length: 9 }, (_, index) => `8/${index + 1}`),
+  ]);
+  const actualClasses = new Set(teachers.flatMap((teacher) =>
+    teacher.lessons.map((lesson) => lesson.classCode),
+  ));
+  assert.deepEqual(actualClasses, expectedClasses);
+
+  const teacherSlots = new Set();
+  const classSlots = new Set();
+  for (const teacher of teachers) {
+    for (const lesson of teacher.lessons) {
+      for (let period = lesson.periodStart; period <= lesson.periodEnd; period += 1) {
+        const teacherSlot = `${teacher.id}|${lesson.day}|${period}`;
+        const classSlot = `${lesson.classCode}|${lesson.day}|${period}`;
+        assert.equal(teacherSlots.has(teacherSlot), false, `teacher collision: ${teacherSlot}`);
+        assert.equal(classSlots.has(classSlot), false, `class collision: ${classSlot}`);
+        teacherSlots.add(teacherSlot);
+        classSlots.add(classSlot);
+      }
+    }
+  }
 });
