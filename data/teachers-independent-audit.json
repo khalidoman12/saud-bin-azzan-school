@@ -1,0 +1,71 @@
+{
+  "auditVersion": 1,
+  "ok": true,
+  "sourceFile": "الجدول العام للمعلمين.pdf",
+  "sourceSha256": "08d0780e1131dc2c84f6880707399603e172dbc4a8401f5cc8546dbf120d0b09",
+  "counts": {
+    "pages": 85,
+    "teachers": 85,
+    "lessonBlocks": 1520,
+    "occupiedPeriods": 1558,
+    "doublePeriodBlocks": 38
+  },
+  "checks": {
+    "periodTimes": 680,
+    "creationDates": 85,
+    "dayLabels": 425
+  },
+  "canonicalTeacherRecordsSha256": "f707ad28f528ad442b7e0208d0c2752c15b1a063d03df3e24b008019d40deb84",
+  "candidateTeacherRecordsSha256": "f707ad28f528ad442b7e0208d0c2752c15b1a063d03df3e24b008019d40deb84",
+  "canonicalSerialization": "UTF-8 JSON; ensure_ascii=False; sort_keys=True; separators=(\",\", \":\")",
+  "discrepancies": [],
+  "sourceWarnings": [
+    {
+      "type": "blankSchedules",
+      "pages": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ]
+    },
+    {
+      "type": "placeholderNames",
+      "teachers": [
+        {
+          "page": 60,
+          "fullName": "س س"
+        },
+        {
+          "page": 61,
+          "fullName": "ص ص"
+        }
+      ]
+    },
+    {
+      "type": "unassignedClassPeriods",
+      "slots": [
+        {
+          "classCode": "8/2",
+          "dayIndex": 2,
+          "day": "الثلاثاء",
+          "period": 8
+        },
+        {
+          "classCode": "8/2",
+          "dayIndex": 3,
+          "day": "الأربعاء",
+          "period": 8
+        }
+      ]
+    },
+    {
+      "type": "classesWithoutIT",
+      "classCodes": [
+        "8/2"
+      ]
+    }
+  ]
+}

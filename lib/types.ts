@@ -54,3 +54,9 @@ export type TeacherRecord = {
   occupiedPeriodCount: number;
   lessons: TeacherLesson[];
 };
+
+export type TeacherSourceMetadata = {
+  fileName: string;
+  createdDate: string | null;
+  sha256: string;
+};

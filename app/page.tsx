@@ -10,6 +10,7 @@ import {
   TEACHERS,
   TEACHER_GRADE_COUNTS,
   TEACHER_SUBJECTS,
+  TEACHER_SOURCE,
 } from "@/lib/teacher-data.server";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       teacherSubjects={TEACHER_SUBJECTS}
       schoolDays={SCHOOL_DAYS}
       periodTimes={PERIOD_TIMES}
+      teacherSource={TEACHER_SOURCE}
     />
   );
 }

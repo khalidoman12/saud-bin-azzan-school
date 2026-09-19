@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { filterAndRankTeachers } from "@/lib/search-core.mjs";
-import type { TeacherLesson, TeacherRecord } from "@/lib/types";
+import type { TeacherLesson, TeacherRecord, TeacherSourceMetadata } from "@/lib/types";
 
 type GradeCount = { grade: number; count: number };
 
@@ -44,6 +44,7 @@ type Props = {
   teacherSubjects: string[];
   schoolDays: string[];
   periodTimes: Record<string, string>;
+  source: TeacherSourceMetadata;
 };
 
 const GRADE_LABELS: Record<number, string> = {
@@ -109,13 +110,13 @@ function TeacherCard({
             <CalendarDays />
             <span>{matchDay}، الحصة {arabicNumber(matchPeriod ?? matchingLesson.periodStart)}:</span>
             <strong>{matchingLesson.subject}</strong>
-            <Badge>{matchingLesson.classCode}</Badge>
+            <Badge dir="ltr">{matchingLesson.classCode}</Badge>
           </span>
         )}
       </span>
       <span className="teacher-card-count">
-        <strong>{arabicNumber(teacher.lessonCount)}</strong>
-        <small>موعدًا</small>
+        <strong>{arabicNumber(teacher.occupiedPeriodCount)}</strong>
+        <small>حصة أسبوعيًا</small>
       </span>
       <span className="student-chevron" aria-hidden="true"><ChevronLeft /></span>
     </button>
@@ -125,38 +126,57 @@ function TeacherCard({
 function DaySchedule({ day, dayIndex, lessons, periodTimes }: { day: string; dayIndex: number; lessons: TeacherLesson[]; periodTimes: Record<string, string> }) {
   return (
     <section id={`teacher-schedule-day-${dayIndex}`} className="day-schedule" aria-label={`جدول يوم ${day}`}>
-      <div className="day-schedule-title"><CalendarDays /><h3>{day}</h3><Badge variant="secondary">{arabicNumber(lessons.length)}</Badge></div>
+      <div className="day-schedule-title"><CalendarDays /><h3>{day}</h3><Badge variant="secondary">{arabicNumber(lessons.reduce((total, lesson) => total + lesson.periodEnd - lesson.periodStart + 1, 0))} حصص</Badge></div>
       <div className="day-lessons">
-        {lessons.length === 0 ? (
-          <p className="day-empty">لا توجد حصص</p>
-        ) : lessons.map((lesson) => (
-          <article key={`${lesson.dayIndex}-${lesson.periodStart}-${lesson.classCode}`} className="lesson-card">
+        {Array.from({ length: 8 }, (_, index) => index + 1).map((period) => {
+          const lesson = lessons.find((item) => item.periodStart <= period && item.periodEnd >= period);
+          return <article key={period} className={`lesson-card period-row${lesson ? "" : " period-unassigned"}`}>
+            <div className="period-number"><strong>الحصة {arabicNumber(period)}</strong><small dir="ltr">{periodTimes[String(period)]}</small></div>
+            {lesson ? <div className="period-content">
             <div className="flex items-start justify-between gap-2">
               <strong>{lesson.subject}</strong>
-              <Badge className="shrink-0 rounded-lg">{lesson.classCode}</Badge>
+              <Badge dir="ltr" className="shrink-0 rounded-lg">{lesson.classCode}</Badge>
             </div>
-            <div className="lesson-meta">
-              <span><Clock3 />{periodLabel(lesson)}</span>
-              <span dir="ltr">{periodTimes[String(lesson.periodStart)].split(" - ")[0]} – {periodTimes[String(lesson.periodEnd)].split(" - ")[1]}</span>
-            </div>
-          </article>
-        ))}
+            {lesson.periodStart !== lesson.periodEnd && <small>حصة مزدوجة · {periodLabel(lesson)}</small>}
+            </div> : <span className="text-sm text-muted-foreground">لا توجد حصة مدرجة</span>}
+          </article>;
+        })}
       </div>
     </section>
   );
+}
+
+function WeeklySchedule({ teacher, schoolDays }: { teacher: TeacherRecord; schoolDays: string[] }) {
+  return <div className="weekly-table-scroll" tabIndex={0} role="region" aria-label="الجدول الأسبوعي، قابل للتمرير أفقيًا">
+    <table className="weekly-timetable">
+      <caption>جميع أيام الأسبوع والحصص الثماني · الأرقام على صورة الصف / الشعبة</caption>
+      <thead><tr><th scope="col">اليوم</th>{Array.from({ length: 8 }, (_, index) => <th scope="col" key={index}>الحصة {arabicNumber(index + 1)}</th>)}</tr></thead>
+      <tbody>{schoolDays.map((day) => <tr key={day}><th scope="row">{day}</th>{Array.from({ length: 8 }, (_, index) => {
+        const period = index + 1;
+        const lesson = teacher.lessons.find((item) => item.day === day && item.periodStart <= period && item.periodEnd >= period);
+        return <td key={period} data-occupied={Boolean(lesson)}>{lesson ? <><strong dir="ltr">{lesson.classCode}</strong><span>{lesson.subject}</span>{lesson.periodStart !== lesson.periodEnd && <small>مزدوجة {arabicNumber(lesson.periodStart)}–{arabicNumber(lesson.periodEnd)}</small>}</> : <span className="text-muted-foreground">—<span className="sr-only">لا توجد حصة مدرجة</span></span>}</td>;
+      })}</tr>)}</tbody>
+    </table>
+  </div>;
 }
 
 function TeacherScheduleDialog({
   teacher,
   schoolDays,
   periodTimes,
+  source,
+  initialDay,
   onClose,
 }: {
   teacher: TeacherRecord | null;
   schoolDays: string[];
   periodTimes: Record<string, string>;
+  source: TeacherSourceMetadata;
+  initialDay: string | null;
   onClose: () => void;
 }) {
+  const [selectedDay, setSelectedDay] = useState(initialDay ?? schoolDays[0]);
+  const [view, setView] = useState("day");
   return (
     <Dialog open={teacher !== null} onOpenChange={(open) => !open && onClose()}>
       <DialogContent dir="rtl" showCloseButton={false} className="teacher-dialog rounded-3xl border-border/80 p-0 sm:max-w-6xl">
@@ -172,10 +192,11 @@ function TeacherScheduleDialog({
                   {teacher.grades.map((grade) => <Badge key={grade} variant="secondary" className="rounded-full">الصف {GRADE_LABELS[grade]}</Badge>)}
                 </div>
               </div>
-              <div className="teacher-detail-total"><strong>{arabicNumber(teacher.lessonCount)}</strong><span>موعدًا أسبوعيًا</span></div>
+              <div className="teacher-detail-total"><strong>{arabicNumber(teacher.occupiedPeriodCount)}</strong><span>حصة أسبوعيًا</span></div>
             </DialogHeader>
 
             <div className="teacher-schedule-scroll">
+              <p className="schedule-source-note">نسخة الملف: <bdi>{source.createdDate ?? source.fileName}</bdi> · صفحة المصدر {arabicNumber(teacher.sourcePage)} · تُحتسب الحصة المزدوجة حصتين.</p>
               {teacher.lessons.length === 0 ? (
                 <div className="empty-state teacher-empty">
                   <div className="empty-icon"><CalendarDays /></div>
@@ -184,28 +205,31 @@ function TeacherScheduleDialog({
                 </div>
               ) : (
                 <>
-                  <nav className="schedule-day-nav" aria-label="الانتقال بين أيام جدول المعلم">
-                    {schoolDays.map((day, index) => (
+                  <div className="schedule-view-switch" aria-label="طريقة عرض الجدول">
+                    <Button variant={view === "day" ? "default" : "outline"} onClick={() => setView("day")} aria-pressed={view === "day"}>عرض يومي</Button>
+                    <Button variant={view === "week" ? "default" : "outline"} onClick={() => setView("week")} aria-pressed={view === "week"}>الأسبوع كاملًا</Button>
+                  </div>
+                  {view === "day" ? <>
+                  <nav className="schedule-day-picker" aria-label="اختيار يوم جدول المعلم">
+                    {schoolDays.map((day) => (
                       <button
                         key={day}
                         type="button"
-                        onClick={() => document.getElementById(`teacher-schedule-day-${index}`)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                        aria-pressed={selectedDay === day}
+                        onClick={() => setSelectedDay(day)}
                       >
                         {day}
                       </button>
                     ))}
                   </nav>
-                  <div className="teacher-week-grid">
-                  {schoolDays.map((day, index) => (
                     <DaySchedule
-                      key={day}
-                      day={day}
-                      dayIndex={index}
-                      lessons={teacher.lessons.filter((lesson) => lesson.day === day)}
+                      day={selectedDay}
+                      dayIndex={schoolDays.indexOf(selectedDay)}
+                      lessons={teacher.lessons.filter((lesson) => lesson.day === selectedDay)}
                       periodTimes={periodTimes}
                     />
-                  ))}
-                  </div>
+                  </> : <WeeklySchedule teacher={teacher} schoolDays={schoolDays} />}
+                  <p className="schedule-source-note">الأوقات من ترويسة الملف الأصلي. الخانة الفارغة تعني عدم إدراج حصة، ولا تعني أن المعلم متاح للاحتياط.</p>
                 </>
               )}
             </div>
@@ -220,7 +244,7 @@ function TeacherScheduleDialog({
   );
 }
 
-export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects, schoolDays, periodTimes }: Props) {
+export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects, schoolDays, periodTimes, source }: Props) {
   const [activeTab, setActiveTab] = useState("search");
   const [query, setQuery] = useState("");
   const [grade, setGrade] = useState<number | null>(null);
@@ -239,7 +263,7 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
     [browseGrade, teachers],
   );
   const displayedTeachers = activeTab === "grades" ? gradeResults : searchResults;
-  const lessonTotal = useMemo(() => teachers.reduce((sum, teacher) => sum + teacher.lessonCount, 0), [teachers]);
+  const lessonTotal = useMemo(() => teachers.reduce((sum, teacher) => sum + teacher.occupiedPeriodCount, 0), [teachers]);
 
   function clearFilters() {
     setQuery("");
@@ -256,11 +280,12 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
           <div>
             <div className="mb-2 flex items-center gap-2 text-xs font-bold text-primary"><CalendarDays className="size-4" /> جداول الهيئة التدريسية</div>
             <h2 id="teacher-heading" className="text-2xl font-black tracking-tight text-foreground sm:text-3xl">الوصول إلى جدول المعلم خلال ثوانٍ</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">ابحث بجزء من الاسم، أو صفِّ النتائج حسب الصف والمادة واليوم، ثم اضغط على المعلم لعرض أسبوعه كاملًا.</p>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">ابحث بالاسم، أو اختر الصف والمادة واليوم والحصة. تنطبق الفلاتر على الحصة نفسها؛ اضغط على المعلم لعرض جدوله.</p>
+            <p className="schedule-source-note" data-source-sha256={source.sha256}>المصدر: {source.fileName} · تاريخ نسخة الملف: <bdi>{source.createdDate ?? "غير مدرج"}</bdi></p>
           </div>
           <div className="stats-strip" aria-label="إحصاءات جداول المعلمين">
             <div><strong>{arabicNumber(teachers.length)}</strong><span>معلمًا</span></div>
-            <div><strong>{arabicNumber(lessonTotal)}</strong><span>موعدًا</span></div>
+            <div><strong>{arabicNumber(lessonTotal)}</strong><span>حصة أسبوعية</span></div>
           </div>
         </div>
 
@@ -294,19 +319,23 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
                 {[5, 6, 7, 8].map((item) => <Button type="button" key={item} variant={grade === item ? "default" : "outline"} onClick={() => setGrade(item)}>الصف {GRADE_LABELS[item]}</Button>)}
               </div>
               <Select value={subject ?? "all"} onValueChange={(value) => setSubject(value === "all" ? null : value)} dir="rtl">
-                <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="المادة" /></SelectTrigger>
+                <SelectTrigger aria-label="المادة" className="h-11 rounded-xl bg-background"><SelectValue placeholder="المادة" /></SelectTrigger>
                 <SelectContent><SelectItem value="all">كل المواد</SelectItem>{teacherSubjects.map((item) => <SelectItem key={item} value={item}>{item}</SelectItem>)}</SelectContent>
               </Select>
               <Select value={day ?? "all"} onValueChange={(value) => { setDay(value === "all" ? null : value); setPeriod(null); }} dir="rtl">
-                <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="اليوم" /></SelectTrigger>
+                <SelectTrigger aria-label="اليوم" className="h-11 rounded-xl bg-background"><SelectValue placeholder="اليوم" /></SelectTrigger>
                 <SelectContent><SelectItem value="all">كل الأيام</SelectItem>{schoolDays.map((item) => <SelectItem key={item} value={item}>{item}</SelectItem>)}</SelectContent>
               </Select>
               <Select value={period === null ? "all" : String(period)} onValueChange={(value) => setPeriod(value === "all" ? null : Number(value))} disabled={day === null} dir="rtl">
-                <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="رقم الحصة" /></SelectTrigger>
+                <SelectTrigger aria-label="رقم الحصة" className="h-11 rounded-xl bg-background"><SelectValue placeholder="رقم الحصة" /></SelectTrigger>
                 <SelectContent><SelectItem value="all">كل الحصص</SelectItem>{Array.from({ length: 8 }, (_, index) => index + 1).map((item) => <SelectItem key={item} value={String(item)}>الحصة {arabicNumber(item)}</SelectItem>)}</SelectContent>
               </Select>
               {(query || grade !== null || subject || day || period !== null) && <Button type="button" variant="ghost" className="h-11 rounded-xl" onClick={clearFilters}><CircleX /> مسح الفلاتر</Button>}
             </div>
+            {day && <div className="period-quick-picker" aria-label="اختيار الحصة مباشرة">
+              <span>حصص {day}</span>
+              {Array.from({ length: 8 }, (_, index) => index + 1).map((item) => <Button key={item} variant={period === item ? "default" : "outline"} aria-pressed={period === item} aria-label={`عرض معلمي الحصة ${item} يوم ${day}`} onClick={() => setPeriod(period === item ? null : item)}>{arabicNumber(item)}</Button>)}
+            </div>}
           </TabsContent>
 
           <TabsContent value="grades" className="space-y-5">
@@ -348,7 +377,7 @@ export function TeacherDirectory({ teachers, teacherGradeCounts, teacherSubjects
         )}
       </section>
 
-      <TeacherScheduleDialog teacher={selectedTeacher} schoolDays={schoolDays} periodTimes={periodTimes} onClose={() => setSelectedTeacher(null)} />
+      <TeacherScheduleDialog key={selectedTeacher?.id ?? "closed"} teacher={selectedTeacher} schoolDays={schoolDays} periodTimes={periodTimes} source={source} initialDay={activeTab === "search" ? day : null} onClose={() => setSelectedTeacher(null)} />
     </>
   );
 }

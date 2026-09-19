@@ -173,7 +173,7 @@ def parse_class(words) -> tuple[int | None, int | None, str]:
         (number for label, number in GRADE_WORDS.items() if label in visible_label),
         None,
     )
-    if grade is None or not section_numbers:
+    if grade is None or len(section_numbers) != 1:
         return None, None, visible_label
     return grade, section_numbers[-1], visible_label.translate(DIGIT_TRANSLATION)
 
@@ -185,6 +185,8 @@ def extract(pdf_path: Path):
 
     with pdfplumber.open(pdf_path) as pdf:
         for page_number, page in enumerate(pdf.pages, start=1):
+            if abs(page.width - 841.92) > 1 or abs(page.height - 595.32) > 1:
+                raise ValueError(f"Page {page_number}: unsupported table page size")
             name = teacher_name(page)
             words = page.extract_words(extra_attrs=["size"])
             lessons = []
@@ -211,7 +213,7 @@ def extract(pdf_path: Path):
                     subject = parse_subject(inside, y0)
                     grade, section, visible_class_label = parse_class(inside)
 
-                    if grade is None and not subject:
+                    if not inside:
                         continue
                     if grade is None or section is None or not subject:
                         issues.append(
@@ -306,7 +308,11 @@ def validate(teachers, issues):
     teacher_slots = set()
     class_slots = set()
     for teacher in teachers:
+        if not teacher["fullName"]:
+            raise ValueError(f"Missing teacher name on page {teacher['sourcePage']}")
         for lesson in teacher["lessons"]:
+            if not 1 <= lesson["periodStart"] <= lesson["periodEnd"] <= 8:
+                raise ValueError(f"Invalid period range on page {teacher['sourcePage']}")
             for period in range(lesson["periodStart"], lesson["periodEnd"] + 1):
                 teacher_slot = (teacher["id"], lesson["day"], period)
                 if teacher_slot in teacher_slots:
@@ -323,26 +329,6 @@ def validate(teachers, issues):
                         f"{lesson['day']} period {period}"
                     )
                 class_slots.add(class_slot)
-
-    fixture = {
-        ("الأحد", 3, 3, "6/1"),
-        ("الأربعاء", 5, 5, "6/2"),
-        ("الأحد", 5, 5, "6/1"),
-        ("الأحد", 7, 7, "6/2"),
-        ("الاثنين", 3, 3, "6/1"),
-        ("الاثنين", 5, 5, "6/2"),
-        ("الثلاثاء", 6, 6, "6/1"),
-        ("الثلاثاء", 8, 8, "6/2"),
-        ("الأربعاء", 3, 3, "6/2"),
-        ("الأربعاء", 7, 7, "6/1"),
-    }
-    actual = {
-        (lesson["day"], lesson["periodStart"], lesson["periodEnd"], lesson["classCode"])
-        for lesson in teachers[0]["lessons"]
-    }
-    if actual != fixture:
-        raise ValueError("Page 1 visual validation fixture did not match")
-
 
 def report_for(source_name, source_sha256, teachers, merged_count):
     lesson_blocks = [lesson for teacher in teachers for lesson in teacher["lessons"]]
@@ -403,9 +389,6 @@ def report_for(source_name, source_sha256, teachers, merged_count):
             "all39ClassesPresent": True,
             "noTeacherPeriodOverlaps": True,
             "noClassPeriodOverlaps": True,
-            "page1CheckedAgainstRenderedPdf": True,
-            "mergedLessonPageCheckedAgainstRenderedPdf": True,
-            "blankFinalPageCheckedAgainstRenderedPdf": True,
         },
     }
 
@@ -420,14 +403,20 @@ def main():
     teachers, issues, merged_count = extract(args.pdf)
     validate(teachers, issues)
     source_sha256 = hashlib.sha256(args.pdf.read_bytes()).hexdigest()
+    with pdfplumber.open(args.pdf) as pdf:
+        created = str(pdf.metadata.get("CreationDate", ""))
+    date_match = re.match(r"D:(\d{4})(\d{2})(\d{2})", created)
+    source_created_date = "-".join(date_match.groups()) if date_match else None
     payload = {
         "sourceFile": args.pdf.name,
         "sourceSha256": source_sha256,
+        "sourceCreatedDate": source_created_date,
         "days": DAYS,
         "periodTimes": {str(key): value for key, value in PERIOD_TIMES.items()},
         "teachers": teachers,
     }
     report = report_for(args.pdf.name, source_sha256, teachers, merged_count)
+    report["sourceCreatedDate"] = source_created_date
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.report.parent.mkdir(parents=True, exist_ok=True)

@@ -38,7 +38,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TeacherDirectory } from "@/components/teacher-directory";
 import { filterAndRankStudents } from "@/lib/search-core.mjs";
-import type { ClassSummary, StudentRecord, StudentResult, TeacherRecord } from "@/lib/types";
+import type { ClassSummary, StudentRecord, StudentResult, TeacherRecord, TeacherSourceMetadata } from "@/lib/types";
 
 type GradeCount = { grade: number; count: number; sections: number };
 type Props = {
@@ -51,6 +51,7 @@ type Props = {
   teacherSubjects: string[];
   schoolDays: string[];
   periodTimes: Record<string, string>;
+  teacherSource: TeacherSourceMetadata;
 };
 
 const GRADE_LABELS: Record<number, string> = {
@@ -167,6 +168,7 @@ export function StudentSearchApp({
   teacherSubjects,
   schoolDays,
   periodTimes,
+  teacherSource,
 }: Props) {
   const [directoryMode, setDirectoryMode] = useState<"students" | "teachers">("students");
   const [activeTab, setActiveTab] = useState("search");
@@ -373,11 +375,12 @@ export function StudentSearchApp({
             teacherSubjects={teacherSubjects}
             schoolDays={schoolDays}
             periodTimes={periodTimes}
+            source={teacherSource}
           />
         )}
 
         <footer className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-border/60 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-right">
-          <span>البيانات مخصصة للاستخدام المدرسي المصرح به فقط.</span><span>العام الدراسي 2026/2027م</span>
+          <span>البيانات مخصصة للاستخدام المدرسي المصرح به فقط.</span><span>نسخة جداول المعلمين: <bdi>{teacherSource.createdDate ?? "غير مدرج"}</bdi> · العام الدراسي 2026/2027م</span>
         </footer>
       </div>
 

@@ -267,10 +267,13 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 
 .teacher-filter-grid {
   display: grid;
-  grid-template-columns: auto minmax(17rem, 1fr) minmax(10rem, .55fr) minmax(8rem, .4fr) minmax(8rem, .4fr) auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: .75rem;
 }
+.teacher-filter-grid .grade-chips,
+.teacher-filter-grid .teacher-filter-label { grid-column: 1 / -1; }
+.teacher-filter-grid [data-slot="select-trigger"] { width: 100%; }
 
 .teacher-filter-label {
   display: flex;
@@ -500,6 +503,7 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 
 .teacher-schedule-scroll {
   min-height: 0;
+  min-width: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 1rem;
@@ -526,6 +530,31 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 .lesson-meta svg { width: .75rem; }
 .day-empty { padding: 1.2rem .4rem; color: var(--muted-foreground); text-align: center; font-size: .78rem; }
 .teacher-empty { min-height: 20rem; }
+.schedule-source-note { margin-block: .7rem; color: var(--muted-foreground); font-size: .75rem; line-height: 1.8; overflow-wrap: anywhere; }
+.schedule-view-switch { display: flex; gap: .6rem; margin-bottom: .75rem; }
+.schedule-view-switch button { min-height: 44px; flex: 1; }
+.schedule-day-picker { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .35rem; margin-bottom: .85rem; }
+.schedule-day-picker button { min-height: 44px; padding: .5rem .1rem; border: 1px solid var(--border); border-radius: .7rem; font-size: .8rem; font-weight: 800; background: var(--card); }
+.schedule-day-picker button[aria-pressed="true"] { color: var(--primary-foreground); background: var(--primary); border-color: var(--primary); }
+.period-quick-picker { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; }
+.period-quick-picker > span { width: 100%; font-size: .8rem; font-weight: 700; }
+.period-quick-picker button { min-width: 44px; min-height: 44px; }
+.period-row { display: flex; align-items: center; gap: 1rem; min-height: 76px; }
+.period-number { flex: 0 0 7.5rem; display: grid; gap: .4rem; }
+.period-number small { font-size: .7rem; color: var(--muted-foreground); text-align: right; }
+.period-content { flex: 1; min-width: 0; }
+.period-content > small { display: block; margin-top: .35rem; font-size: .72rem; color: var(--muted-foreground); }
+.period-unassigned { box-shadow: none; background: transparent; border-style: dashed; }
+.weekly-table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: .8rem; }
+.weekly-timetable { width: 100%; min-width: 850px; border-collapse: collapse; text-align: center; }
+.weekly-timetable caption { padding: .7rem; text-align: right; font-size: .75rem; color: var(--muted-foreground); }
+.weekly-timetable th, .weekly-timetable td { padding: .65rem .4rem; border: 1px solid var(--border); min-width: 84px; }
+.weekly-timetable th { background: var(--secondary); font-size: .8rem; }
+.weekly-timetable th[scope="row"] { position: sticky; right: 0; z-index: 1; }
+.weekly-timetable td[data-occupied="true"] { background: color-mix(in srgb, var(--primary) 5%, var(--card)); }
+.weekly-timetable td strong { display: block; color: var(--primary); font-size: 1rem; }
+.weekly-timetable td span, .weekly-timetable td small { display: block; margin-top: .35rem; font-size: .68rem; }
+.weekly-timetable td small { color: var(--muted-foreground); }
 
 .student-card:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--primary) 58%, var(--border)); box-shadow: 0 12px 28px rgba(18, 74, 65, .08); }
 .student-avatar,
@@ -627,6 +656,9 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
   .teacher-detail-total { display: none; }
   .teacher-week-grid { grid-template-columns: 1fr; }
   .teacher-schedule-scroll { padding: .75rem; }
+  .period-row { gap: .55rem; padding: .65rem; }
+  .period-number { flex-basis: 6.5rem; }
+  .schedule-day-picker button { font-size: .7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

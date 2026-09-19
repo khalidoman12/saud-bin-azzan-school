@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -8,6 +9,26 @@ const payload = JSON.parse(
   await readFile(new URL("../data/teachers.generated.json", import.meta.url), "utf8"),
 );
 const teachers = payload.teachers;
+
+test("matches the independently extracted full PDF record digest", async () => {
+  const audit = JSON.parse(await readFile(new URL("../data/teachers-independent-audit.json", import.meta.url), "utf8"));
+  const keys = ["sourcePage", "fullName", "grades", "subjects", "lessonCount", "occupiedPeriodCount", "lessons"];
+  const lessonKeys = ["day", "dayIndex", "periodStart", "periodEnd", "subject", "classCode", "grade", "section"];
+  const records = teachers.map((teacher) => ({
+    ...Object.fromEntries(keys.map((key) => [key, teacher[key]])),
+    lessons: teacher.lessons.map((lesson) => Object.fromEntries(lessonKeys.map((key) => [key, lesson[key]]))),
+  }));
+  const sorted = (value) => Array.isArray(value) ? value.map(sorted)
+    : value !== null && typeof value === "object"
+      ? Object.fromEntries(Object.keys(value).sort().map((key) => [key, sorted(value[key])])) : value;
+  const digest = createHash("sha256").update(JSON.stringify(sorted(records))).digest("hex");
+  assert.equal(audit.ok, true);
+  assert.equal(audit.sourceSha256, payload.sourceSha256);
+  assert.deepEqual(audit.discrepancies, []);
+  assert.equal(audit.checks.periodTimes, 680);
+  assert.equal(audit.checks.dayLabels, 425);
+  assert.equal(digest, audit.canonicalTeacherRecordsSha256);
+});
 
 test("imports every teacher page and every detected lesson block", () => {
   assert.equal(teachers.length, 85);
@@ -24,16 +45,16 @@ test("matches the visually verified first teacher schedule", () => {
   assert.deepEqual(
     teacher.lessons.map((lesson) => [lesson.day, lesson.periodStart, lesson.periodEnd, lesson.classCode]),
     [
-      ["الأحد", 3, 3, "6/1"],
       ["الأحد", 5, 5, "6/1"],
-      ["الأحد", 7, 7, "6/2"],
-      ["الاثنين", 3, 3, "6/1"],
-      ["الاثنين", 5, 5, "6/2"],
-      ["الثلاثاء", 6, 6, "6/1"],
-      ["الثلاثاء", 8, 8, "6/2"],
-      ["الأربعاء", 3, 3, "6/2"],
-      ["الأربعاء", 5, 5, "6/2"],
+      ["الأحد", 8, 8, "6/2"],
+      ["الاثنين", 2, 2, "6/1"],
+      ["الاثنين", 8, 8, "6/2"],
+      ["الثلاثاء", 4, 4, "6/2"],
+      ["الثلاثاء", 5, 5, "6/1"],
+      ["الأربعاء", 4, 4, "6/2"],
       ["الأربعاء", 7, 7, "6/1"],
+      ["الخميس", 1, 1, "6/1"],
+      ["الخميس", 7, 7, "6/2"],
     ],
   );
 });
@@ -64,7 +85,7 @@ test("preserves merged double periods and source placeholder names", () => {
 
 test("keeps Thursday in every weekly view and filters a selected day and period", () => {
   assert.equal(payload.days.at(-1), "الخميس");
-  assert.equal(teachers[0].lessons.filter((lesson) => lesson.day === "الخميس").length, 0);
+  assert.equal(teachers[0].lessons.filter((lesson) => lesson.day === "الخميس").length, 2);
 
   const sundayFirst = filterAndRankTeachers(teachers, { day: "الأحد", period: 1 });
   assert.equal(sundayFirst.length, 39);
@@ -80,10 +101,41 @@ test("keeps Thursday in every weekly view and filters a selected day and period"
 test("counts a double-period lesson in either selected period", () => {
   const teacher = teachers.find((item) => item.fullName === "على عبدالله على المشايخى");
   assert.ok(teacher.lessons.some((lesson) =>
-    lesson.day === "الأحد" && lesson.periodStart === 1 && lesson.periodEnd === 2,
+    lesson.day === "الأحد" && lesson.periodStart === 5 && lesson.periodEnd === 6 && lesson.classCode === "5/10",
   ));
-  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 1 }).length === 1);
-  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 2 }).length === 1);
+  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 5 }).length === 1);
+  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 6 }).length === 1);
+});
+
+test("identifies the September 19 source instead of the superseded PDF", () => {
+  assert.equal(payload.sourceFile, "الجدول العام للمعلمين.pdf");
+  assert.equal(payload.sourceCreatedDate, "2026-09-19");
+  assert.equal(payload.sourceSha256, "08d0780e1131dc2c84f6880707399603e172dbc4a8401f5cc8546dbf120d0b09");
+});
+
+test("matches grade, subject, day and period on one lesson for every timetable combination", () => {
+  for (const grade of [5, 6, 7, 8]) {
+    for (const day of payload.days) {
+      for (let period = 1; period <= 8; period += 1) {
+        for (const subject of [null, ...new Set(teachers.flatMap((teacher) => teacher.subjects))]) {
+          const actual = filterAndRankTeachers(teachers, { grade, subject, day, period }).map(({ teacher }) => teacher.id);
+          const expected = teachers.filter((teacher) => teacher.lessons.some((lesson) =>
+            lesson.grade === grade && lesson.day === day
+            && (subject === null || lesson.subject === subject)
+            && lesson.periodStart <= period && lesson.periodEnd >= period,
+          )).map((teacher) => teacher.id);
+          assert.deepEqual(actual, expected, `${grade}|${day}|${period}|${subject}`);
+        }
+      }
+    }
+  }
+});
+
+test("does not combine one grade with a different grade's lesson at the selected time", () => {
+  const teacher = teachers.find((item) => item.grades.length > 1);
+  const lesson = teacher.lessons[0];
+  const otherGrade = teacher.grades.find((grade) => grade !== lesson.grade);
+  assert.equal(filterAndRankTeachers([teacher], { grade: otherGrade, day: lesson.day, period: lesson.periodStart }).length, 0);
 });
 
 test("indexes every occupied teacher slot across all five days and eight periods", () => {

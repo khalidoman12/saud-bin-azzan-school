@@ -1,6 +1,6 @@
 {
-  "sourceFile": "جدول المعلمين (1).pdf",
-  "sourceSha256": "5cf9ddb34588524055e7624e6518da439f9a71cd5264a5531ebf063f831914b5",
+  "sourceFile": "الجدول العام للمعلمين.pdf",
+  "sourceSha256": "08d0780e1131dc2c84f6880707399603e172dbc4a8401f5cc8546dbf120d0b09",
   "pageCount": 85,
   "teacherCount": 85,
   "uniqueTeacherNameCount": 85,
@@ -170,7 +170,7 @@
       "5": 39,
       "6": 39,
       "7": 39,
-      "8": 38
+      "8": 39
     },
     "الثلاثاء": {
       "1": 39,
@@ -190,7 +190,7 @@
       "5": 39,
       "6": 39,
       "7": 39,
-      "8": 39
+      "8": 38
     },
     "الخميس": {
       "1": 39,
@@ -209,9 +209,7 @@
     "uniqueTeacherNames": true,
     "all39ClassesPresent": true,
     "noTeacherPeriodOverlaps": true,
-    "noClassPeriodOverlaps": true,
-    "page1CheckedAgainstRenderedPdf": true,
-    "mergedLessonPageCheckedAgainstRenderedPdf": true,
-    "blankFinalPageCheckedAgainstRenderedPdf": true
-  }
+    "noClassPeriodOverlaps": true
+  },
+  "sourceCreatedDate": "2026-09-19"
 }
