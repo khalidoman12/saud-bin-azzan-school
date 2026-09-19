@@ -60,3 +60,46 @@ export type TeacherSourceMetadata = {
   createdDate: string | null;
   sha256: string;
 };
+
+export type ActivityCategory =
+  | "guidance"
+  | "teaching"
+  | "administration"
+  | "visits"
+  | "honors"
+  | "health"
+  | "community"
+  | "student-life"
+  | "transport"
+  | "media";
+
+export type ActivityMedia = {
+  type: "image" | "video";
+  url: string;
+  alt: string;
+};
+
+export type SchoolActivity = {
+  id: string;
+  sourceId: string | null;
+  date: string;
+  title: string;
+  description: string;
+  category: ActivityCategory;
+  audiences: string[];
+  people: string[];
+  grades: number[];
+  specialist: boolean;
+  media: ActivityMedia[];
+  sourceUrl: string;
+  sourceLabel: string;
+};
+
+export type ActivitySourceMetadata = {
+  account: string;
+  accountUrl: string;
+  rangeStart: string;
+  rangeEnd: string;
+  lastSyncedAt: string;
+  syncMethod: string;
+};

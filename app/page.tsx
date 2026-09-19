@@ -12,6 +12,12 @@ import {
   TEACHER_SUBJECTS,
   TEACHER_SOURCE,
 } from "@/lib/teacher-data.server";
+import {
+  ACTIVITIES,
+  ACTIVITY_AUDIENCES,
+  ACTIVITY_CATEGORY_COUNTS,
+  ACTIVITY_SOURCE,
+} from "@/lib/activity-data.server";
 
 export default function Home() {
   return (
@@ -26,6 +32,10 @@ export default function Home() {
       schoolDays={SCHOOL_DAYS}
       periodTimes={PERIOD_TIMES}
       teacherSource={TEACHER_SOURCE}
+      activities={ACTIVITIES}
+      activityAudiences={ACTIVITY_AUDIENCES}
+      activityCategoryCounts={ACTIVITY_CATEGORY_COUNTS}
+      activitySource={ACTIVITY_SOURCE}
     />
   );
 }

@@ -8,6 +8,7 @@ import {
   CircleX,
   ListFilter,
   Moon,
+  Megaphone,
   Search,
   ShieldCheck,
   Sun,
@@ -37,8 +38,18 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TeacherDirectory } from "@/components/teacher-directory";
+import { ActivitiesDirectory } from "@/components/activities-directory";
 import { filterAndRankStudents } from "@/lib/search-core.mjs";
-import type { ClassSummary, StudentRecord, StudentResult, TeacherRecord, TeacherSourceMetadata } from "@/lib/types";
+import type {
+  ActivityCategory,
+  ActivitySourceMetadata,
+  ClassSummary,
+  SchoolActivity,
+  StudentRecord,
+  StudentResult,
+  TeacherRecord,
+  TeacherSourceMetadata,
+} from "@/lib/types";
 
 type GradeCount = { grade: number; count: number; sections: number };
 type Props = {
@@ -52,6 +63,10 @@ type Props = {
   schoolDays: string[];
   periodTimes: Record<string, string>;
   teacherSource: TeacherSourceMetadata;
+  activities: SchoolActivity[];
+  activityCategoryCounts: Array<{ category: ActivityCategory; count: number }>;
+  activityAudiences: string[];
+  activitySource: ActivitySourceMetadata;
 };
 
 const GRADE_LABELS: Record<number, string> = {
@@ -169,8 +184,12 @@ export function StudentSearchApp({
   schoolDays,
   periodTimes,
   teacherSource,
+  activities,
+  activityCategoryCounts,
+  activityAudiences,
+  activitySource,
 }: Props) {
-  const [directoryMode, setDirectoryMode] = useState<"students" | "teachers">("students");
+  const [directoryMode, setDirectoryMode] = useState<"students" | "teachers" | "activities">("students");
   const [activeTab, setActiveTab] = useState("search");
   const [query, setQuery] = useState("");
   const [searchGrade, setSearchGrade] = useState<number | null>(null);
@@ -280,6 +299,9 @@ export function StudentSearchApp({
           <button type="button" data-active={directoryMode === "teachers"} onClick={() => setDirectoryMode("teachers")}>
             <CalendarDays /><span><strong>المعلمون والجداول</strong><small>بحث وجدول أسبوعي</small></span>
           </button>
+          <button type="button" data-active={directoryMode === "activities"} onClick={() => setDirectoryMode("activities")}>
+            <Megaphone /><span><strong>الأنشطة والبرامج</strong><small>فعاليات وأعمال المدرسة</small></span>
+          </button>
         </nav>
 
         {directoryMode === "students" ? (
@@ -368,7 +390,7 @@ export function StudentSearchApp({
           <ResultsList results={results} total={total} hasMore={hasMore} ready={currentReady} onSelect={setSelectedStudent} onLoadMore={() => findStudents({ append: true, browse: activeTab === "browse" })} />
         </section>
           </>
-        ) : (
+        ) : directoryMode === "teachers" ? (
           <TeacherDirectory
             teachers={teachers}
             teacherGradeCounts={teacherGradeCounts}
@@ -377,10 +399,17 @@ export function StudentSearchApp({
             periodTimes={periodTimes}
             source={teacherSource}
           />
+        ) : (
+          <ActivitiesDirectory
+            activities={activities}
+            categoryCounts={activityCategoryCounts}
+            audiences={activityAudiences}
+            source={activitySource}
+          />
         )}
 
         <footer className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-border/60 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-right">
-          <span>البيانات مخصصة للاستخدام المدرسي المصرح به فقط.</span><span>نسخة جداول المعلمين: <bdi>{teacherSource.createdDate ?? "غير مدرج"}</bdi> · العام الدراسي 2026/2027م</span>
+          <span>البيانات مخصصة للاستخدام المدرسي المصرح به فقط.</span><span>نسخة جداول المعلمين: <bdi>{teacherSource.createdDate ?? "غير مدرج"}</bdi> · آخر أرشيف للأنشطة: <bdi>{activitySource.rangeEnd}</bdi></span>
         </footer>
       </div>
 
