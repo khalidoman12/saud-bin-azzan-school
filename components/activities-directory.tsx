@@ -286,8 +286,9 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
         )}
 
         <p className="activities-sync-note">
-          <Images /> الأخبار المتاحة من <bdi>{source.rangeStart}</bdi> إلى <bdi>{source.rangeEnd}</bdi>. الأرشيف غير مكتمل لأن X يعرض جزءًا من المنشورات للزائر. تُضاف الأخبار المتاحة تلقائيًا، ويُفتح الفيديو في منشوره الأصلي.
+          <Images /> الأخبار المتاحة من <bdi>{source.rangeStart}</bdi> إلى <bdi>{source.rangeEnd}</bdi>. الأرشيف غير مكتمل لأن X يعرض جزءًا من المنشورات للزائر. يُفتح الفيديو في منشوره الأصلي.
         </p>
+        <p className="activities-sync-note" role="status">{source.syncStatus?.state === "failure" ? "حالة التحديث التلقائي: تعذر الجلب من X في آخر فحص. الأخبار المحفوظة متاحة، وستُعاد المحاولة المجدولة." : "حالة التحديث التلقائي: نجح آخر فحص للمنشورات المتاحة. لا يضمن ذلك اكتمال الأرشيف."}</p>
       </div>
     </section>
   );

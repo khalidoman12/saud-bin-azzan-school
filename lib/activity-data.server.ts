@@ -1,8 +1,9 @@
 import activityData from "@/data/activities.generated.json";
+import syncStatus from "@/data/activity-sync-status.json";
 import type { ActivityCategory, ActivitySourceMetadata, SchoolActivity } from "@/lib/types";
 
 export const ACTIVITIES = activityData.activities as SchoolActivity[];
-export const ACTIVITY_SOURCE = activityData.source as ActivitySourceMetadata;
+export const ACTIVITY_SOURCE = { ...activityData.source, syncStatus } as ActivitySourceMetadata;
 
 export const ACTIVITY_CATEGORY_COUNTS = Object.entries(
   ACTIVITIES.reduce<Record<string, number>>((counts, activity) => {

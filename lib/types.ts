@@ -125,4 +125,5 @@ export type ActivitySourceMetadata = {
   syncMethod: string;
   coverage?: "partial";
   reviewedThrough?: string;
+  syncStatus?: { state: "success" | "failure"; statusSince: string };
 };
