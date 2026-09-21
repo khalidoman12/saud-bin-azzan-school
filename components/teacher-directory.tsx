@@ -160,7 +160,7 @@ function WeeklySchedule({ teacher, schoolDays }: { teacher: TeacherRecord; schoo
   </div>;
 }
 
-function TeacherScheduleDialog({
+export function TeacherScheduleDialog({
   teacher,
   schoolDays,
   periodTimes,

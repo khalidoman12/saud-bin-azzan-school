@@ -31,7 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { normalizeArabic } from "@/lib/search-core.mjs";
-import type { ActivityCategory, ActivitySourceMetadata, SchoolActivity } from "@/lib/types";
+import type { ActivityCategory, ActivityMedia, ActivitySourceMetadata, SchoolActivity } from "@/lib/types";
 
 type Props = {
   activities: SchoolActivity[];
@@ -84,36 +84,30 @@ function searchableText(activity: SchoolActivity) {
   ].join(" "), { soft: true });
 }
 
+function ActivityImage({ media, sourceUrl }: { media: ActivityMedia; sourceUrl: string }) {
+  const [failed, setFailed] = useState(false);
+  const [fallback, setFallback] = useState(false);
+  const localUrl = media.localPath ? `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${media.localPath}` : media.url;
+  const imageUrl = fallback ? media.url : localUrl;
+  return <a href={failed || media.type === "video" ? sourceUrl : imageUrl} target="_blank" rel="noreferrer" className="activity-media-item" aria-label={media.type === "video" ? `مشاهدة الفيديو الأصلي: ${media.alt}` : `تكبير الصورة: ${media.alt}`}>
+    {failed ? <span className="activity-image-fallback"><Images />تعذر تحميل الصورة · افتح المنشور</span> : <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={imageUrl} alt={media.alt} loading="lazy" referrerPolicy="no-referrer" onError={() => { if (media.localPath && !fallback) setFallback(true); else setFailed(true); }} />
+    </>}
+    {media.type === "video" && <span className="activity-video-label"><Clapperboard /> مشاهدة الفيديو</span>}
+  </a>;
+}
+
 function ActivityCard({ activity }: { activity: SchoolActivity }) {
   const meta = CATEGORY_META[activity.category];
   const CategoryIcon = meta.icon;
-  const visibleMedia = activity.media.slice(0, 4);
+  const visibleMedia = activity.media;
 
   return (
     <article className="activity-card">
       {visibleMedia.length > 0 && (
         <div className="activity-media" data-count={Math.min(visibleMedia.length, 4)}>
-          {visibleMedia.map((media, index) => (
-            <a
-              key={`${media.url}-${index}`}
-              href={media.url}
-              target="_blank"
-              rel="noreferrer"
-              className="activity-media-item"
-              aria-label={`فتح الصورة: ${media.alt}`}
-            >
-              {/* The account already publishes these public media files on X. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={media.url}
-                alt={media.alt}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                onError={(event) => { event.currentTarget.closest("a")?.setAttribute("hidden", ""); }}
-              />
-              {media.type === "video" && <span className="activity-video-label"><Clapperboard /> فيديو</span>}
-            </a>
-          ))}
+          {visibleMedia.map((media, index) => <ActivityImage key={`${media.url}-${index}`} media={media} sourceUrl={activity.sourceUrl} />)}
         </div>
       )}
 
@@ -122,7 +116,7 @@ function ActivityCard({ activity }: { activity: SchoolActivity }) {
           <Badge variant="secondary" className="rounded-full"><CategoryIcon /> {meta.label}</Badge>
           {activity.specialist && <Badge className="rounded-full"><HandHeart /> أعمال الأخصائيين</Badge>}
         </div>
-        <p className="activity-date"><CalendarDays /> {formatActivityDate(activity.date)}</p>
+        <p className="activity-date"><CalendarDays /> {formatActivityDate(activity.date)}{!activity.verifiedAt && <span> · تاريخ أرشيفي قيد التحقق</span>}</p>
         <h3>{activity.title}</h3>
         <p className="activity-description">{activity.description}</p>
 
@@ -155,6 +149,9 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
   const [grade, setGrade] = useState<number | null>(null);
   const [specialistsOnly, setSpecialistsOnly] = useState(false);
   const [visibleCount, setVisibleCount] = useState(12);
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+  const [withImages, setWithImages] = useState(false);
 
   const filteredActivities = useMemo(() => {
     const normalizedQuery = normalizeArabic(query, { soft: true });
@@ -164,18 +161,21 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
       .filter((activity) => audience === "all" || activity.audiences.includes(audience))
       .filter((activity) => grade === null || activity.grades.includes(grade))
       .filter((activity) => !specialistsOnly || activity.specialist)
+      .filter((activity) => !fromDate || activity.date >= fromDate)
+      .filter((activity) => !toDate || activity.date <= toDate)
+      .filter((activity) => !withImages || activity.media.length > 0)
       .filter((activity) => {
         if (tokens.length === 0) return true;
         const haystack = searchableText(activity);
         return tokens.every((token) => haystack.includes(token));
       })
       .sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
-  }, [activities, audience, category, grade, query, specialistsOnly]);
+  }, [activities, audience, category, grade, query, specialistsOnly, fromDate, toDate, withImages]);
 
   const visibleActivities = filteredActivities.slice(0, visibleCount);
   const specialistCount = activities.filter((activity) => activity.specialist).length;
   const mediaCount = activities.filter((activity) => activity.media.length > 0).length;
-  const hasFilters = query.trim() || category !== "all" || audience !== "all" || grade !== null || specialistsOnly;
+  const hasFilters = query.trim() || category !== "all" || audience !== "all" || grade !== null || specialistsOnly || fromDate || toDate || withImages;
 
   function resetFilters() {
     setQuery("");
@@ -184,6 +184,9 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
     setGrade(null);
     setSpecialistsOnly(false);
     setVisibleCount(12);
+    setFromDate("");
+    setToDate("");
+    setWithImages(false);
   }
 
   function selectSpecialists() {
@@ -204,7 +207,7 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
           <div className="activities-stats" aria-label="إحصاءات الأنشطة">
             <div><strong>{activities.length.toLocaleString("ar-OM")}</strong><span>فعالية</span></div>
             <div><strong>{specialistCount.toLocaleString("ar-OM")}</strong><span>للأخصائيين</span></div>
-            <div><strong>{mediaCount.toLocaleString("ar-OM")}</strong><span>موثقة بصور</span></div>
+            <div><strong>{mediaCount.toLocaleString("ar-OM")}</strong><span>بصور أو فيديو</span></div>
           </div>
         </div>
 
@@ -251,6 +254,11 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
           </Select>
           {hasFilters && <Button type="button" variant="outline" className="h-11 rounded-xl" onClick={resetFilters}><CircleX /> مسح الفلاتر</Button>}
         </div>
+        <div className="activity-date-filters">
+          <label>من تاريخ<Input type="date" value={fromDate} onChange={(event) => { setFromDate(event.target.value); setVisibleCount(12); }} /></label>
+          <label>إلى تاريخ<Input type="date" value={toDate} onChange={(event) => { setToDate(event.target.value); setVisibleCount(12); }} /></label>
+          <Button variant={withImages ? "default" : "outline"} aria-pressed={withImages} onClick={() => { setWithImages(!withImages); setVisibleCount(12); }}><Images /> بصور أو فيديو</Button>
+        </div>
       </div>
 
       <div className="activities-results" aria-live="polite">
@@ -278,7 +286,7 @@ export function ActivitiesDirectory({ activities, categoryCounts, audiences, sou
         )}
 
         <p className="activities-sync-note">
-          <Images /> يغطي الأرشيف الفترة من <bdi>{source.rangeStart}</bdi> إلى <bdi>{source.rangeEnd}</bdi>، وتعمل المزامنة المجانية المجدولة على إضافة المنشورات العامة الجديدة دون حذف الأرشيف عند تعذر الوصول إلى X.
+          <Images /> الأخبار المتاحة من <bdi>{source.rangeStart}</bdi> إلى <bdi>{source.rangeEnd}</bdi>. الأرشيف غير مكتمل لأن X يعرض جزءًا من المنشورات للزائر. تُضاف الأخبار المتاحة تلقائيًا، ويُفتح الفيديو في منشوره الأصلي.
         </p>
       </div>
     </section>

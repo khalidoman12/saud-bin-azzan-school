@@ -163,7 +163,7 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 
 .module-switch {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: .65rem;
   max-width: 63rem;
   margin: 0 auto 1rem;
@@ -530,6 +530,31 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 .lesson-meta svg { width: .75rem; }
 .day-empty { padding: 1.2rem .4rem; color: var(--muted-foreground); text-align: center; font-size: .78rem; }
 .teacher-empty { min-height: 20rem; }
+.class-mode-switch, .class-schedule-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.class-mode-switch button, .class-schedule-actions button { min-height: 44px; }
+.favorite-classes { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1rem; }
+.favorite-classes > span { display: flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; color: var(--primary); }
+.school-slot-picker { margin-top: 1.2rem; padding: 1rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--background); }
+.school-slot-picker > p { margin-bottom: .9rem; font-size: .85rem; line-height: 1.8; }
+.class-schedule-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(8rem,1fr)); gap: .65rem; margin-top: .8rem; }
+.class-schedule-tile { display: grid; align-content: start; gap: .3rem; text-align: right; padding: 1rem; min-height: 6rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--background); transition: .18s ease; }
+.class-schedule-tile:hover, .class-schedule-tile[data-active="true"] { border-color: var(--primary); background: var(--secondary); }
+.class-schedule-tile strong { color: var(--primary); font-size: 1.3rem; }
+.class-schedule-tile span { font-size: .8rem; font-weight: 700; }
+.class-schedule-tile small { font-size: .72rem; color: var(--muted-foreground); }
+.class-timetable { scroll-margin-top: 1rem; }
+.class-schedule-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .8rem; margin-bottom: 1rem; }
+.class-day-lessons { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .7rem; }
+.class-period-card { display: flex; gap: .9rem; align-items: center; min-height: 6.5rem; padding: 1rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--card); }
+.class-period-index { display: grid; place-items: center; align-content: center; width: 3.3rem; min-height: 3.8rem; flex: 0 0 auto; border-radius: .8rem; background: var(--secondary); color: var(--primary); font-weight: 900; font-size: 1.35rem; }
+.class-period-index span { font-size: .62rem; }
+.class-period-card h4 { font-weight: 800; font-size: 1rem; }
+.class-teacher-link { display: flex; gap: .3rem; align-items: center; min-height: 44px; font-size: .78rem; line-height: 1.7; text-align: right; color: var(--primary); text-decoration: underline; text-underline-offset: .2em; }
+.class-teacher-link svg { width: .9rem; flex: 0 0 auto; }
+.class-weekly-table { min-width: 1050px; }
+.class-weekly-table td strong { font-size: .8rem; color: var(--foreground); }
+.class-weekly-table td button { display: block; min-height: 44px; width: 100%; margin-top: .3rem; font-size: .78rem; color: var(--primary); text-decoration: underline; text-underline-offset: .2em; }
+.screen-hidden { display: none; }
 
 .activities-deck { margin-bottom: 1rem; }
 .activities-stats {
@@ -727,6 +752,8 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 }
 
 @media (max-width: 760px) {
+  .module-switch { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .class-day-lessons { grid-template-columns: 1fr; }
   .deck-heading { align-items: start; flex-direction: column; }
   .stats-strip { width: 100%; }
   .stats-strip div { flex: 1; }
@@ -797,3 +824,20 @@ html[data-theme="dark"] .theme-icon-light { display: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+@media print {
+  @page { size: A4 landscape; margin: 8mm; }
+  html, body, .app-shell { color: #000; background: #fff; min-width: 0; }
+  .app-shell::before, .topbar, .module-switch, .class-controls, footer, .class-schedule-actions, .class-view-controls, .class-day-view { display: none !important; }
+  .class-timetable, .class-week-view { display: block !important; padding: 0; margin: 0; box-shadow: none; border: 0; overflow: visible; backdrop-filter: none; }
+  .class-weekly-table { min-width: 0; table-layout: fixed; font-size: 10px; }
+  .class-weekly-table th, .class-weekly-table td { padding: 6px 3px; min-width: 0; border-color: #aaa; }
+  .class-weekly-table td strong, .class-weekly-table td button { color: #000; font-size: 10px; }
+  .class-weekly-table td button { min-height: 0; text-decoration: none; }
+}
+
+.activity-date-filters { display: flex; flex-wrap: wrap; align-items: end; gap: .8rem; margin-top: 1rem; }
+.activity-date-filters label { display: grid; gap: .4rem; font-size: .8rem; color: var(--muted-foreground); }
+.activity-date-filters input { min-height: 44px; background: var(--background); }
+.activity-image-fallback { display: flex; min-height: 160px; align-items: center; justify-content: center; flex-direction: column; gap: .5rem; padding: 1rem; color: var(--muted-foreground); font-size: .85rem; }
+.activity-date { flex-wrap: wrap; }

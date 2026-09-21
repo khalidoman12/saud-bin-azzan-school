@@ -61,6 +61,25 @@ export type TeacherSourceMetadata = {
   sha256: string;
 };
 
+export type ClassLesson = {
+  day: string;
+  dayIndex: number;
+  periodStart: number;
+  periodEnd: number;
+  subject: string;
+  teacherLabel: string;
+  teacherId: string;
+  teacherFullName: string;
+};
+
+export type ClassSchedule = {
+  classCode: string;
+  grade: number;
+  section: number;
+  sourcePage: number;
+  lessons: ClassLesson[];
+};
+
 export type ActivityCategory =
   | "guidance"
   | "teaching"
@@ -76,6 +95,7 @@ export type ActivityCategory =
 export type ActivityMedia = {
   type: "image" | "video";
   url: string;
+  localPath?: string;
   alt: string;
 };
 
@@ -93,6 +113,7 @@ export type SchoolActivity = {
   media: ActivityMedia[];
   sourceUrl: string;
   sourceLabel: string;
+  verifiedAt?: string;
 };
 
 export type ActivitySourceMetadata = {
@@ -102,4 +123,6 @@ export type ActivitySourceMetadata = {
   rangeEnd: string;
   lastSyncedAt: string;
   syncMethod: string;
+  coverage?: "partial";
+  reviewedThrough?: string;
 };

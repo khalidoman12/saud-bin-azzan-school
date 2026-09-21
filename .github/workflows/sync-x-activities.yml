@@ -1,6 +1,9 @@
 name: مزامنة أنشطة المدرسة من X
 
 on:
+  push:
+    branches: [main]
+    paths: ["tools/sync_x_activities.py", "tools/cache_activity_media.py", ".github/workflows/sync-x-activities.yml"]
   schedule:
     # فحص مجاني كل ساعة لتقليل احتمال فوات المنشورات من الواجهة العامة المحدودة.
     - cron: "17 * * * *"
@@ -30,17 +33,20 @@ jobs:
       - name: جلب المنشورات العامة الجديدة
         run: python tools/sync_x_activities.py
 
+      - name: حفظ صور الأخبار في الموقع
+        run: python tools/cache_activity_media.py
+
       - name: حفظ التحديث إن وجد
         id: save
         run: |
-          if git diff --quiet -- data/activities.generated.json; then
+          git add data/activities.generated.json public/activity-media/
+          if git diff --cached --quiet; then
             echo "لا توجد منشورات جديدة."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/activities.generated.json
           git commit -m "تحديث أنشطة المدرسة من X"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"

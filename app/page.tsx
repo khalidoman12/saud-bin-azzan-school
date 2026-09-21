@@ -1,4 +1,5 @@
 import { StudentSearchApp } from "@/components/student-search-app";
+import { CLASS_SCHEDULES, CLASS_SOURCE } from "@/lib/class-data.server";
 import {
   CLASS_SUMMARIES,
   GRADE_COUNTS,
@@ -23,6 +24,8 @@ export default function Home() {
   return (
     <StudentSearchApp
       classSummaries={CLASS_SUMMARIES}
+      classSchedules={CLASS_SCHEDULES}
+      classSource={CLASS_SOURCE}
       gradeCounts={GRADE_COUNTS}
       students={STUDENTS}
       totalStudents={STUDENTS.length}

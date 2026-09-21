@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BookOpen,
+  School,
   CalendarDays,
   ChevronLeft,
   CircleX,
@@ -39,11 +40,13 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TeacherDirectory } from "@/components/teacher-directory";
 import { ActivitiesDirectory } from "@/components/activities-directory";
+import { ClassDirectory } from "@/components/class-directory";
 import { filterAndRankStudents } from "@/lib/search-core.mjs";
 import type {
   ActivityCategory,
   ActivitySourceMetadata,
   ClassSummary,
+  ClassSchedule,
   SchoolActivity,
   StudentRecord,
   StudentResult,
@@ -53,6 +56,8 @@ import type {
 
 type GradeCount = { grade: number; count: number; sections: number };
 type Props = {
+  classSchedules: ClassSchedule[];
+  classSource: TeacherSourceMetadata;
   classSummaries: ClassSummary[];
   gradeCounts: GradeCount[];
   students: StudentRecord[];
@@ -174,6 +179,8 @@ function toResult(student: StudentRecord): StudentResult {
 }
 
 export function StudentSearchApp({
+  classSchedules,
+  classSource,
   classSummaries,
   gradeCounts,
   students,
@@ -189,7 +196,8 @@ export function StudentSearchApp({
   activityAudiences,
   activitySource,
 }: Props) {
-  const [directoryMode, setDirectoryMode] = useState<"students" | "teachers" | "activities">("students");
+  const [directoryMode, setDirectoryMode] = useState<"students" | "teachers" | "classes" | "activities">("students");
+  const [initialClassCode, setInitialClassCode] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("search");
   const [query, setQuery] = useState("");
   const [searchGrade, setSearchGrade] = useState<number | null>(null);
@@ -200,6 +208,27 @@ export function StudentSearchApp({
   const [total, setTotal] = useState(0);
   const [hasMore, setHasMore] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState<StudentResult | null>(null);
+
+  useEffect(() => {
+    function loadClassLink() {
+      const code = new URLSearchParams(window.location.hash.slice(1)).get("class");
+      if (code && classSchedules.some((item) => item.classCode === code)) {
+        setInitialClassCode(code); setDirectoryMode("classes");
+      }
+    }
+    const timer = window.setTimeout(loadClassLink, 0);
+    window.addEventListener("hashchange", loadClassLink);
+    return () => { clearTimeout(timer); window.removeEventListener("hashchange", loadClassLink); };
+  }, [classSchedules]);
+
+  function openClassSchedule(grade: number, section: number) {
+    const url = new URL(window.location.href);
+    url.hash = `class=${grade}/${section}`;
+    window.history.replaceState(null, "", url);
+    setInitialClassCode(`${grade}/${section}`);
+    setSelectedStudent(null);
+    setDirectoryMode("classes");
+  }
 
   const searchSections = useMemo(() => classSummaries.filter((item) => item.grade === searchGrade), [classSummaries, searchGrade]);
   const browseSections = useMemo(() => classSummaries.filter((item) => item.grade === browseGrade), [classSummaries, browseGrade]);
@@ -302,6 +331,9 @@ export function StudentSearchApp({
           <button type="button" data-active={directoryMode === "activities"} onClick={() => setDirectoryMode("activities")}>
             <Megaphone /><span><strong>الأنشطة والبرامج</strong><small>فعاليات وأعمال المدرسة</small></span>
           </button>
+          <button type="button" data-active={directoryMode === "classes"} onClick={() => setDirectoryMode("classes")}>
+            <School /><span><strong>جداول الشعب</strong><small>جدول الفصل وأين المعلم؟</small></span>
+          </button>
         </nav>
 
         {directoryMode === "students" ? (
@@ -384,7 +416,7 @@ export function StudentSearchApp({
           {activeTab === "browse" && isBrowseReady && (
             <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-border/70 pb-4">
               <div><p className="text-sm text-muted-foreground">قائمة الفصل</p><h2 className="text-xl font-black text-foreground">الصف {gradeLabel(browseGrade)} — {browseGrade}/{browseSection}</h2></div>
-              <Badge variant="secondary" className="rounded-full px-3 py-1.5"><UsersRound className="size-3.5" /> {total || browseSections.find((item) => item.section === browseSection)?.count || 0} طالبًا</Badge>
+              <div className="flex flex-wrap gap-2"><Badge variant="secondary" className="rounded-full px-3 py-1.5"><UsersRound className="size-3.5" /> {total || browseSections.find((item) => item.section === browseSection)?.count || 0} طالبًا</Badge><Button variant="outline" onClick={() => openClassSchedule(browseGrade!, browseSection!)}><CalendarDays /> جدول الشعبة</Button></div>
             </div>
           )}
           <ResultsList results={results} total={total} hasMore={hasMore} ready={currentReady} onSelect={setSelectedStudent} onLoadMore={() => findStudents({ append: true, browse: activeTab === "browse" })} />
@@ -399,6 +431,8 @@ export function StudentSearchApp({
             periodTimes={periodTimes}
             source={teacherSource}
           />
+        ) : directoryMode === "classes" ? (
+          <ClassDirectory key={initialClassCode ?? "classes"} schedules={classSchedules} teachers={teachers} days={schoolDays} periodTimes={periodTimes} source={classSource} teacherSource={teacherSource} initialClassCode={initialClassCode} />
         ) : (
           <ActivitiesDirectory
             activities={activities}
@@ -428,7 +462,7 @@ export function StudentSearchApp({
                 <Card className="detail-field"><CardHeader><CardDescription>العام الدراسي</CardDescription><CardTitle>{selectedStudent.academicYear}م</CardTitle></CardHeader></Card>
               </div>
               <Card className="mx-5 border-primary/15 bg-primary/5 shadow-none sm:mx-6"><CardContent className="flex gap-3 p-4 text-sm leading-6 text-muted-foreground"><ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" /><p>لا يتضمن السجل رقم قيد؛ الرقم الظاهر هو ترتيب الطالب داخل كشف الفصل فقط.</p></CardContent></Card>
-              <DialogFooter className="px-5 pb-5 pt-1 sm:px-6 sm:pb-6"><DialogClose asChild><Button type="button" size="lg" className="h-11 w-full rounded-xl">إغلاق</Button></DialogClose></DialogFooter>
+              <DialogFooter className="px-5 pb-5 pt-1 sm:px-6 sm:pb-6"><Button variant="outline" className="h-11 rounded-xl" onClick={() => openClassSchedule(selectedStudent.grade, selectedStudent.section)}><CalendarDays /> جدول شعبة الطالب</Button><DialogClose asChild><Button type="button" size="lg" className="h-11 rounded-xl">إغلاق</Button></DialogClose></DialogFooter>
             </>
           )}
         </DialogContent>

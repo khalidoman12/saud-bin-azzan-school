@@ -1,13 +1,13 @@
 {
-  "sourceFile": "الجدول العام للمعلمين.pdf",
-  "sourceSha256": "08d0780e1131dc2c84f6880707399603e172dbc4a8401f5cc8546dbf120d0b09",
+  "sourceFile": "جدول المعلمين .pdf",
+  "sourceSha256": "06d051424205541a93d7d67ded76bc335950c6a53dd138b7f5833ee07f300955",
   "pageCount": 85,
   "teacherCount": 85,
   "uniqueTeacherNameCount": 85,
-  "lessonBlockCount": 1520,
-  "occupiedPeriodCount": 1558,
-  "mergedDoublePeriodBlockCount": 38,
-  "classLabelsParsedFromVisibleText": 1520,
+  "lessonBlockCount": 1521,
+  "occupiedPeriodCount": 1560,
+  "mergedDoublePeriodBlockCount": 39,
+  "classLabelsParsedFromVisibleText": 1521,
   "unparsedLessonBlockCount": 0,
   "teachersWithEmptySchedules": [
     {
@@ -55,7 +55,7 @@
     "5": 429,
     "6": 390,
     "7": 351,
-    "8": 350
+    "8": 351
   },
   "lessonBlockCountBySubject": {
     "التربية الاسلامية": 195,
@@ -67,7 +67,7 @@
     "الفنون الموسيقية": 39,
     "اللغة الانجليزية": 234,
     "اللغة العربية": 255,
-    "تقنية المعلومات": 38
+    "تقنية المعلومات": 39
   },
   "lessonBlockCountByClass": {
     "5/1": 39,
@@ -101,7 +101,7 @@
     "7/8": 39,
     "7/9": 39,
     "8/1": 39,
-    "8/2": 38,
+    "8/2": 39,
     "8/3": 39,
     "8/4": 39,
     "8/5": 39,
@@ -142,7 +142,7 @@
     "7/8": 40,
     "7/9": 40,
     "8/1": 40,
-    "8/2": 38,
+    "8/2": 40,
     "8/3": 40,
     "8/4": 40,
     "8/5": 40,
@@ -180,7 +180,7 @@
       "5": 39,
       "6": 39,
       "7": 39,
-      "8": 38
+      "8": 39
     },
     "الأربعاء": {
       "1": 39,
@@ -190,7 +190,7 @@
       "5": 39,
       "6": 39,
       "7": 39,
-      "8": 38
+      "8": 39
     },
     "الخميس": {
       "1": 39,

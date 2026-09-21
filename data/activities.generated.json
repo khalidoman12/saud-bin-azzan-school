@@ -3,78 +3,296 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-09-18",
-    "lastSyncedAt": "2026-09-19T19:30:00Z",
-    "syncMethod": "أرشيف أولي موثق من حساب المدرسة العام، ثم مزامنة مجانية مجدولة"
+    "rangeEnd": "2026-09-21",
+    "lastSyncedAt": "2026-09-21T18:36:07Z",
+    "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
+    "coverage": "partial",
+    "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2102083961254297859",
+      "sourceId": "2102083961254297859",
+      "date": "2026-09-21",
+      "title": "مهارات المذاكرة وتنظيم الوقت — شهاب الهاشمي",
+      "description": "📚✨ نحو تعلّمٍ أكثر فاعلية وتميّز ✨📚 قدّم الأخصائي الاجتماعي الأستاذ شهاب الهاشمي حصة توجيهية مميزة حول طرق المذاكرة الصحيحة، استهدفت تنمية مهارات الطلبة في تنظيم وقتهم وتحسين أساليب دراستهم. @ EduGovSsq #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2102083917918707712/img/ZP7mM4aKXLL1YFFK?format=webp&name=medium",
+          "alt": "فيديو: 📚✨ نحو تعلّمٍ أكثر فاعلية وتميّز ✨📚 قدّم الأخصائي الاجتماعي الأستاذ شهاب الهاشمي حصة…",
+          "localPath": "/activity-media/423bf85fdbbb7a6f2b0a789a.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102083961254297859",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2102062860306452557",
+      "sourceId": "2102062860306452557",
+      "date": "2026-09-21",
+      "title": "أنا أستطيع وأستحق النجاح — حمد الشماخي",
+      "description": "حصة توجيهية بعنوان «أنا أستطيع وأستحق النجاح»، نفذها الأخصائي النفسي أ. حمد الشماخي، لتعزيز الثقة بالنفس، وتنمية الدافعية نحو التعلم والإنجاز.",
+      "category": "guidance",
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSwHBycbcAAxcrM?format=webp&name=medium",
+          "alt": "حصة توجيهية بعنوان «أنا أستطيع وأستحق النجاح»، نفذها الأخصائي النفسي أ. حمد الشماخي،…",
+          "localPath": "/activity-media/fc00b0e7466271c63a577c33.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102062860306452557",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2102051308354387987",
+      "sourceId": "2102051308354387987",
+      "date": "2026-09-21",
+      "title": "متابعة تشكيل الوحدة الكشفية المدرسية",
+      "description": "زار المشرف الكشفي أ. جمعة بن سعيد السلطي المدرسة لمتابعة إجراءات تشكيل الوحدة الكشفية للعام الدراسي 2026/2027م، والتقى بالقائد الكشفي أ. بدر بن شغيل المشايخي؛ حيث نوقشت آلية استقطاب الطلبة وتنظيم التسجيل والاستعدادات اللازمة لبدء تنفيذ البرنامج الكشفي.",
+      "category": "visits",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSv8hQPbEAAEwak?format=webp&name=medium",
+          "alt": "زار المشرف الكشفي أ. جمعة بن سعيد السلطي المدرسة لمتابعة إجراءات تشكيل الوحدة الكشفية…",
+          "localPath": "/activity-media/1d42b8bbec7a4420e1d600ad.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102051308354387987",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2101925267497504769",
+      "sourceId": "2101925267497504769",
+      "date": "2026-09-21",
+      "title": "درس سليمان عليه السلام والحمامة للصف الخامس",
+      "description": "قدّم الأستاذ سالم العويسي درسًا مميزًا للصف الخامس بعنوان «سليمان عليه السلام والحمامة»، موظفًا استراتيجيات تعليمية فاعلة، مع تنظيم متميز للسبورة وتقسيماتها بما يعزز وضوح الدرس وتفاعل الطلبة. #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "administration",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [
+        5
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSuJ4bxbgAAGsNs?format=webp&name=medium",
+          "alt": "قدّم الأستاذ سالم العويسي درسًا مميزًا للصف الخامس بعنوان «سليمان عليه السلام والحمامة»،…",
+          "localPath": "/activity-media/c267c3c070fa835d9af1d2c1.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSuJ4b6awAAp3F9?format=webp&name=medium",
+          "alt": "قدّم الأستاذ سالم العويسي درسًا مميزًا للصف الخامس بعنوان «سليمان عليه السلام والحمامة»،…",
+          "localPath": "/activity-media/de8325c9063cfd430cba4d2f.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSuJ4b9bMAE8GaY?format=webp&name=medium",
+          "alt": "قدّم الأستاذ سالم العويسي درسًا مميزًا للصف الخامس بعنوان «سليمان عليه السلام والحمامة»،…",
+          "localPath": "/activity-media/4480e19f7b6f7c27aa21940f.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2101925267497504769",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2101703964546965675",
+      "sourceId": "2101703964546965675",
+      "date": "2026-09-20",
+      "title": "متابعة خدمات النظافة والمرافق المدرسية",
+      "description": "نفّذ أ. علي سالم عبدالله الهاشمي، باحث شؤون إدارية أول، زيارة للمدرسة لمتابعة واقع خدمات النظافة، والتقى أ. سعيد السنيدي، الأخصائي الإداري والمالي؛ حيث جرى الوقوف على التزام العمال، وتوفر أدوات النظافة، ومستوى النظافة في المرافق المدرسية.",
+      "category": "visits",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSrAnSobUAAY2hN?format=webp&name=medium",
+          "alt": "نفّذ أ",
+          "localPath": "/activity-media/95340dbda2fffe840cae8510.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2101703964546965675",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2101675097115521199",
+      "sourceId": "2101675097115521199",
+      "date": "2026-09-20",
+      "title": "التوعية بلائحة شؤون الطلبة للصف الثامن",
+      "description": "نفّذت المدرسة برنامجاً توعوياً لطلبة الصف الثامن حول لائحة شؤون الطلبة، بهدف تعزيز الوعي، وترسيخ السلوك الإيجابي والانضباط المدرسي، وبناء بيئة مدرسية آمنة ومحفزة.",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [
+        8
+      ],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSqmXAba8AEUFal?format=webp&name=medium",
+          "alt": "نفّذت المدرسة برنامجاً توعوياً لطلبة الصف الثامن حول لائحة شؤون الطلبة، بهدف تعزيز…",
+          "localPath": "/activity-media/6c7910b405959e8ac99a9215.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2101675097115521199",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2101619248917573657",
+      "sourceId": "2101619248917573657",
+      "date": "2026-09-20",
+      "title": "حصاد الأسبوع لطلاب الصف الثامن",
+      "description": "قدّم الأستاذ محمد العامري حصاد الأسبوع لطلاب الصف الثامن، موظفًا مجموعةً من الاستراتيجيات التعليمية الحديثة والمتنوعة التي أسهمت في تعزيز تفاعل الطلاب، وتحفيزهم على المشاركة، ومراجعة ما تم تعلمه خلال الأسبوع في بيئة تعليمية تفاعلية ومشوقة. #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [
+        8
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2101619213404434432/img/48HQEKOzs_gQ6aM4?format=webp&name=medium",
+          "alt": "فيديو: قدّم الأستاذ محمد العامري حصاد الأسبوع لطلاب الصف الثامن، موظفًا مجموعةً من…",
+          "localPath": "/activity-media/4888c9448ee3cab778847286.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2101619248917573657",
+      "sourceLabel": "عرض المنشور الأصلي"
+    },
     {
       "id": "activity-2026-09-18-week-two-summary",
       "sourceId": "2100893185996357968",
       "date": "2026-09-18",
       "title": "ملخص الفعاليات والأعمال المدرسية في الأسبوع الثاني",
-      "description": "ملخص الفعاليات والأعمال المدرسية المنفذة خلال الأسبوع الثاني من العام الدراسي 2026/2027م، ويشمل الأعمال التنظيمية والإرشادية والتعليمية والصحية والمبادرات المدرسية.",
+      "description": "ملخص الفعاليات والأعمال المدرسية في الأسبوع الثاني من العام الدراسي 2027/2026",
       "category": "media",
-      "audiences": ["الطلبة", "المعلمون", "المجتمع المدرسي"],
+      "audiences": [
+        "الطلبة",
+        "المعلمون",
+        "المجتمع المدرسي"
+      ],
       "people": [],
       "grades": [],
       "specialist": false,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSffNv_aQAAuLXQ.jpg", "alt": "ملخص فعاليات الأسبوع الثاني"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSffNv_aQAAuLXQ.jpg",
+          "alt": "ملخص فعاليات الأسبوع الثاني",
+          "localPath": "/activity-media/274109b8ba5304d9fc9e8ed6.jpg"
+        }
       ],
       "sourceUrl": "https://x.com/EduGovSsq5302/status/2100893185996357968",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-17-school-work-video",
-      "sourceId": "2100658064705622452",
-      "date": "2026-09-17",
-      "title": "جانب من الأعمال والحصص والبرامج والأنشطة المدرسية",
-      "description": "توثيق مرئي لجانب من الأعمال والحصص والبرامج والأنشطة المدرسية التي نفذتها الهيئة الإدارية والتدريسية بالمدرسة. إعداد وتصميم: أ. مسعود الحميدي.",
-      "category": "media",
-      "audiences": ["الطلبة", "المعلمون", "المجتمع المدرسي"],
-      "people": ["أ. مسعود الحميدي"],
-      "grades": [],
-      "specialist": false,
-      "media": [],
-      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100658064705622452",
-      "sourceLabel": "فيديو على حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-17-bus-drivers-honor",
-      "sourceId": "2100535905362784721",
-      "date": "2026-09-17",
-      "title": "تكريم سائقي الحافلات المدرسية",
-      "description": "كرّمت إدارة المدرسة سائقي الحافلات المدرسية تقديرًا لعطائهم المتواصل ومبادراتهم التطوعية وحرصهم على خدمة الطلبة ودعم مسيرة العمل المدرسي.",
-      "category": "honors",
-      "audiences": ["الموظفون", "المجتمع المدرسي"],
-      "people": ["سائقو الحافلات المدرسية"],
-      "grades": [],
-      "specialist": false,
-      "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSaaRJPa0AAxj1I.jpg", "alt": "تكريم سائقي الحافلات المدرسية"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSaaRJNaUAAyLja.jpg", "alt": "جانب من تكريم سائقي الحافلات"}
-      ],
-      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100535905362784721",
-      "sourceLabel": "حساب المدرسة في X"
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
       "id": "activity-2026-09-17-transport-safety",
       "sourceId": "2100534216274718726",
       "date": "2026-09-17",
       "title": "متابعة سلامة وانتظام النقل المدرسي",
-      "description": "تابع مدير المدرسة سير الحافلات، وتحقق من الالتزام بالوقوف الآمن وانتظام الوصول في المواعيد المحددة؛ بما يضمن انسيابية النقل وسلامة الطلبة.",
+      "description": "حرصًا على سلامة الطلبة وانتظام حركة النقل المدرسي، تابع مدير المدرسة سير الحافلات المدرسية، وتحقّق من الالتزام بالوقوف الآمن، وانتظام وصول الحافلات في المواعيد المحددة، بما يضمن انسيابية عملية النقل وسلامة الطلبة.",
       "category": "transport",
-      "audiences": ["الطلبة", "سائقو الحافلات"],
-      "people": ["أ. راشد السنيدي"],
+      "audiences": [
+        "الطلبة",
+        "سائقو الحافلات"
+      ],
+      "people": [
+        "أ. راشد السنيدي"
+      ],
       "grades": [],
       "specialist": false,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSaYuxYbUAA3N_9.jpg", "alt": "متابعة الحافلات المدرسية"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSaYuxJakAA_Jzl.jpg", "alt": "تنظيم حركة النقل المدرسي"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSaYuxYbUAA3N_9.jpg",
+          "alt": "متابعة الحافلات المدرسية",
+          "localPath": "/activity-media/71ee88beb0a519e75509c8dc.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSaYuxJakAA_Jzl.jpg",
+          "alt": "تنظيم حركة النقل المدرسي",
+          "localPath": "/activity-media/4e42c5da74d7b59acc26162a.jpg"
+        }
       ],
       "sourceUrl": "https://x.com/EduGovSsq5302/status/2100534216274718726",
-      "sourceLabel": "حساب المدرسة في X"
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "activity-2026-09-17-school-work-video",
+      "sourceId": "2100658064705622452",
+      "date": "2026-09-17",
+      "title": "جانب من الأعمال والحصص والبرامج والأنشطة المدرسية",
+      "description": "جانبٌ من الأعمال والحصص والبرامج والأنشطة المدرسية التي نفّذتها الهيئة الإدارية والتدريسية بالمدرسة . إعداد وتصميم: أ. مسعود الحميدي.",
+      "category": "media",
+      "audiences": [
+        "الطلبة",
+        "المعلمون",
+        "المجتمع المدرسي"
+      ],
+      "people": [
+        "أ. مسعود الحميدي"
+      ],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2100657903195623424/img/d2QXqCYxdCCGfff8?format=webp&name=medium",
+          "alt": "فيديو: جانبٌ من الأعمال والحصص والبرامج والأنشطة المدرسية التي نفّذتها الهيئة الإدارية…",
+          "localPath": "/activity-media/645c2c433891080a253e3a9a.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100658064705622452",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
       "id": "activity-2026-09-17-future-scientists",
@@ -83,8 +301,12 @@
       "title": "مبادرة علماء الغد",
       "description": "تنفيذ مبادرة «علماء الغد» خلال الفصل الدراسي الأول؛ بهدف تعزيز الفضول العلمي وتشجيع الطلبة على التعلم والاستكشاف. إشراف وتنفيذ أ. مسعود الحميدي.",
       "category": "student-life",
-      "audiences": ["الطلبة"],
-      "people": ["أ. مسعود الحميدي"],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. مسعود الحميدي"
+      ],
       "grades": [],
       "specialist": false,
       "media": [],
@@ -92,160 +314,228 @@
       "sourceLabel": "أرشيف أنشطة المدرسة"
     },
     {
+      "id": "activity-2026-09-17-bus-drivers-honor",
+      "sourceId": "2100535905362784721",
+      "date": "2026-09-17",
+      "title": "تكريم سائقي الحافلات المدرسية",
+      "description": "تقديرًا لعطائهم المتواصل، وامتنانًا لمبادراتهم التطوعية الدائمة، كرّمت إدارة المدرسة سائقي الحافلات المدرسية؛ تثمينًا لجهودهم المخلصة وحرصهم المستمر على خدمة الطلبة، وإسهامهم الفاعل في دعم مسيرة العمل المدرسي.",
+      "category": "honors",
+      "audiences": [
+        "الموظفون",
+        "المجتمع المدرسي"
+      ],
+      "people": [
+        "سائقو الحافلات المدرسية"
+      ],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSaaRJPa0AAxj1I.jpg",
+          "alt": "تكريم سائقي الحافلات المدرسية",
+          "localPath": "/activity-media/7410a7dd1f16957dcfe7c2ec.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSaaRJNaUAAyLja.jpg",
+          "alt": "جانب من تكريم سائقي الحافلات",
+          "localPath": "/activity-media/ba788f4010c124202259205e.jpg"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100535905362784721",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
       "id": "activity-2026-09-16-cafeteria",
-      "sourceId": null,
-      "date": "2026-09-16",
+      "sourceId": "2100478429821018192",
+      "date": "2026-09-17",
       "title": "متابعة المقصف والبيئة الغذائية الصحية",
-      "description": "زار مدير المدرسة أ. راشد السنيدي المقصف المدرسي، وثمّن مستوى الاهتمام والنظافة وحرص القائم عليه على توفير بيئة غذائية صحية وآمنة للطلبة.",
+      "description": "زار مدير المدرسة الأستاذ راشد السنيدي المقصف المدرسي، وأبدى إعجابه بما شاهده من اهتمام ونظافة، مثمّنًا جهود القائم عليه وحرصه على توفير بيئة غذائية صحية وآمنة، بما يعزز صحة الطلبة وسلامتهم.",
       "category": "health",
-      "audiences": ["الطلبة", "الموظفون"],
-      "people": ["أ. راشد السنيدي"],
+      "audiences": [
+        "الطلبة",
+        "الموظفون"
+      ],
+      "people": [
+        "أ. راشد السنيدي"
+      ],
       "grades": [],
       "specialist": false,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSZl_qpbcAAkuCr.jpg", "alt": "زيارة مدير المدرسة للمقصف"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSZl_qpaAAAQIld.jpg", "alt": "متابعة نظافة المقصف المدرسي"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSZl_qpbcAAkuCr.jpg",
+          "alt": "زيارة مدير المدرسة للمقصف",
+          "localPath": "/activity-media/b13d3230637088184e3e7cf3.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSZl_qpaAAAQIld.jpg",
+          "alt": "متابعة نظافة المقصف المدرسي",
+          "localPath": "/activity-media/1285ea2aaebaf810bf3c58b1.jpg"
+        }
       ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-16-khalid-adjustment",
-      "sourceId": null,
-      "date": "2026-09-16",
-      "title": "حصة إرشادية حول التكيف والصحة النفسية",
-      "description": "نفّذ الأخصائي النفسي أ. خالد المشايخي حصة إرشادية تناولت مفهوم التكيف النفسي، والعوامل الداعمة للصحة النفسية، وأساليب التعامل مع الضغوط والمواقف اليومية؛ لتعزيز الوعي النفسي ومهارات التكيف الإيجابي.",
-      "category": "guidance",
-      "audiences": ["الطلبة"],
-      "people": ["أ. خالد المشايخي"],
-      "grades": [7],
-      "specialist": true,
-      "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSXCCBZaIAAz-nA.jpg", "alt": "حصة التكيف والصحة النفسية"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSXCBaIbgAAEieq.jpg", "alt": "الأخصائي النفسي أثناء الحصة الإرشادية"}
-      ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-16-khamis-motivation",
-      "sourceId": null,
-      "date": "2026-09-16",
-      "title": "حصة إرشادية لتعزيز دافعية التعلم",
-      "description": "نفّذ الأخصائي الاجتماعي أ. خميس الساعدي حصة إرشادية لطلبة الصف السادس حول العوامل المؤثرة في الدافعية، وتحديد الأهداف والمثابرة وتنظيم الجهد؛ لتنمية الاتجاهات الإيجابية نحو التعلم.",
-      "category": "guidance",
-      "audiences": ["الطلبة"],
-      "people": ["أ. خميس الساعدي"],
-      "grades": [6],
-      "specialist": true,
-      "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSWu4UjaUAAFaeO.jpg", "alt": "حصة تعزيز دافعية التعلم"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSWu35cbsAAZ65E.jpg", "alt": "الأخصائي الاجتماعي أثناء الحصة الإرشادية"}
-      ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-16-shihab-public-property",
-      "sourceId": null,
-      "date": "2026-09-16",
-      "title": "المحافظة على الممتلكات العامة",
-      "description": "نفّذ الأخصائي الاجتماعي أ. شهاب الهاشمي حصة توعوية إرشادية حول المحافظة على مرافق المدرسة ونظافتها والتعامل المسؤول معها وتجنب العبث أو الإتلاف؛ بما يعزز المسؤولية والانتماء لدى الطلبة.",
-      "category": "guidance",
-      "audiences": ["الطلبة"],
-      "people": ["أ. شهاب الهاشمي"],
-      "grades": [5],
-      "specialist": true,
-      "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSWIp4VbUAAHn3x.jpg", "alt": "حصة المحافظة على الممتلكات العامة"}
-      ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-16-amir-modern-teaching",
-      "sourceId": null,
-      "date": "2026-09-16",
-      "title": "توظيف استراتيجيات التدريس الحديثة",
-      "description": "قدّم أ. أمير السنيدي حصة تعليمية وظّف خلالها استراتيجيات التدريس الحديثة والتقنيات التعليمية بفاعلية، وشهدت تفاعلًا إيجابيًا من الطلبة عزز دافعيتهم ومشاركتهم.",
-      "category": "teaching",
-      "audiences": ["الطلبة", "المعلمون"],
-      "people": ["أ. أمير السنيدي"],
-      "grades": [],
-      "specialist": false,
-      "media": [],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "فيديو على حساب المدرسة في X"
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100478429821018192",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
       "id": "activity-2026-09-16-space-lesson",
-      "sourceId": null,
+      "sourceId": "2100126783140163853",
       "date": "2026-09-16",
       "title": "درس: من أين يبدأ الفضاء؟",
-      "description": "قدّم أ. محمد العامري شرحًا لدرس «من أين يبدأ الفضاء؟» للصف الثامن، موظفًا استراتيجيات تعليمية حديثة نشّطت دور الطلبة وعززت تفاعلهم مع محتوى الدرس.",
+      "description": "قدّم الأستاذ محمد العامري شرحًا لدرس «من أين يبدأ الفضاء؟» للصف الثامن، موظفًا مجموعة متنوعة من الاستراتيجيات التعليمية الحديثة التي أسهمت في تنشيط دور الطلبة وتعزيز تفاعلهم مع محتوى الدرس. #تعلم_مستدام #مدارسنا_مستقبل_واعد",
       "category": "teaching",
-      "audiences": ["الطلبة"],
-      "people": ["أ. محمد العامري"],
-      "grades": [8],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. محمد العامري"
+      ],
+      "grades": [
+        8
+      ],
       "specialist": false,
-      "media": [],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "فيديو على حساب المدرسة في X"
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2100126683714203648/img/36kwZs0hhfscZIYI?format=webp&name=medium",
+          "alt": "فيديو: قدّم الأستاذ محمد العامري شرحًا لدرس «من أين يبدأ الفضاء",
+          "localPath": "/activity-media/399ee6363a7a37320ce5510f.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100126783140163853",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
-      "id": "activity-2026-09-15-khalid-intervention-workshop",
-      "sourceId": null,
-      "date": "2026-09-15",
-      "title": "ورقة عمل: التدخل النفسي والسلوكي في الحالات الطلابية",
-      "description": "قدّم الأخصائي النفسي أ. خالد المشايخي ورقة عمل تناولت فهم السلوك، وتقدير مستوى التدخل المناسب، والتعامل مع الحالات المتكررة أو المعقدة، ومسارات الإحالة والمتابعة وفق طبيعة الحالة.",
+      "id": "activity-2026-09-16-shihab-public-property",
+      "sourceId": "2100235061023138153",
+      "date": "2026-09-16",
+      "title": "المحافظة على الممتلكات العامة",
+      "description": "نفّذ الأخصائي الاجتماعي أ. شهاب الهاشمي حصة توعوية إرشادية حول المحافظة على الممتلكات العامة، تناولت أهمية الحفاظ على مرافق المدرسة ونظافتها، والتعامل المسؤول معها، وتجنب العبث أو الإتلاف، بما يعزز المسؤولية والانتماء لدى الطلبة.",
       "category": "guidance",
-      "audiences": ["المعلمون", "أعضاء لجنة شؤون الطلبة"],
-      "people": ["أ. خالد المشايخي"],
-      "grades": [],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. شهاب الهاشمي"
+      ],
+      "grades": [
+        5
+      ],
       "specialist": true,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhSSGbwAAtvEq.jpg", "alt": "ورقة التدخل النفسي والسلوكي"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhRhmbEAAR5JI.jpg", "alt": "عرض التدخل النفسي والسلوكي"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSWIp4VbUAAHn3x.jpg",
+          "alt": "حصة المحافظة على الممتلكات العامة",
+          "localPath": "/activity-media/0310b97c8c6a8ccca6fb0424.jpg"
+        }
       ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100235061023138153",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
-      "id": "activity-2026-09-15-specialists-workshops",
-      "sourceId": null,
-      "date": "2026-09-15",
-      "title": "أوراق عمل تخصصية للجنة شؤون الطلبة",
-      "description": "قدّم الأخصائيون النفسيون والاجتماعيون أربع أوراق عمل لتعزيز كفاءة أعضاء اللجنة وتوحيد المتابعة والتدخل: أ. خالد المشايخي، أ. حمد الشماخي، أ. شهاب الهاشمي، وأ. خميس الساعدي.",
+      "id": "activity-2026-09-16-khamis-motivation",
+      "sourceId": "2100277090461606182",
+      "date": "2026-09-16",
+      "title": "حصة إرشادية لتعزيز دافعية التعلم",
+      "description": "نفّذ الأخصائي الاجتماعي أ.خميس الساعدي ، حصة إرشادية لطلبة الصف السادس حول تعزيز دافعية التعلّم، تناولت العوامل المؤثرة في الدافعية، وأهمية تحديد الأهداف والمثابرة وتنظيم الجهد، بما يسهم في تنمية الاتجاهات الإيجابية نحو التعلّم وتحسين مستوى الأداء الدراسي.",
       "category": "guidance",
-      "audiences": ["المعلمون", "أعضاء لجنة شؤون الطلبة"],
-      "people": ["أ. خالد المشايخي", "أ. حمد الشماخي", "أ. شهاب الهاشمي", "أ. خميس الساعدي"],
-      "grades": [],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. خميس الساعدي"
+      ],
+      "grades": [
+        6
+      ],
       "specialist": true,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhNHpa0AAP5OT.jpg", "alt": "أوراق عمل الأخصائيين"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhMsEbAAAUgEp.jpg", "alt": "تدريب أعضاء لجنة شؤون الطلبة"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhL8rbkAA88Gs.jpg", "alt": "جانب من أوراق العمل التخصصية"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSWu4UjaUAAFaeO.jpg",
+          "alt": "حصة تعزيز دافعية التعلم",
+          "localPath": "/activity-media/6113c8b3df0499a83b002936.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSWu35cbsAAZ65E.jpg",
+          "alt": "الأخصائي الاجتماعي أثناء الحصة الإرشادية",
+          "localPath": "/activity-media/76e54ab35cb158559df4b1b7.jpg"
+        }
       ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100277090461606182",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
-      "id": "activity-2026-09-15-khamis-classroom-management",
-      "sourceId": null,
-      "date": "2026-09-15",
-      "title": "ورقة عمل: إدارة السلوك الصفي",
-      "description": "نفّذ الأخصائي الاجتماعي أ. خميس الساعدي ورقة عمل حول التعامل مع السلوكيات الصفية، ودور المعلم في ضبط المواقف السلوكية، وآليات المتابعة والإحالة وفق لائحة شؤون الطلبة.",
+      "id": "activity-2026-09-16-khalid-adjustment",
+      "sourceId": "2100298151014043721",
+      "date": "2026-09-16",
+      "title": "حصة إرشادية حول التكيف والصحة النفسية",
+      "description": "نفّذ ، الأخصائي النفسي أ.خالد المشايخي، حصة إرشادية حول التكيف والصحة النفسية، تناولت مفهوم التكيف النفسي، والعوامل الداعمة للصحة النفسية، وأساليب التعامل مع الضغوط والمواقف اليومية، بما يسهم في تعزيز الوعي النفسي وتنمية مهارات التكيف الإيجابي لدى الطلبة.",
       "category": "guidance",
-      "audiences": ["المعلمون", "أعضاء لجنة شؤون الطلبة"],
-      "people": ["أ. خميس الساعدي"],
-      "grades": [],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. خالد المشايخي"
+      ],
+      "grades": [
+        7
+      ],
       "specialist": true,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhQhwa8AE9ILo.jpg", "alt": "ورقة عمل إدارة السلوك الصفي"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRhPteaAAAWZAi.jpg", "alt": "عرض إدارة السلوك الصفي"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSXCCBZaIAAz-nA.jpg",
+          "alt": "حصة التكيف والصحة النفسية",
+          "localPath": "/activity-media/8450272afc0bab383ac9649e.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSXCBaIbgAAEieq.jpg",
+          "alt": "الأخصائي النفسي أثناء الحصة الإرشادية",
+          "localPath": "/activity-media/2d2c7d54333c8a5c8751d270.jpg"
+        }
       ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100298151014043721",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "activity-2026-09-16-amir-modern-teaching",
+      "sourceId": "2100227153828979183",
+      "date": "2026-09-16",
+      "title": "توظيف استراتيجيات التدريس الحديثة",
+      "description": "قدّم الأستاذ أمير السنيدي حصة تعليمية متميزة، وظّف خلالها استراتيجيات التدريس الحديثة والتقنيات التعليمية بفاعلية، وقد شهدت الحصة تفاعلًا إيجابيًا من الطلبة، مما أسهم في رفع دافعيتهم وتعزيز مشاركتهم الفاعلة. @ EduGovSsq #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [
+        "أ. أمير السنيدي"
+      ],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2100227077543014400/img/wgTFyMMO7m-ECMbb?format=webp&name=medium",
+          "alt": "فيديو: قدّم الأستاذ أمير السنيدي حصة تعليمية متميزة، وظّف خلالها استراتيجيات التدريس الحديثة…",
+          "localPath": "/activity-media/b565499e3fea9963aa18ecbd.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2100227153828979183",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     },
     {
       "id": "activity-2026-09-15-student-affairs-committee",
@@ -254,15 +544,234 @@
       "title": "اجتماع لجنة شؤون الطلبة",
       "description": "عقدت اللجنة اجتماعها برئاسة مدير المدرسة أ. راشد السنيدي وبحضور أخصائيي المدرسة والمعلمين الأعضاء؛ لمناقشة اللائحة والأدوار وآليات متابعة السلوك والتعامل مع المخالفات وفق الإجراءات المنظمة.",
       "category": "administration",
-      "audiences": ["المعلمون", "أعضاء لجنة شؤون الطلبة"],
-      "people": ["أ. راشد السنيدي", "الأخصائيون النفسيون والاجتماعيون", "المعلمون أعضاء اللجنة"],
+      "audiences": [
+        "المعلمون",
+        "أعضاء لجنة شؤون الطلبة"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "الأخصائيون النفسيون والاجتماعيون",
+        "المعلمون أعضاء اللجنة"
+      ],
       "grades": [],
       "specialist": true,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRWgFBaIAAVpvU.jpg", "alt": "اجتماع لجنة شؤون الطلبة"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRWfq-bMAcIm-h.jpg", "alt": "مناقشة لائحة شؤون الطلبة"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRWfOUbMAE_PNz.jpg", "alt": "أعضاء لجنة شؤون الطلبة"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSRWe1dbcAAs8pe.jpg", "alt": "جانب من اجتماع اللجنة"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRWgFBaIAAVpvU.jpg",
+          "alt": "اجتماع لجنة شؤون الطلبة",
+          "localPath": "/activity-media/991d901e8955e53b58d51a5e.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRWfq-bMAcIm-h.jpg",
+          "alt": "مناقشة لائحة شؤون الطلبة",
+          "localPath": "/activity-media/2c85694493b381101186f266.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRWfOUbMAE_PNz.jpg",
+          "alt": "أعضاء لجنة شؤون الطلبة",
+          "localPath": "/activity-media/80262e83cce864305200b453.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRWe1dbcAAs8pe.jpg",
+          "alt": "جانب من اجتماع اللجنة",
+          "localPath": "/activity-media/2cd5ee8038d95b947eb3a1e7.jpg"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302",
+      "sourceLabel": "حساب المدرسة في X"
+    },
+    {
+      "id": "activity-2026-09-15-specialists-workshops",
+      "sourceId": "2099910212518097395",
+      "date": "2026-09-15",
+      "title": "أوراق عمل تخصصية للجنة شؤون الطلبة",
+      "description": "ضمن أعمال لجنة شؤون الطلبة، قدّم الأخصائيون النفسيون والاجتماعيون عدداً من أوراق العمل المتخصصة؛ بهدف تعزيز كفاءة أعضاء اللجنة في التعامل مع السلوك الطلابي، وتوحيد آليات المتابعة والتدخل وفق لائحة شؤون الطلبة.",
+      "category": "guidance",
+      "audiences": [
+        "المعلمون",
+        "أعضاء لجنة شؤون الطلبة"
+      ],
+      "people": [
+        "أ. خالد المشايخي",
+        "أ. حمد الشماخي",
+        "أ. شهاب الهاشمي",
+        "أ. خميس الساعدي"
+      ],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhNHpa0AAP5OT.jpg",
+          "alt": "أوراق عمل الأخصائيين",
+          "localPath": "/activity-media/f18b1bfb0b6b5df952cd9030.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhMsEbAAAUgEp.jpg",
+          "alt": "تدريب أعضاء لجنة شؤون الطلبة",
+          "localPath": "/activity-media/be82f1f059c9fa51abca9b3c.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhL8rbkAA88Gs.jpg",
+          "alt": "جانب من أوراق العمل التخصصية",
+          "localPath": "/activity-media/7b4772ce0e3902a858d2f611.jpg"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2099910212518097395",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "activity-2026-09-15-map-distance-lesson",
+      "sourceId": null,
+      "date": "2026-09-15",
+      "title": "درس قياس المسافات على الخريطة",
+      "description": "نفّذ أ. محمد العويسي، معلم الدراسات الاجتماعية، درسًا لطلبة الصف السابع/4 موظفًا استراتيجية التعلم التعاوني؛ لتعزيز المشاركة ومهارات قراءة الخرائط وتطبيق المفاهيم الجغرافية.",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. محمد العويسي"
+      ],
+      "grades": [
+        7
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQEoaXaIAAtdV8.jpg",
+          "alt": "درس قياس المسافات على الخريطة",
+          "localPath": "/activity-media/03f5646b812f946bd5c744b9.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQEn-1a8AAIlha.jpg",
+          "alt": "التعلم التعاوني في الدراسات الاجتماعية",
+          "localPath": "/activity-media/6a79f59c70eac20bd02a7f0b.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQEnWGaoAANMKx.jpg",
+          "alt": "تفاعل طلبة الصف السابع في الدرس",
+          "localPath": "/activity-media/d1c9f65567b5624f3f46ebad.jpg"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302",
+      "sourceLabel": "حساب المدرسة في X"
+    },
+    {
+      "id": "activity-2026-09-15-khamis-classroom-management",
+      "sourceId": "2099910273377378557",
+      "date": "2026-09-15",
+      "title": "ورقة عمل: إدارة السلوك الصفي",
+      "description": "ونفذ الأخصائي الاجتماعي أ. خميس الساعدي ورقة عمل بعنوان «إدارة السلوك الصفي»، تناولت أساليب التعامل مع السلوكيات الصفية، ودور المعلم في ضبط المواقف السلوكية، وآليات المتابعة والإحالة بما يتوافق مع لائحة شؤون الطلبة.",
+      "category": "guidance",
+      "audiences": [
+        "المعلمون",
+        "أعضاء لجنة شؤون الطلبة"
+      ],
+      "people": [
+        "أ. خميس الساعدي"
+      ],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhQhwa8AE9ILo.jpg",
+          "alt": "ورقة عمل إدارة السلوك الصفي",
+          "localPath": "/activity-media/c0c53db965013ffc063fbc70.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhPteaAAAWZAi.jpg",
+          "alt": "عرض إدارة السلوك الصفي",
+          "localPath": "/activity-media/7e7ab4567a63de6dab19dab7.jpg"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2099910273377378557",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "activity-2026-09-15-khalid-intervention-workshop",
+      "sourceId": "2099910299667337691",
+      "date": "2026-09-15",
+      "title": "ورقة عمل: التدخل النفسي والسلوكي في الحالات الطلابية",
+      "description": "وقدّم الأخصائي النفسي أ. خالد المشايخي ورقة عمل بعنوان «التدخل النفسي والسلوكي في الحالات الطلابية»، تناولت آليات فهم السلوك، وتقدير مستوى التدخل المناسب، والتعامل مع الحالات المتكررة أو المعقدة، ومسارات الإحالة والمتابعة وفق طبيعة كل حالة.",
+      "category": "guidance",
+      "audiences": [
+        "المعلمون",
+        "أعضاء لجنة شؤون الطلبة"
+      ],
+      "people": [
+        "أ. خالد المشايخي"
+      ],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhSSGbwAAtvEq.jpg",
+          "alt": "ورقة التدخل النفسي والسلوكي",
+          "localPath": "/activity-media/40c0c1ee9a6ff46acd52692c.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSRhRhmbEAAR5JI.jpg",
+          "alt": "عرض التدخل النفسي والسلوكي",
+          "localPath": "/activity-media/2cb8b08791f7e6fc1965b9c8.jpg"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2099910299667337691",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "activity-2026-09-15-community-relations-visit",
+      "sourceId": null,
+      "date": "2026-09-15",
+      "title": "متابعة مجلس أولياء الأمور والعلاقات المجتمعية",
+      "description": "زار أ. محمد بن سالم بن حمد المسروري، مشرف تنمية علاقات مجتمعية، المدرسة لمتابعة تشكيل مجلس أولياء الأمور وخططه والبرامج الداعمة للشراكة بين المدرسة والأسرة والمجتمع.",
+      "category": "community",
+      "audiences": [
+        "أولياء الأمور",
+        "الإدارة المدرسية",
+        "المجتمع المحلي"
+      ],
+      "people": [
+        "أ. محمد بن سالم بن حمد المسروري",
+        "أ. راشد السنيدي"
+      ],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQxkDqbYAAw_w5.jpg",
+          "alt": "زيارة مشرف العلاقات المجتمعية",
+          "localPath": "/activity-media/5b3c6baaf104ab00db7e4b8d.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQxjp0bYAADUfK.jpg",
+          "alt": "مناقشة مجلس أولياء الأمور",
+          "localPath": "/activity-media/bb6235b57b4f4c3a6c03c243.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQxjKAawAA2g9D.jpg",
+          "alt": "جانب من زيارة العلاقات المجتمعية",
+          "localPath": "/activity-media/68004e65a8edd463f5b5d7c3.jpg"
+        }
       ],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
@@ -274,52 +783,49 @@
       "title": "زيارة المشرف الإداري لمتابعة الخطة المدرسية",
       "description": "زار أ. أحمد الراجحي، المشرف الإداري، المدرسة والتقى بمديرها أ. راشد السنيدي؛ لمتابعة الخطة المدرسية وتشكيل اللجان ومؤشرات الأداء وآليات التنفيذ والمتابعة.",
       "category": "visits",
-      "audiences": ["الإدارة المدرسية"],
-      "people": ["أ. أحمد الراجحي", "أ. راشد السنيدي"],
+      "audiences": [
+        "الإدارة المدرسية"
+      ],
+      "people": [
+        "أ. أحمد الراجحي",
+        "أ. راشد السنيدي"
+      ],
       "grades": [],
       "specialist": false,
       "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQz9jFbUAAuNER.jpg", "alt": "زيارة المشرف الإداري"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQz9JeaoAAlS0x.jpg", "alt": "متابعة الخطة المدرسية"}
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQz9jFbUAAuNER.jpg",
+          "alt": "زيارة المشرف الإداري",
+          "localPath": "/activity-media/dd7d8db6446fdc7efc9970fe.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HSQz9JeaoAAlS0x.jpg",
+          "alt": "متابعة الخطة المدرسية",
+          "localPath": "/activity-media/495509dce4b58432fbd79ee7.jpg"
+        }
       ],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
     },
     {
-      "id": "activity-2026-09-15-community-relations-visit",
+      "id": "activity-2026-09-10-workers-meeting",
       "sourceId": null,
-      "date": "2026-09-15",
-      "title": "متابعة مجلس أولياء الأمور والعلاقات المجتمعية",
-      "description": "زار أ. محمد بن سالم بن حمد المسروري، مشرف تنمية علاقات مجتمعية، المدرسة لمتابعة تشكيل مجلس أولياء الأمور وخططه والبرامج الداعمة للشراكة بين المدرسة والأسرة والمجتمع.",
-      "category": "community",
-      "audiences": ["أولياء الأمور", "الإدارة المدرسية", "المجتمع المحلي"],
-      "people": ["أ. محمد بن سالم بن حمد المسروري", "أ. راشد السنيدي"],
+      "date": "2026-09-10",
+      "title": "اجتماع تنظيم أعمال عمال المدرسة",
+      "description": "عقد مدير المدرسة أ. راشد السنيدي، بحضور الأخصائي الإداري والمالي أ. سعيد السنيدي، اجتماعًا مع عمال المدرسة لتنظيم سير العمل وتوزيع المهام وتعزيز النظافة والعناية بالمرافق.",
+      "category": "administration",
+      "audiences": [
+        "الموظفون"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "أ. سعيد السنيدي"
+      ],
       "grades": [],
       "specialist": false,
-      "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQxkDqbYAAw_w5.jpg", "alt": "زيارة مشرف العلاقات المجتمعية"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQxjp0bYAADUfK.jpg", "alt": "مناقشة مجلس أولياء الأمور"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQxjKAawAA2g9D.jpg", "alt": "جانب من زيارة العلاقات المجتمعية"}
-      ],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-15-map-distance-lesson",
-      "sourceId": null,
-      "date": "2026-09-15",
-      "title": "درس قياس المسافات على الخريطة",
-      "description": "نفّذ أ. محمد العويسي، معلم الدراسات الاجتماعية، درسًا لطلبة الصف السابع/4 موظفًا استراتيجية التعلم التعاوني؛ لتعزيز المشاركة ومهارات قراءة الخرائط وتطبيق المفاهيم الجغرافية.",
-      "category": "teaching",
-      "audiences": ["الطلبة"],
-      "people": ["أ. محمد العويسي"],
-      "grades": [7],
-      "specialist": false,
-      "media": [
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQEoaXaIAAtdV8.jpg", "alt": "درس قياس المسافات على الخريطة"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQEn-1a8AAIlha.jpg", "alt": "التعلم التعاوني في الدراسات الاجتماعية"},
-        {"type": "image", "url": "https://pbs.twimg.com/media/HSQEnWGaoAANMKx.jpg", "alt": "تفاعل طلبة الصف السابع في الدرس"}
-      ],
+      "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
     },
@@ -330,7 +836,11 @@
       "title": "ملخص الفعاليات والأعمال المدرسية في الأسبوع الأول",
       "description": "ملخص لأبرز برامج وفعاليات وأعمال الأسبوع الأول من العام الدراسي 2026/2027م.",
       "category": "media",
-      "audiences": ["الطلبة", "المعلمون", "المجتمع المدرسي"],
+      "audiences": [
+        "الطلبة",
+        "المعلمون",
+        "المجتمع المدرسي"
+      ],
       "people": [],
       "grades": [],
       "specialist": false,
@@ -345,25 +855,16 @@
       "title": "اجتماع الهيئة الإدارية والتدريسية",
       "description": "عقد مدير المدرسة أ. راشد السنيدي اجتماعًا لمناقشة أولويات العمل، ورفع التحصيل الدراسي، وتعزيز الانضباط الطلابي، وتكامل الأدوار بين الجانبين التعليمي والإرشادي، بما يسهم في تجويد الأداء.",
       "category": "administration",
-      "audiences": ["المعلمون", "الإدارة المدرسية"],
-      "people": ["أ. راشد السنيدي", "الهيئة الإدارية والتدريسية"],
+      "audiences": [
+        "المعلمون",
+        "الإدارة المدرسية"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "الهيئة الإدارية والتدريسية"
+      ],
       "grades": [],
       "specialist": false,
-      "media": [],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-10-dysentery-exhibition",
-      "sourceId": null,
-      "date": "2026-09-10",
-      "title": "المشاركة في المعرض الصحي التوعوي حول مرض الزحار",
-      "description": "شارك عدد من طلبة المدرسة في المعرض الصحي بمستشفى جعلان بني بوحسن، بمشاركة ممرض المدرسة م. راشد السعيدي والأخصائي الاجتماعي أ. خميس الساعدي؛ للتعريف بالمرض وطرق انتقاله والوقاية منه.",
-      "category": "health",
-      "audiences": ["الطلبة"],
-      "people": ["م. راشد السعيدي", "أ. خميس الساعدي"],
-      "grades": [],
-      "specialist": true,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
@@ -375,25 +876,36 @@
       "title": "حصة تطبيقية: القيمة المكانية",
       "description": "نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة لطلاب الصف السادس تضمنت أنشطة تطبيقية وتفاعلية عززت استيعاب المفاهيم الرياضية بأسلوب مشوق ومحفز.",
       "category": "teaching",
-      "audiences": ["الطلبة"],
-      "people": ["أ. عبدالله الجمري"],
-      "grades": [6],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. عبدالله الجمري"
+      ],
+      "grades": [
+        6
+      ],
       "specialist": false,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "فيديو على حساب المدرسة في X"
     },
     {
-      "id": "activity-2026-09-10-workers-meeting",
+      "id": "activity-2026-09-10-dysentery-exhibition",
       "sourceId": null,
       "date": "2026-09-10",
-      "title": "اجتماع تنظيم أعمال عمال المدرسة",
-      "description": "عقد مدير المدرسة أ. راشد السنيدي، بحضور الأخصائي الإداري والمالي أ. سعيد السنيدي، اجتماعًا مع عمال المدرسة لتنظيم سير العمل وتوزيع المهام وتعزيز النظافة والعناية بالمرافق.",
-      "category": "administration",
-      "audiences": ["الموظفون"],
-      "people": ["أ. راشد السنيدي", "أ. سعيد السنيدي"],
+      "title": "المشاركة في المعرض الصحي التوعوي حول مرض الزحار",
+      "description": "شارك عدد من طلبة المدرسة في المعرض الصحي بمستشفى جعلان بني بوحسن، بمشاركة ممرض المدرسة م. راشد السعيدي والأخصائي الاجتماعي أ. خميس الساعدي؛ للتعريف بالمرض وطرق انتقاله والوقاية منه.",
+      "category": "health",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "م. راشد السعيدي",
+        "أ. خميس الساعدي"
+      ],
       "grades": [],
-      "specialist": false,
+      "specialist": true,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
@@ -405,9 +917,19 @@
       "title": "توجيه الطلبة إلى الانضباط والالتزام",
       "description": "وجّه مدير المدرسة أ. راشد السنيدي الطلبة إلى أهمية الانضباط والالتزام بالتعليمات، مؤكدًا دور الأخصائيين النفسيين والاجتماعيين في متابعة السلوك وتعزيز البيئة المدرسية الآمنة والمنظمة.",
       "category": "guidance",
-      "audiences": ["الطلبة"],
-      "people": ["أ. راشد السنيدي", "الأخصائيون النفسيون والاجتماعيون"],
-      "grades": [5, 6, 7, 8],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "الأخصائيون النفسيون والاجتماعيون"
+      ],
+      "grades": [
+        5,
+        6,
+        7,
+        8
+      ],
       "specialist": true,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
@@ -420,24 +942,19 @@
       "title": "حملة توعوية بلائحة شؤون الطلبة",
       "description": "نفّذ الأخصائيون النفسيون والاجتماعيون، بمشاركة مدير المدرسة، حملة صفية لتعزيز الانضباط والسلوك الإيجابي والتعريف بحقوق الطلبة وواجباتهم والإجراءات المنظمة؛ بما يرسخ المسؤولية والالتزام.",
       "category": "guidance",
-      "audiences": ["الطلبة"],
-      "people": ["أ. راشد السنيدي", "الأخصائيون النفسيون والاجتماعيون"],
-      "grades": [5, 6, 7, 8],
-      "specialist": true,
-      "media": [],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "حساب المدرسة في X"
-    },
-    {
-      "id": "activity-2026-09-08-guidance-supervisors",
-      "sourceId": null,
-      "date": "2026-09-08",
-      "title": "زيارة مشرفي الإرشاد الاجتماعي والنفسي",
-      "description": "زار المدرسة أ. فيصل الصواعي، مشرف الإرشاد الاجتماعي، وأ. ناصر الحكماني، مشرف الإرشاد النفسي؛ للاطلاع على سير العمل الإرشادي وبرامج التوعية والخدمات المقدمة ومناقشة الاحتياجات وسبل التطوير.",
-      "category": "visits",
-      "audiences": ["الأخصائيون", "الإدارة المدرسية"],
-      "people": ["أ. فيصل الصواعي", "أ. ناصر الحكماني", "أ. راشد السنيدي"],
-      "grades": [],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "الأخصائيون النفسيون والاجتماعيون"
+      ],
+      "grades": [
+        5,
+        6,
+        7,
+        8
+      ],
       "specialist": true,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
@@ -450,10 +967,38 @@
       "title": "تكريم المعلمين المبادرين",
       "description": "كرّمت إدارة المدرسة المعلمين المبادرين تقديرًا لجهودهم وإسهاماتهم في دعم العمل المدرسي منذ انطلاقة العام الدراسي. نفّذ التكريم مدير المدرسة أ. راشد السنيدي بحضور المشرف الإداري أ. أحمد الراجحي.",
       "category": "honors",
-      "audiences": ["المعلمون"],
-      "people": ["أ. راشد السنيدي", "أ. أحمد الراجحي", "المعلمون المبادرون"],
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "أ. أحمد الراجحي",
+        "المعلمون المبادرون"
+      ],
       "grades": [],
       "specialist": false,
+      "media": [],
+      "sourceUrl": "https://x.com/EduGovSsq5302",
+      "sourceLabel": "حساب المدرسة في X"
+    },
+    {
+      "id": "activity-2026-09-08-guidance-supervisors",
+      "sourceId": null,
+      "date": "2026-09-08",
+      "title": "زيارة مشرفي الإرشاد الاجتماعي والنفسي",
+      "description": "زار المدرسة أ. فيصل الصواعي، مشرف الإرشاد الاجتماعي، وأ. ناصر الحكماني، مشرف الإرشاد النفسي؛ للاطلاع على سير العمل الإرشادي وبرامج التوعية والخدمات المقدمة ومناقشة الاحتياجات وسبل التطوير.",
+      "category": "visits",
+      "audiences": [
+        "الأخصائيون",
+        "الإدارة المدرسية"
+      ],
+      "people": [
+        "أ. فيصل الصواعي",
+        "أ. ناصر الحكماني",
+        "أ. راشد السنيدي"
+      ],
+      "grades": [],
+      "specialist": true,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
@@ -465,8 +1010,16 @@
       "title": "زيارة إشرافية لمتابعة سير العمل",
       "description": "زار المدرسة أ. سعود الحارثي وأ. سعيد المنذري وأ. سعيد الهاشمي، وكان في استقبالهم مدير المدرسة أ. راشد السنيدي؛ للاطلاع على سير العمل والتحديات والاحتياجات وزيارة عدد من الصفوف والمرافق.",
       "category": "visits",
-      "audiences": ["الإدارة المدرسية", "المعلمون"],
-      "people": ["أ. سعود الحارثي", "أ. سعيد المنذري", "أ. سعيد الهاشمي", "أ. راشد السنيدي"],
+      "audiences": [
+        "الإدارة المدرسية",
+        "المعلمون"
+      ],
+      "people": [
+        "أ. سعود الحارثي",
+        "أ. سعيد المنذري",
+        "أ. سعيد الهاشمي",
+        "أ. راشد السنيدي"
+      ],
       "grades": [],
       "specialist": false,
       "media": [],
@@ -480,8 +1033,15 @@
       "title": "لقاء تنسيقي للأخصائيين النفسيين والاجتماعيين",
       "description": "ناقش أخصائيو المدرسة خطة العمل الإرشادي وأولوياتها وآليات متابعة الطلبة وتوزيع الأدوار والمسؤوليات وتعزيز التكامل المهني؛ بما يضمن فاعلية الخدمات الإرشادية.",
       "category": "guidance",
-      "audiences": ["الأخصائيون"],
-      "people": ["أ. خالد المشايخي", "أ. حمد الشماخي", "أ. شهاب الهاشمي", "أ. خميس الساعدي"],
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [
+        "أ. خالد المشايخي",
+        "أ. حمد الشماخي",
+        "أ. شهاب الهاشمي",
+        "أ. خميس الساعدي"
+      ],
       "grades": [],
       "specialist": true,
       "media": [],
@@ -495,8 +1055,14 @@
       "title": "اجتماع مدير المدرسة مع الأخصائيين",
       "description": "عقد مدير المدرسة أ. راشد السنيدي اجتماعًا مع الأخصائيين النفسيين والاجتماعيين لمناقشة لائحة شؤون الطلبة وآليات المتابعة وتنظيم الأدوار وتكامل الجهود، بما يعزز جودة الخدمات الإرشادية.",
       "category": "guidance",
-      "audiences": ["الأخصائيون", "الإدارة المدرسية"],
-      "people": ["أ. راشد السنيدي", "الأخصائيون النفسيون والاجتماعيون"],
+      "audiences": [
+        "الأخصائيون",
+        "الإدارة المدرسية"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "الأخصائيون النفسيون والاجتماعيون"
+      ],
       "grades": [],
       "specialist": true,
       "media": [],
@@ -510,8 +1076,14 @@
       "title": "زيارة مدير عام تعليمية جنوب الشرقية",
       "description": "تشرّفت المدرسة بزيارة أ. سيف بن حمد العبدلي، مدير عام تعليمية جنوب الشرقية، برفقة مديري الدوائر؛ للاطلاع على سير العمل والاستعداد والتهيئة لانطلاقة العام الدراسي ومتابعة جاهزية البيئة المدرسية.",
       "category": "visits",
-      "audiences": ["الإدارة المدرسية", "المعلمون"],
-      "people": ["أ. سيف بن حمد العبدلي", "أ. راشد السنيدي"],
+      "audiences": [
+        "الإدارة المدرسية",
+        "المعلمون"
+      ],
+      "people": [
+        "أ. سيف بن حمد العبدلي",
+        "أ. راشد السنيدي"
+      ],
       "grades": [],
       "specialist": false,
       "media": [],
@@ -525,8 +1097,13 @@
       "title": "لقاء ترحيبي بالمعلمين المنضمين إلى المدرسة",
       "description": "اجتمع مدير المدرسة أ. راشد السنيدي بالمعلمين المنضمين حديثًا، مرحبًا بهم ومؤكدًا حرص الإدارة على دعمهم وتيسير مهامهم، ومتمنيًا لهم عامًا دراسيًا حافلًا بالتوفيق والعطاء.",
       "category": "administration",
-      "audiences": ["المعلمون"],
-      "people": ["أ. راشد السنيدي", "المعلمون الجدد"],
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "المعلمون الجدد"
+      ],
       "grades": [],
       "specialist": false,
       "media": [],
@@ -540,9 +1117,20 @@
       "title": "استقبال الطلبة وبرنامج نعود بشغف",
       "description": "استقبلت المدرسة طلبتها مع بداية العام الدراسي 2026/2027م، ورحّب بهم مدير المدرسة أ. راشد السنيدي، ونُفذ البرنامج التوعوي «نعود بشغف» لتهيئتهم نفسيًا واجتماعيًا وتحفيزهم نحو بداية دراسية إيجابية.",
       "category": "student-life",
-      "audiences": ["الطلبة"],
-      "people": ["أ. راشد السنيدي", "الأخصائيون النفسيون والاجتماعيون", "الهيئة الإدارية والتدريسية"],
-      "grades": [5, 6, 7, 8],
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [
+        "أ. راشد السنيدي",
+        "الأخصائيون النفسيون والاجتماعيون",
+        "الهيئة الإدارية والتدريسية"
+      ],
+      "grades": [
+        5,
+        6,
+        7,
+        8
+      ],
       "specialist": true,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
@@ -555,28 +1143,170 @@
       "title": "التهنئة ببدء العام الدراسي الجديد",
       "description": "تقدمت الهيئة الإدارية والتدريسية بالتهنئة للطلبة بمناسبة بدء العام الدراسي 2026/2027م، متمنية لهم عامًا حافلًا بالعلم والمعرفة والنجاح والتميز والطموح والإنجاز.",
       "category": "student-life",
-      "audiences": ["الطلبة", "أولياء الأمور"],
-      "people": ["الهيئة الإدارية والتدريسية"],
-      "grades": [5, 6, 7, 8],
+      "audiences": [
+        "الطلبة",
+        "أولياء الأمور"
+      ],
+      "people": [
+        "الهيئة الإدارية والتدريسية"
+      ],
+      "grades": [
+        5,
+        6,
+        7,
+        8
+      ],
       "specialist": false,
       "media": [],
       "sourceUrl": "https://x.com/EduGovSsq5302",
       "sourceLabel": "حساب المدرسة في X"
     },
     {
-      "id": "activity-2026-08-31-assistant-principal",
-      "sourceId": null,
+      "id": "x-2094376231257223336",
+      "sourceId": "2094376231257223336",
       "date": "2026-08-31",
-      "title": "الترحيب بمساعد مدير المدرسة",
-      "description": "الترحيب بأ. سلطان الجابري بمناسبة انضمامه إلى الإدارة المدرسية مساعدًا لمدير المدرسة، مع التمنيات له بالتوفيق في مهامه ودعم العمل التربوي والتعليمي.",
-      "category": "administration",
-      "audiences": ["المعلمون", "الإدارة المدرسية"],
-      "people": ["أ. سلطان الجابري"],
+      "title": "اجتماع تسليم واستلام عهدة المدرسة",
+      "description": "جانب من اجتماع استكمال إجراءات تسليم واستلام عهدة المدرسة، وتنظيم سير العمل الإداري وذلك بحضور المشرف الإداري أ.أحمد الراجحي",
+      "category": "media",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
       "grades": [],
       "specialist": false,
-      "media": [],
-      "sourceUrl": "https://x.com/EduGovSsq5302",
-      "sourceLabel": "أرشيف المدرسة"
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HRC4E-maUAAuAE0?format=webp&name=medium",
+          "alt": "جانب من اجتماع استكمال إجراءات تسليم واستلام عهدة المدرسة، وتنظيم سير العمل الإداري وذلك…",
+          "localPath": "/activity-media/b540bcea1a7092986db053e2.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2094376231257223336",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2093996685349273893",
+      "sourceId": "2093996685349273893",
+      "date": "2026-08-30",
+      "title": "ورقة عمل: الاحتواء النفسي في البيئة الصفية",
+      "description": "شارك الأخصائي النفسي أ.خالد المشايخي بتقديم ورقة عمل بعنوان«الاحتواء النفسي في البيئة الصفية»وذلك ضمن فعاليات البرنامج التعريفي الرابع للمعلمين الجدد،الذي تنظمه دائرة تطوير الأداء المدرسي بالمديرية العامة للتعليم بمحافظة جنوب الشرقية،والمقام في قاعة مكتب والي الكامل والوافي",
+      "category": "guidance",
+      "audiences": [
+        "المعلمون",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ9e3N6agAAhpv3?format=webp&name=medium",
+          "alt": "شارك الأخصائي النفسي أ.خالد المشايخي بتقديم ورقة عمل بعنوان«الاحتواء النفسي في البيئة…",
+          "localPath": "/activity-media/464551708b688e522ce0b433.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ9e3vWbQAAg7IT?format=webp&name=medium",
+          "alt": "شارك الأخصائي النفسي أ.خالد المشايخي بتقديم ورقة عمل بعنوان«الاحتواء النفسي في البيئة…",
+          "localPath": "/activity-media/1d7981b1dc2ca3fb35930567.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ9e4bmbwAAr1gJ?format=webp&name=medium",
+          "alt": "شارك الأخصائي النفسي أ.خالد المشايخي بتقديم ورقة عمل بعنوان«الاحتواء النفسي في البيئة…",
+          "localPath": "/activity-media/ce116663d915eca799ea7f94.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2093996685349273893",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2093993088004100371",
+      "sourceId": "2093993088004100371",
+      "date": "2026-08-30",
+      "title": "إعلان مزايدة الجمعية التعاونية المدرسية",
+      "description": "حرصاً على تنظيم آلية تشغيل الجمعية التعاونية المدرسية، والارتقاء بمستوى الخدمات المقدمة، يسر إدارة المدرسة الإعلان عن طرح مزايدة لتأجير الجمعية التعاونية المدرسية، وفق الشروط والضوابط المعتمدة.",
+      "category": "administration",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ9bmyJbYAE3IVm?format=webp&name=medium",
+          "alt": "حرصاً على تنظيم آلية تشغيل الجمعية التعاونية المدرسية، والارتقاء بمستوى الخدمات المقدمة،…",
+          "localPath": "/activity-media/61ccddf46d525b2b19689e2e.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ9bnNTbwAAWV_L?format=webp&name=medium",
+          "alt": "حرصاً على تنظيم آلية تشغيل الجمعية التعاونية المدرسية، والارتقاء بمستوى الخدمات المقدمة،…",
+          "localPath": "/activity-media/bdc9a43c3e4bf00c3281f5f4.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2093993088004100371",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "x-2093992161574592639",
+      "sourceId": "2093992161574592639",
+      "date": "2026-08-30",
+      "title": "اجتماع الاستعدادات مع المعلمين الأوائل",
+      "description": "مع إشراقة العام الدراسي الجديد، عقد مدير المدرسة الأستاذ راشد السنيدي اجتماعاً بالمعلمين الأوائل؛ للوقوف على الاستعدادات، ومناقشة خطط العمل، وتوحيد الجهود نحو عام دراسي حافل بالعطاء والإنجاز.",
+      "category": "transport",
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ9axLCbIAAuEKx?format=webp&name=medium",
+          "alt": "مع إشراقة العام الدراسي الجديد، عقد مدير المدرسة الأستاذ راشد السنيدي اجتماعاً بالمعلمين…",
+          "localPath": "/activity-media/beccd85234e56520a971af40.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2093992161574592639",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "id": "activity-2026-08-31-assistant-principal",
+      "sourceId": "2094065763359625615",
+      "date": "2026-08-30",
+      "title": "الترحيب بمساعد مدير المدرسة",
+      "description": "تهنئة الهيئة الإدارية والتدريسية للأستاذ سلطان الجابري بمناسبة تعيينه مساعداً لمدير المدرسة",
+      "category": "administration",
+      "audiences": [
+        "المعلمون",
+        "الإدارة المدرسية"
+      ],
+      "people": [
+        "أ. سلطان الجابري"
+      ],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HQ-dtWPbMAARnyH?format=webp&name=medium",
+          "alt": "تهنئة الهيئة الإدارية والتدريسية للأستاذ سلطان الجابري بمناسبة تعيينه مساعداً لمدير المدرسة",
+          "localPath": "/activity-media/ae7400f93e611ac5ee2d06c9.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2094065763359625615",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-21"
     }
   ]
 }

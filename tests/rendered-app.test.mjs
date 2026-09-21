@@ -10,5 +10,7 @@ test("exports the Arabic school directory application", async () => {
   assert.match(html, /المعلمون والجداول/);
   assert.match(html, /للاستخدام المدرسي/);
   assert.match(html, /2026-09-19/);
-  assert.match(html, /08d0780e1131dc2c84f6880707399603e172dbc4a8401f5cc8546dbf120d0b09/);
+  assert.ok(html.includes("06d051424205541a93d7d67ded76bc335950c6a53dd138b7f5833ee07f300955"), "new teacher source is exported");
+  assert.match(html, /جداول الشعب/);
+  assert.ok(html.includes("e13841d256eb74765b4dfddf8ec4aaf1ff76f7cd28c5770b59cf7f1fb746b79a"), "verified class source is exported");
 });

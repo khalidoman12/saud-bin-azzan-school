@@ -36,6 +36,9 @@ jobs:
       - name: بناء النسخة المنشورة
         run: npm run build:static
 
+      - name: التحقق من البحث ومطابقة الجدولين والأخبار
+        run: node --test tests/*.test.mjs
+
       - name: تجهيز ملفات GitHub Pages
         uses: actions/upload-pages-artifact@v4
         with:

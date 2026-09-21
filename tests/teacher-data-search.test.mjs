@@ -34,7 +34,7 @@ test("imports every teacher page and every detected lesson block", () => {
   assert.equal(teachers.length, 85);
   assert.equal(new Set(teachers.map((teacher) => teacher.id)).size, 85);
   assert.equal(new Set(teachers.map((teacher) => teacher.fullName)).size, 85);
-  assert.equal(teachers.reduce((sum, teacher) => sum + teacher.lessonCount, 0), 1520);
+  assert.equal(teachers.reduce((sum, teacher) => sum + teacher.lessonCount, 0), 1521);
   assert.equal(teachers.filter((teacher) => teacher.lessonCount === 0).length, 6);
 });
 
@@ -45,16 +45,16 @@ test("matches the visually verified first teacher schedule", () => {
   assert.deepEqual(
     teacher.lessons.map((lesson) => [lesson.day, lesson.periodStart, lesson.periodEnd, lesson.classCode]),
     [
-      ["الأحد", 5, 5, "6/1"],
-      ["الأحد", 8, 8, "6/2"],
-      ["الاثنين", 2, 2, "6/1"],
-      ["الاثنين", 8, 8, "6/2"],
-      ["الثلاثاء", 4, 4, "6/2"],
+      ["الأحد", 4, 4, "6/1"],
+      ["الأحد", 5, 5, "6/2"],
+      ["الاثنين", 4, 4, "6/1"],
+      ["الاثنين", 7, 7, "6/2"],
       ["الثلاثاء", 5, 5, "6/1"],
+      ["الثلاثاء", 8, 8, "6/2"],
       ["الأربعاء", 4, 4, "6/2"],
-      ["الأربعاء", 7, 7, "6/1"],
-      ["الخميس", 1, 1, "6/1"],
-      ["الخميس", 7, 7, "6/2"],
+      ["الأربعاء", 5, 5, "6/1"],
+      ["الخميس", 6, 6, "6/2"],
+      ["الخميس", 8, 8, "6/1"],
     ],
   );
 });
@@ -70,7 +70,7 @@ test("combines teacher name, grade, subject, and day filters", () => {
     query: "سعيد",
     grade: 7,
     subject: "تقنية المعلومات",
-    day: "الأحد",
+    day: "الأربعاء",
   });
   assert.deepEqual(matches.map(({ teacher }) => teacher.fullName), ["سعيد البطيني"]);
 });
@@ -99,18 +99,18 @@ test("keeps Thursday in every weekly view and filters a selected day and period"
 });
 
 test("counts a double-period lesson in either selected period", () => {
-  const teacher = teachers.find((item) => item.fullName === "على عبدالله على المشايخى");
+  const teacher = teachers.find((item) => item.fullName === "خميس سعيد سالم الساعدي");
   assert.ok(teacher.lessons.some((lesson) =>
-    lesson.day === "الأحد" && lesson.periodStart === 5 && lesson.periodEnd === 6 && lesson.classCode === "5/10",
+    lesson.day === "الأحد" && lesson.periodStart === 3 && lesson.periodEnd === 4 && lesson.classCode === "5/1",
   ));
-  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 5 }).length === 1);
-  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 6 }).length === 1);
+  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 3 }).length === 1);
+  assert.ok(filterAndRankTeachers([teacher], { day: "الأحد", period: 4 }).length === 1);
 });
 
 test("identifies the September 19 source instead of the superseded PDF", () => {
-  assert.equal(payload.sourceFile, "الجدول العام للمعلمين.pdf");
+  assert.equal(payload.sourceFile, "جدول المعلمين .pdf");
   assert.equal(payload.sourceCreatedDate, "2026-09-19");
-  assert.equal(payload.sourceSha256, "08d0780e1131dc2c84f6880707399603e172dbc4a8401f5cc8546dbf120d0b09");
+  assert.equal(payload.sourceSha256, "06d051424205541a93d7d67ded76bc335950c6a53dd138b7f5833ee07f300955");
 });
 
 test("matches grade, subject, day and period on one lesson for every timetable combination", () => {
@@ -146,7 +146,7 @@ test("indexes every occupied teacher slot across all five days and eight periods
     ), 0);
   const occupiedPeriods = teachers.reduce((sum, teacher) => sum + teacher.occupiedPeriodCount, 0);
   assert.equal(searchableSlots, occupiedPeriods);
-  assert.equal(searchableSlots, 1558);
+  assert.equal(searchableSlots, 1560);
 });
 
 test("covers every school class without teacher or class timetable collisions", () => {

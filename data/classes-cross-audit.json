@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "source": {
+    "fileName": "جدول الحصص للشعب.pdf",
+    "createdDate": "2026-09-19",
+    "sha256": "e13841d256eb74765b4dfddf8ec4aaf1ff76f7cd28c5770b59cf7f1fb746b79a"
+  },
+  "teacherSourceSha256": "06d051424205541a93d7d67ded76bc335950c6a53dd138b7f5833ee07f300955",
+  "counts": {
+    "classes": 39,
+    "teachers": 85,
+    "classLessonBlocks": 1521,
+    "matchedPeriods": 1560,
+    "expectedPeriods": 1560
+  },
+  "discrepancies": []
+}

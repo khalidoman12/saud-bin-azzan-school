@@ -2,7 +2,7 @@
 """Best-effort, key-free import of new public posts from the school's X profile.
 
 The script never deletes existing archive records. X may change or restrict its
-logged-out page at any time; in that case this command exits successfully and
+logged-out page at any time; in that case this command reports failure and
 leaves the checked-in data untouched.
 """
 
@@ -21,7 +21,9 @@ from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
+from urllib.request import Request, urlopen
+from urllib.error import URLError
 from zoneinfo import ZoneInfo
 
 
@@ -84,7 +86,7 @@ class XTimelineParser(HTMLParser):
             self.article_depth += 1
         if self.tweet_text_depth and not is_void:
             self.tweet_text_depth += 1
-        if attrs.get("data-testid") == "tweetText":
+        if attrs.get("data-testid") == "tweetText" or (attrs.get("dir") == "auto" and "whitespace-pre-wrap" in attrs.get("class", "") and not self.tweet_text_depth):
             self.tweet_text_depth = 1
 
         if tag == "a":
@@ -98,6 +100,8 @@ class XTimelineParser(HTMLParser):
             src = html.unescape(attrs.get("src", ""))
             if MEDIA_PATTERN.match(src) and src not in self.current.images:
                 self.current.images.append(src)
+            elif src.startswith("https://pbs.twimg.com/") and "video_thumb/" in src and src not in self.current.video_posters:
+                self.current.video_posters.append(src)
         elif tag == "video":
             poster = html.unescape(attrs.get("poster", ""))
             if poster and poster not in self.current.video_posters:
@@ -138,6 +142,15 @@ def find_chrome() -> str | None:
 
 
 def fetch_profile_html() -> str | None:
+    # Current public X pages render post text in the initial HTML. Prefer that
+    # public surface; Chrome remains a fallback for client-rendered versions.
+    try:
+        with urlopen(Request(PROFILE_URL, headers={"User-Agent": "SchoolActivityArchive/1.0"}), timeout=25) as response:
+            document = response.read(5_000_000).decode("utf-8")
+        if parse_posts(document):
+            return document
+    except (URLError, TimeoutError, OSError, UnicodeDecodeError) as error:
+        print(f"Public profile request failed: {error}", file=sys.stderr)
     chrome = find_chrome()
     if not chrome:
         print("warning: Chrome/Chromium is unavailable; archive left unchanged", file=sys.stderr)
@@ -194,25 +207,25 @@ def contains_any(text: str, words: Iterable[str]) -> bool:
 
 
 def classify(text: str) -> tuple[str, bool]:
-    specialist = contains_any(text, ("أخصائي", "الاخصائي", "الإرشاد", "الارشاد", "نفسي", "اجتماعي", "سلوكي", "لائحة شؤون الطلبة"))
+    specialist = contains_any(text, ("الإرشاد", "الارشاد", "نفسي", "اجتماعي", "سلوكي", "لائحة شؤون الطلبة"))
     if specialist:
         return "guidance", True
-    if contains_any(text, ("صحي", "صحية", "ممرض", "مرض", "سلامة", "المقصف")):
-        return "health", False
     if contains_any(text, ("حافل", "النقل المدرسي", "سائق")):
         return "transport", False
+    if contains_any(text, ("صحي", "صحية", "ممرض", "مرض", "سلامة", "المقصف")):
+        return "health", False
     if contains_any(text, ("تكريم", "كرّم", "كرم", "تهنئة", "احتفاء")):
         return "honors", False
     if contains_any(text, ("زيارة", "زار", "استقبل", "تفضل")):
         return "visits", False
     if contains_any(text, ("ولي الأمر", "أولياء الأمور", "الشراكة المجتمعية", "المجتمع المحلي")):
         return "community", False
-    if contains_any(text, ("درس", "حصة", "تعلم", "تعليم", "رياضيات", "علوم", "لغة")):
-        return "teaching", False
-    if contains_any(text, ("اجتماع", "لجنة", "إدارة المدرسة", "مدير المدرسة", "تنظيم")):
-        return "administration", False
     if contains_any(text, ("ملخص", "فيديو", "تغطية", "تصميم", "جانب من")):
         return "media", False
+    if contains_any(text, ("اجتماع", "لجنة", "إدارة المدرسة", "مدير المدرسة", "تنظيم")):
+        return "administration", False
+    if contains_any(text, ("درسًا", "درسا", "حصة", "حصص", "تعلم", "رياضيات", "علوم", "لغة")):
+        return "teaching", False
     return "student-life", False
 
 
@@ -235,7 +248,8 @@ def infer_grades(text: str) -> list[int]:
 
 def make_title(text: str) -> str:
     cleaned = re.sub(r"(?:https?://\S+|#[\w\u0600-\u06FF]+)", "", text).strip(" .،ـ-")
-    sentence = re.split(r"[.!؟\n]", cleaned, maxsplit=1)[0].strip()
+    # Arabic titles commonly contain the abbreviation أ. before a name.
+    sentence = re.split(r"[!؟\n]", cleaned, maxsplit=1)[0].strip()
     if len(sentence) <= 92:
         return sentence or "فعالية مدرسية"
     return sentence[:89].rsplit(" ", 1)[0] + "…"
@@ -267,7 +281,8 @@ def post_to_activity(post: ParsedPost) -> dict:
         "specialist": specialist,
         "media": media,
         "sourceUrl": urljoin("https://x.com", f"/{ACCOUNT}/status/{post.source_id}"),
-        "sourceLabel": "حساب المدرسة في X",
+        "sourceLabel": "عرض المنشور الأصلي",
+        "verifiedAt": datetime.now(timezone.utc).date().isoformat(),
     }
 
 
@@ -284,20 +299,40 @@ def parse_posts(document: str) -> list[ParsedPost]:
 def update_archive(data_path: Path, posts: list[ParsedPost]) -> int:
     payload = json.loads(data_path.read_text(encoding="utf-8"))
     activities = payload["activities"]
-    existing_ids = {str(item.get("sourceId")) for item in activities if item.get("sourceId")}
+    existing_ids = {str(item["sourceId"]): item for item in activities if item.get("sourceId")}
     start_date = datetime.fromisoformat(payload["source"]["rangeStart"]).date()
     added: list[dict] = []
+    enriched = 0
+
+    def media_key(url: str) -> str:
+        return re.sub(r"\.(jpg|jpeg|png|webp)$", "", urlparse(url).path)
 
     for post in posts:
-        if not post.source_id or post.source_id in existing_ids:
+        if not post.source_id:
             continue
         activity = post_to_activity(post)
         if datetime.fromisoformat(activity["date"]).date() < start_date:
             continue
+        existing = existing_ids.get(post.source_id)
+        if existing is None and activity["media"]:
+            keys = {media_key(m["url"]) for m in activity["media"]}
+            candidates = [a for a in activities if not a.get("sourceId") and any(media_key(m["url"]) in keys for m in a["media"])]
+            if len(candidates) == 1:
+                existing = candidates[0]
+        if existing is not None:
+            before = json.dumps(existing, ensure_ascii=False, sort_keys=True)
+            # Keep the curated title, categories, people and any saved photos.
+            existing.update({key: activity[key] for key in ("sourceId", "sourceUrl", "sourceLabel", "date", "description")})
+            existing.setdefault("verifiedAt", activity["verifiedAt"])
+            known_media = {media_key(m["url"]) for m in existing["media"]}
+            existing["media"].extend(m for m in activity["media"] if media_key(m["url"]) not in known_media)
+            enriched += before != json.dumps(existing, ensure_ascii=False, sort_keys=True)
+            existing_ids[post.source_id] = existing
+            continue
         added.append(activity)
-        existing_ids.add(post.source_id)
+        existing_ids[post.source_id] = activity
 
-    if not added:
+    if not added and not enriched:
         print(f"No new posts. Parsed {len(posts)} public post(s); archive unchanged.")
         return 0
 
@@ -305,10 +340,11 @@ def update_archive(data_path: Path, posts: list[ParsedPost]) -> int:
     activities.sort(key=lambda item: (item["date"], item["id"]), reverse=True)
     payload["source"]["rangeEnd"] = max(item["date"] for item in activities)
     payload["source"]["lastSyncedAt"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    payload["source"]["syncMethod"] = "أرشيف أولي موثق، ثم مزامنة مجانية مجدولة من صفحة X العامة"
+    payload["source"]["syncMethod"] = "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة"
+    payload["source"]["coverage"] = "partial"
     data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Added {len(added)} new post(s). Archive now contains {len(activities)} activities.")
-    return len(added)
+    print(f"Added {len(added)}, enriched {enriched}; archive contains {len(activities)} activities.")
+    return len(added) + enriched
 
 
 def main() -> int:
@@ -322,11 +358,12 @@ def main() -> int:
         return 2
     document = args.html_file.read_text(encoding="utf-8") if args.html_file else fetch_profile_html()
     if not document:
-        return 0
+        print("::error::تعذر الوصول إلى المنشورات العامة؛ الأرشيف السابق محفوظ.")
+        return 1
     posts = parse_posts(document)
     if not posts:
-        print("warning: no public posts could be parsed; archive left unchanged", file=sys.stderr)
-        return 0
+        print("::error::لم تُقرأ منشورات من الصفحة؛ يلزم فحص المزامنة. الأرشيف السابق محفوظ.", file=sys.stderr)
+        return 1
     update_archive(args.data, posts)
     return 0
 
