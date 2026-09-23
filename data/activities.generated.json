@@ -3,13 +3,150 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-09-21",
-    "lastSyncedAt": "2026-09-21T18:36:07Z",
+    "rangeEnd": "2026-09-23",
+    "lastSyncedAt": "2026-09-23T23:39:46Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2102769803840913676",
+      "sourceId": "2102769803840913676",
+      "date": "2026-09-23",
+      "title": "📚 قدّم الأستاذ مسعود الحميدي معلم العلوم حصةً نموذجية بعنوان «ماذا يحتاج النبات كي ينمو",
+      "description": "📚 قدّم الأستاذ مسعود الحميدي معلم العلوم حصةً نموذجية بعنوان «ماذا يحتاج النبات كي ينمو؟»، مستخدمًا استراتيجية التعلّم باللعب؛ لتعزيز الفهم وتفعيل مشاركة الطلبة. 🎯✨",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS6J4sSbYAANPxi?format=webp&name=large",
+          "alt": "📚 قدّم الأستاذ مسعود الحميدي معلم العلوم حصةً نموذجية بعنوان «ماذا يحتاج النبات كي ينمو",
+          "localPath": "/activity-media/c25b6f5841407abacd40f131.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2102769695271297025/img/rjIM62J04HHmC91d?format=webp&name=medium",
+          "alt": "فيديو: 📚 قدّم الأستاذ مسعود الحميدي معلم العلوم حصةً نموذجية بعنوان «ماذا يحتاج النبات كي ينمو",
+          "localPath": "/activity-media/a8087e66df4d791a902120c2.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102769803840913676",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-23"
+    },
+    {
+      "id": "x-2102768851410927790",
+      "sourceId": "2102768851410927790",
+      "date": "2026-09-23",
+      "title": "نفّذ أ. حمد الراجحي، أخصائي الأنظمة المدرسية، محاضرة توعوية لطلبة المدرسة حول منصة…",
+      "description": "نفّذ أ. حمد الراجحي، أخصائي الأنظمة المدرسية، محاضرة توعوية لطلبة المدرسة حول منصة «نور»، تناولت آلية الدخول إلى المنصة، واستخدام الحسابات، والتعرّف إلى أبرز الخدمات التعليمية المتاحة؛ بما يسهم في تعزيز وعي الطلبة بالتعلّم الرقمي والاستفادة الفاعلة من المنصة.",
+      "category": "student-life",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS6JGQybsAARbUc?format=webp&name=large",
+          "alt": "نفّذ أ. حمد الراجحي، أخصائي الأنظمة المدرسية، محاضرة توعوية لطلبة المدرسة حول منصة…",
+          "localPath": "/activity-media/20c52a9cb35ed35dbbe77bf5.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS6JGxMb0AEcVIc?format=webp&name=large",
+          "alt": "نفّذ أ. حمد الراجحي، أخصائي الأنظمة المدرسية، محاضرة توعوية لطلبة المدرسة حول منصة…",
+          "localPath": "/activity-media/daf52167128ce19501808500.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS6JHjybwAA6Cyn?format=webp&name=large",
+          "alt": "نفّذ أ. حمد الراجحي، أخصائي الأنظمة المدرسية، محاضرة توعوية لطلبة المدرسة حول منصة…",
+          "localPath": "/activity-media/57c26c84acadabc88a74eb0f.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102768851410927790",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-23"
+    },
+    {
+      "id": "x-2102706095383089610",
+      "sourceId": "2102706095383089610",
+      "date": "2026-09-23",
+      "title": "نفّذ اخصائيو المدرسة برنامج توجيهي لطلبة حول تعزيز دافعية التعلّم، تناولت العوامل…",
+      "description": "نفّذ اخصائيو المدرسة برنامج توجيهي لطلبة حول تعزيز دافعية التعلّم، تناولت العوامل المؤثرة في الدافعية، وأهمية تحديد الأهداف والمثابرة وتنظيم الجهد، بما يسهم في تنمية الاتجاهات الإيجابية نحو التعلّم وتحسين مستوى الأداء الدراسي #تعليمية_جنوب_الشرقية",
+      "category": "administration",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2102706038202150912/img/prOWVEGKfuDP7oMA?format=webp&name=medium",
+          "alt": "فيديو: نفّذ اخصائيو المدرسة برنامج توجيهي لطلبة حول تعزيز دافعية التعلّم، تناولت العوامل…",
+          "localPath": "/activity-media/317b08cafe7ab6c8b03faeb5.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102706095383089610",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-23"
+    },
+    {
+      "id": "x-2102649923435139093",
+      "sourceId": "2102649923435139093",
+      "date": "2026-09-23",
+      "title": "عقد المدير المساعد الأستاذ/ سلطان الجابري اجتماعًا مع اللجنة المنظمة لاستقبال الموكب…",
+      "description": "عقد المدير المساعد الأستاذ/ سلطان الجابري اجتماعًا مع اللجنة المنظمة لاستقبال الموكب السامي، لمتابعة الاستعدادات التنظيمية، ومناقشة الترتيبات والإجراءات اللازمة، وتحديد الأدوار والمسؤوليات؛ بما يضمن جاهزية المدرسة وحسن تنظيم عملية الاستقبال وفق أعلى مستويات التنظيم. @ EduGovSsq",
+      "category": "administration",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS4c85Pb0AA9phJ?format=webp&name=large",
+          "alt": "عقد المدير المساعد الأستاذ/ سلطان الجابري اجتماعًا مع اللجنة المنظمة لاستقبال الموكب…",
+          "localPath": "/activity-media/99ec55a8957c6374ae27e2b2.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS4c85Tb0AEO5fV?format=webp&name=large",
+          "alt": "عقد المدير المساعد الأستاذ/ سلطان الجابري اجتماعًا مع اللجنة المنظمة لاستقبال الموكب…",
+          "localPath": "/activity-media/d5183d4b58d94667c5018153.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS4c85NaoAAPvMm?format=webp&name=large",
+          "alt": "عقد المدير المساعد الأستاذ/ سلطان الجابري اجتماعًا مع اللجنة المنظمة لاستقبال الموكب…",
+          "localPath": "/activity-media/d718a09a2950d6f2a9445ef0.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HS4c85NacAA51yf?format=webp&name=large",
+          "alt": "عقد المدير المساعد الأستاذ/ سلطان الجابري اجتماعًا مع اللجنة المنظمة لاستقبال الموكب…",
+          "localPath": "/activity-media/2e98c8988f166929f1eb7ab5.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2102649923435139093",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-23"
+    },
     {
       "id": "x-2102083961254297859",
       "sourceId": "2102083961254297859",
