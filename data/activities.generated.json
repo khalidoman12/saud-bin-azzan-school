@@ -3,13 +3,106 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-09-23",
-    "lastSyncedAt": "2026-09-23T23:39:46Z",
+    "rangeEnd": "2026-09-25",
+    "lastSyncedAt": "2026-09-26T22:46:02Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2103572969977246106",
+      "sourceId": "2103572969977246106",
+      "date": "2026-09-25",
+      "title": "ملخص الفعاليات والأعمال المدرسية في الأسبوع الثاالث من العام الدراسي 2027/2026 \"اسبوع…",
+      "description": "ملخص الفعاليات والأعمال المدرسية في الأسبوع الثاالث من العام الدراسي 2027/2026 \"اسبوع الفخر والولاء \"",
+      "category": "media",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTFkdqwa0AAf1yO?format=webp&name=large",
+          "alt": "ملخص الفعاليات والأعمال المدرسية في الأسبوع الثاالث من العام الدراسي 2027/2026 \"اسبوع…",
+          "localPath": "/activity-media/f6f06cfcd25ce5c1c49073bf.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2103572969977246106",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-26"
+    },
+    {
+      "id": "x-2103383630156640425",
+      "sourceId": "2103383630156640425",
+      "date": "2026-09-25",
+      "title": "لحظةٌ ستبقى في الذاكرة… فرحةٌ غمرت وجوه أبنائنا الطلبة، ومشاعر وطنية صادقة رافقت لحظة…",
+      "description": "لحظةٌ ستبقى في الذاكرة… فرحةٌ غمرت وجوه أبنائنا الطلبة، ومشاعر وطنية صادقة رافقت لحظة وصول الموكب الميمون لحضرة صاحب الجلالة السلطان هيثم بن طارق المعظم – حفظه الله ورعاه –، في مشهد جسّد حب الوطن والاعتزاز بقيادته. #عُمان_تفتخر_بسلطانها #الزيارة_السامية",
+      "category": "visits",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2103383507628412928/img/BgJdR5m4Cd7vljkl?format=webp&name=medium",
+          "alt": "فيديو: لحظةٌ ستبقى في الذاكرة… فرحةٌ غمرت وجوه أبنائنا الطلبة، ومشاعر وطنية صادقة رافقت لحظة…",
+          "localPath": "/activity-media/b228e6709c27a9dd8011c08e.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2103383630156640425",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-26"
+    },
+    {
+      "id": "x-2103188031167676867",
+      "sourceId": "2103188031167676867",
+      "date": "2026-09-24",
+      "title": "في مشهد وطني مهيب، شاركت أسرة مدرسة سعود بن عزان البوسعيدي للتعليم الأساسي، من الهيئة…",
+      "description": "في مشهد وطني مهيب، شاركت أسرة مدرسة سعود بن عزان البوسعيدي للتعليم الأساسي، من الهيئة الإدارية والتدريسية وأبنائها الطلبة، في استقبال الموكب الميمون لحضرة صاحب الجلالة السلطان هيثم بن طارق المعظم – حفظه الله ورعاه –، معبّرين عن مشاعر الفخر والولاء والاعتزاز بعُمان وقائدها.",
+      "category": "student-life",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTAGV_8a4AA94Da?format=webp&name=large",
+          "alt": "في مشهد وطني مهيب، شاركت أسرة مدرسة سعود بن عزان البوسعيدي للتعليم الأساسي، من الهيئة…",
+          "localPath": "/activity-media/cd05711809942104146ca29d.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTAGWY7akAARQOr?format=webp&name=large",
+          "alt": "في مشهد وطني مهيب، شاركت أسرة مدرسة سعود بن عزان البوسعيدي للتعليم الأساسي، من الهيئة…",
+          "localPath": "/activity-media/f40fd610f8908ee56b218172.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTAGWyjbQAAtSoG?format=webp&name=large",
+          "alt": "في مشهد وطني مهيب، شاركت أسرة مدرسة سعود بن عزان البوسعيدي للتعليم الأساسي، من الهيئة…",
+          "localPath": "/activity-media/76a306966e05674f1fed8229.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTAGXNfawAAiEtD?format=webp&name=large",
+          "alt": "في مشهد وطني مهيب، شاركت أسرة مدرسة سعود بن عزان البوسعيدي للتعليم الأساسي، من الهيئة…",
+          "localPath": "/activity-media/1e482a1c4fe807d7ee9bfb11.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2103188031167676867",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-09-26"
+    },
     {
       "id": "x-2102769803840913676",
       "sourceId": "2102769803840913676",
