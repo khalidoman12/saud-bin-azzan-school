@@ -3,13 +3,137 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-09-25",
-    "lastSyncedAt": "2026-09-26T22:46:02Z",
+    "rangeEnd": "2026-10-01",
+    "lastSyncedAt": "2026-10-01T08:52:04Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2105579396971339827",
+      "sourceId": "2105579396971339827",
+      "date": "2026-10-01",
+      "title": "نفّذ الأستاذ محمد الساعدي حصةً في مصادر التعلم لطلبة الصف السابع، مستخدمًا برنامج كاهوت…",
+      "description": "نفّذ الأستاذ محمد الساعدي حصةً في مصادر التعلم لطلبة الصف السابع، مستخدمًا برنامج كاهوت (Kahoot) كأداة تعليمية تفاعلية. هدفت الحصة إلى تعزيز مشاركة الطلبة، وتنمية التفاعل والمنافسة الإيجابية بينهم، وتوظيف التقنيات الحديثة في العملية التعليمية. #تعلم_مستدام",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [
+        7
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTiFRylaIAE83k1?format=webp&name=large",
+          "alt": "نفّذ الأستاذ محمد الساعدي حصةً في مصادر التعلم لطلبة الصف السابع، مستخدمًا برنامج كاهوت…",
+          "localPath": "/activity-media/f21537185719f6ef5e48c5c3.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTiFRylaAAAdXnA?format=webp&name=large",
+          "alt": "نفّذ الأستاذ محمد الساعدي حصةً في مصادر التعلم لطلبة الصف السابع، مستخدمًا برنامج كاهوت…",
+          "localPath": "/activity-media/37a4831ad1650ce12a00a355.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTiFRykaIAAIiIr?format=webp&name=large",
+          "alt": "نفّذ الأستاذ محمد الساعدي حصةً في مصادر التعلم لطلبة الصف السابع، مستخدمًا برنامج كاهوت…",
+          "localPath": "/activity-media/c88e2af3afd358d38624a62a.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105579396971339827",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-01"
+    },
+    {
+      "id": "x-2105336402754109915",
+      "sourceId": "2105336402754109915",
+      "date": "2026-09-30",
+      "title": "محاضرة توعوية لطلبة الصف الثامن بعنوان «مهارة الاتصال والتواصل» قدمها الأخصائي النفسي أ.…",
+      "description": "محاضرة توعوية لطلبة الصف الثامن بعنوان «مهارة الاتصال والتواصل» قدمها الأخصائي النفسي أ. حمد الشماخي، لتعزيز التواصل الفعّال والثقة بالنفس.",
+      "category": "guidance",
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [
+        8
+      ],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTeoShcbgAE6WTa?format=webp&name=large",
+          "alt": "محاضرة توعوية لطلبة الصف الثامن بعنوان «مهارة الاتصال والتواصل» قدمها الأخصائي النفسي أ.…",
+          "localPath": "/activity-media/13e07127c9a05eb3bfde4e92.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2105336339269124096/img/IonQ9Ckfb52atulb?format=webp&name=medium",
+          "alt": "فيديو: محاضرة توعوية لطلبة الصف الثامن بعنوان «مهارة الاتصال والتواصل» قدمها الأخصائي النفسي أ.…",
+          "localPath": "/activity-media/dc86e4d8cf2a689cae3ce111.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105336402754109915",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-01"
+    },
+    {
+      "id": "x-2105329927314935936",
+      "sourceId": "2105329927314935936",
+      "date": "2026-09-30",
+      "title": "نفّذت المدرسة فعالية «رشفة عافية» للهيئة الإدارية والتدريسية، في إطار دعم العافية…",
+      "description": "نفّذت المدرسة فعالية «رشفة عافية» للهيئة الإدارية والتدريسية، في إطار دعم العافية النفسية وتعزيز بيئة عمل إيجابية، بما يسهم في رفع مستوى الرفاه الوظيفي وتحقيق التوازن المهني.",
+      "category": "guidance",
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2105329840719343616/img/HRtajqfB3Mid0CTT?format=webp&name=medium",
+          "alt": "فيديو: نفّذت المدرسة فعالية «رشفة عافية» للهيئة الإدارية والتدريسية، في إطار دعم العافية…",
+          "localPath": "/activity-media/40848e52b0a0a3ae4670ae4b.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105329927314935936",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-01"
+    },
+    {
+      "id": "x-2105321821646225914",
+      "sourceId": "2105321821646225914",
+      "date": "2026-09-30",
+      "title": "قدم الاستاذ جمعه المقحوصي معلم أول مادة الرياضيات نساط صفي في درس /الضرب في قوى العدد ١٠…",
+      "description": "قدم الاستاذ جمعه المقحوصي معلم أول مادة الرياضيات نساط صفي في درس /الضرب في قوى العدد ١٠ والقسمة عليها لطلبة الصف الثامن طبق خلالها استراتيجيات متنوعة وختم النشاط بتحدي بين مجموعات الفصل. #تعلم_مستدام",
+      "category": "teaching",
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        8
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2105321727450591232/img/SMsl6EEpihM_1bAv?format=webp&name=medium",
+          "alt": "فيديو: قدم الاستاذ جمعه المقحوصي معلم أول مادة الرياضيات نساط صفي في درس /الضرب في قوى العدد ١٠…",
+          "localPath": "/activity-media/0a10b866533bc971826bb3c3.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105321821646225914",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-01"
+    },
     {
       "id": "x-2103572969977246106",
       "sourceId": "2103572969977246106",
