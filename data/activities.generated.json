@@ -3,13 +3,137 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-10-01",
-    "lastSyncedAt": "2026-10-01T08:52:04Z",
+    "rangeEnd": "2026-10-02",
+    "lastSyncedAt": "2026-10-02T08:27:53Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2105902233548365890",
+      "sourceId": "2105902233548365890",
+      "date": "2026-10-02",
+      "title": "نفّذ أ. راشد الحكماني، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف السادس/6 بعنوان…",
+      "description": "نفّذ أ. راشد الحكماني، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف السادس/6 بعنوان «تطور الدولة في عصر الخلفاء الراشدين». واعتمد في تنفيذ الحصة على استراتيجية المعلم الصغير؛ بما أتاح للطلبة المشاركة المباشرة في عرض محتوى الدرس وشرح مفاهيمه.",
+      "category": "guidance",
+      "audiences": [
+        "المعلمون",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [
+        6
+      ],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTmq6vtaIAAVf39?format=webp&name=large",
+          "alt": "نفّذ أ. راشد الحكماني، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف السادس/6 بعنوان…",
+          "localPath": "/activity-media/40b222a1b83fbdd86e7fe13a.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105902233548365890",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "x-2105700568979374421",
+      "sourceId": "2105700568979374421",
+      "date": "2026-10-01",
+      "title": "قدم أ. بدر الساعدي معلم العلوم ، حصة تعليمية لطلبة الصف الخامس بعنوان\" استقصاء نمو…",
+      "description": "قدم أ. بدر الساعدي معلم العلوم ، حصة تعليمية لطلبة الصف الخامس بعنوان\" استقصاء نمو النبات\" ، اعتمد خلالها على التعلم القائم على الاستقصاء بما أتاح للطلبة الملاحظة وطرح الأسئلة وصياغة التوقعات ومناقشة النتائج.",
+      "category": "teaching",
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        5
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTjzgEubQAAj7tn?format=webp&name=large",
+          "alt": "قدم أ. بدر الساعدي معلم العلوم ، حصة تعليمية لطلبة الصف الخامس بعنوان\" استقصاء نمو…",
+          "localPath": "/activity-media/2f2fb530e6bfa348d07ebf1d.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2105700492898889728/img/klxCsohKzI21xMpm?format=webp&name=medium",
+          "alt": "فيديو: قدم أ. بدر الساعدي معلم العلوم ، حصة تعليمية لطلبة الصف الخامس بعنوان\" استقصاء نمو…",
+          "localPath": "/activity-media/8debd57c75b7c59e0c07f734.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105700568979374421",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "x-2105691890998022363",
+      "sourceId": "2105691890998022363",
+      "date": "2026-10-01",
+      "title": "نفّذ أ. طارق المشايخي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف الخامس/10 بعنوان…",
+      "description": "نفّذ أ. طارق المشايخي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف الخامس/10 بعنوان «خطوط الطول ودوائر العرض». واعتمد في تنفيذ الحصة على استراتيجية المعلم الصغير؛ بما أتاح للطلبة المشاركة في شرح المفاهيم وتبادل الأدوار داخل الصف.",
+      "category": "guidance",
+      "audiences": [
+        "المعلمون",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [
+        5
+      ],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTjrnGfaMAAXmor?format=webp&name=large",
+          "alt": "نفّذ أ. طارق المشايخي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف الخامس/10 بعنوان…",
+          "localPath": "/activity-media/eab30901bc43d47f885ff283.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2105691810773573632/img/5fCutkHWzG4xYBZM?format=webp&name=medium",
+          "alt": "فيديو: نفّذ أ. طارق المشايخي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف الخامس/10 بعنوان…",
+          "localPath": "/activity-media/922b88082af15d4768723f87.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105691890998022363",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-02"
+    },
+    {
+      "id": "x-2105690016890728868",
+      "sourceId": "2105690016890728868",
+      "date": "2026-10-01",
+      "title": "نفّذ أ. محمد العويسي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف السابع/6 بعنوان…",
+      "description": "نفّذ أ. محمد العويسي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف السابع/6 بعنوان «حساب المساحات على الخريطة»، موظفًا نظام المجموعات؛ بما أسهم في تعزيز التعلم التعاوني، وتنمية مهارات الطلبة في تطبيق المفاهيم الجغرافية وحساب المساحات بصورة عملية.",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "المعلمون",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [
+        7
+      ],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HTjp6CTbIAABtpI?format=webp&name=large",
+          "alt": "نفّذ أ. محمد العويسي، معلم الدراسات الاجتماعية، حصة تعليمية لطلبة الصف السابع/6 بعنوان…",
+          "localPath": "/activity-media/907c12a8d6f225e7cb349a14.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2105690016890728868",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-02"
+    },
     {
       "id": "x-2105579396971339827",
       "sourceId": "2105579396971339827",
