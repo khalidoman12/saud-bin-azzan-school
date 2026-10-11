@@ -3,13 +3,140 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-10-02",
-    "lastSyncedAt": "2026-10-02T08:27:53Z",
+    "rangeEnd": "2026-10-10",
+    "lastSyncedAt": "2026-10-11T18:51:37Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2108812356574994687",
+      "sourceId": "2108812356574994687",
+      "date": "2026-10-10",
+      "title": "تحتفي المدرسة، ابتداءً من غدٍ الأحد، باليوم العالمي للصحة النفسية، تحت شعار «تجارب…",
+      "description": "تحتفي المدرسة، ابتداءً من غدٍ الأحد، باليوم العالمي للصحة النفسية، تحت شعار «تجارب حقيقية مسموعة: أصوات حقيقية، تغيير حقيقي»، عبر برنامج يمتد لثلاثة أيام، يتضمن فعاليات توعوية وإرشادية لتعزيز الصحة النفسية وترسيخ بيئة مدرسية داعمة وآمنة. #اليوم_العالمي_للصحة_النفسية @ EduGovSsq",
+      "category": "guidance",
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HUQBj1tacAA6fzE?format=webp&name=large",
+          "alt": "تحتفي المدرسة، ابتداءً من غدٍ الأحد، باليوم العالمي للصحة النفسية، تحت شعار «تجارب…",
+          "localPath": "/activity-media/0ac9fddbba7a91913fab6182.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HUQBka_agAA6hQZ?format=webp&name=large",
+          "alt": "تحتفي المدرسة، ابتداءً من غدٍ الأحد، باليوم العالمي للصحة النفسية، تحت شعار «تجارب…",
+          "localPath": "/activity-media/43750c7fe68c54f45eb237a6.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2108812259430645760/img/PBQ-I50MACYeADtg?format=webp&name=medium",
+          "alt": "فيديو: تحتفي المدرسة، ابتداءً من غدٍ الأحد، باليوم العالمي للصحة النفسية، تحت شعار «تجارب…",
+          "localPath": "/activity-media/12fda1349d75fc3782b19a7d.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2108812356574994687",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-11"
+    },
+    {
+      "id": "x-2108547827173658650",
+      "sourceId": "2108547827173658650",
+      "date": "2026-10-09",
+      "title": "انطلاقًا من أهمية الشراكة بين المدرسة والأسرة، نضع بين أيديكم فيديو توعويًا حول تنمية…",
+      "description": "انطلاقًا من أهمية الشراكة بين المدرسة والأسرة، نضع بين أيديكم فيديو توعويًا حول تنمية مهارة حل المشكلات لدى أبنائنا الطلبة، وتعزيز قدرتهم على التفكير السليم، واتخاذ القرارات المناسبة بثقة ومسؤولية. #مدارسنا_مستقبل_واعد @ StAsb8XZRb7pBQ0",
+      "category": "media",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2108547757845938176/img/mC2i1FqusvAkSrWD?format=webp&name=medium",
+          "alt": "فيديو: انطلاقًا من أهمية الشراكة بين المدرسة والأسرة، نضع بين أيديكم فيديو توعويًا حول تنمية…",
+          "localPath": "/activity-media/2c4f6d6205ec14b34c8fcd1b.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2108547827173658650",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-11"
+    },
+    {
+      "id": "x-2108540480548229241",
+      "sourceId": "2108540480548229241",
+      "date": "2026-10-09",
+      "title": "«فكّر بهدوء، حلّل بذكاء، واختر الحل بحكمة» نفّذ الأخصائي الاجتماعي شهاب الهاشمي حصة…",
+      "description": "«فكّر بهدوء، حلّل بذكاء، واختر الحل بحكمة» نفّذ الأخصائي الاجتماعي شهاب الهاشمي حصة إرشادية بعنوان مهارة حل المشكلات، بهدف تنمية مهارات الطلبة في التفكير الإيجابي، وتحليل المواقف، واختيار الحلول المناسبة، وتعزيز قدرتهم على مواجهة التحديات بثقة ووعي. @ StAsb8XZRb7pBQ0",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2108540433265766400/img/NoPI78nZX_A6262h?format=webp&name=medium",
+          "alt": "فيديو: «فكّر بهدوء، حلّل بذكاء، واختر الحل بحكمة» نفّذ الأخصائي الاجتماعي شهاب الهاشمي حصة…",
+          "localPath": "/activity-media/614430266df31a1e5e970b0c.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2108540480548229241",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-11"
+    },
+    {
+      "id": "x-2108513934030578111",
+      "sourceId": "2108513934030578111",
+      "date": "2026-10-09",
+      "title": "استثمر أ. مسعود الحميدي، معلم العلوم، حصة الاحتياط مع طلبة الصف الخامس في تدريبهم على…",
+      "description": "استثمر أ. مسعود الحميدي، معلم العلوم، حصة الاحتياط مع طلبة الصف الخامس في تدريبهم على نماذج من أسئلة الاختبارات النهائية فيما تم دراسته؛ بهدف تعزيز جاهزيتهم للاختبارات، وتثبيت المفاهيم العلمية، وتنمية مهارات الإجابة والتعامل مع أنماط الأسئلة المختلفة.",
+      "category": "teaching",
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        5
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HULyO8_bUAEB2yR?format=webp&name=large",
+          "alt": "استثمر أ. مسعود الحميدي، معلم العلوم، حصة الاحتياط مع طلبة الصف الخامس في تدريبهم على…",
+          "localPath": "/activity-media/a1fb04c7fb96a5a92ce363a9.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HULyPXHbYAE8lMl?format=webp&name=large",
+          "alt": "استثمر أ. مسعود الحميدي، معلم العلوم، حصة الاحتياط مع طلبة الصف الخامس في تدريبهم على…",
+          "localPath": "/activity-media/ed78abdf2f78868835b5ad77.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HULyPtYbMAAWvR9?format=webp&name=large",
+          "alt": "استثمر أ. مسعود الحميدي، معلم العلوم، حصة الاحتياط مع طلبة الصف الخامس في تدريبهم على…",
+          "localPath": "/activity-media/2b62effe4e2ad2987b9c76a4.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2108513934030578111",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-11"
+    },
     {
       "id": "x-2105902233548365890",
       "sourceId": "2105902233548365890",
