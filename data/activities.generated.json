@@ -3,13 +3,138 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-10-10",
-    "lastSyncedAt": "2026-10-11T18:51:37Z",
+    "rangeEnd": "2026-10-23",
+    "lastSyncedAt": "2026-10-23T18:17:16Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2113556189631951099",
+      "sourceId": "2113556189631951099",
+      "date": "2026-10-23",
+      "title": "جانب من فعاليات اليوم العالمي للصحة النفسية التي نظمتها المدرسة من خلال مقطع مرئي يوثّق…",
+      "description": "جانب من فعاليات اليوم العالمي للصحة النفسية التي نظمتها المدرسة من خلال مقطع مرئي يوثّق عددًا من المحطات التي نُفذت تحت شعار «تجارب حقيقية مسموعة: أصوات حقيقية، تغيير حقيقي»، وشملت أوراق عمل متخصصة، وجلسات حوارية، وأركانًا توعوية وفنية، وفقرات هادفة.",
+      "category": "guidance",
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2113555530228879360/img/vkH14fXd4g8fZoXs?format=webp&name=medium",
+          "alt": "فيديو: جانب من فعاليات اليوم العالمي للصحة النفسية التي نظمتها المدرسة من خلال مقطع مرئي يوثّق…",
+          "localPath": "/activity-media/3921288327ddc5e7e39d2433.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2113556189631951099",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-23"
+    },
+    {
+      "id": "x-2113367904465060291",
+      "sourceId": "2113367904465060291",
+      "date": "2026-10-23",
+      "title": "ضمن برنامج القيم الاجتماعية، قدّم الأخصائي النفسي أ. خالد المشايخي والأخصائي الاجتماعي…",
+      "description": "ضمن برنامج القيم الاجتماعية، قدّم الأخصائي النفسي أ. خالد المشايخي والأخصائي الاجتماعي أ. شهاب الهاشمي محاضرة للطلبة بعنوان «الصدق وأثره في بناء الثقة بالنفس والعلاقات الاجتماعية»، تناولت أثر الصدق في تعزيز الاتزان النفسي، وبناء الثقة، وتقوية العلاقات الإيجابية بين الطلبة.",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVQw4WdaYAAUxYz?format=webp&name=large",
+          "alt": "ضمن برنامج القيم الاجتماعية، قدّم الأخصائي النفسي أ. خالد المشايخي والأخصائي الاجتماعي…",
+          "localPath": "/activity-media/5dc66054ab50b3a44ca7e6e1.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVQw4vgaAAAnskT?format=webp&name=large",
+          "alt": "ضمن برنامج القيم الاجتماعية، قدّم الأخصائي النفسي أ. خالد المشايخي والأخصائي الاجتماعي…",
+          "localPath": "/activity-media/8e31598fcf672f0cbbe25a53.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVQw5PMbkAEEOwz?format=webp&name=large",
+          "alt": "ضمن برنامج القيم الاجتماعية، قدّم الأخصائي النفسي أ. خالد المشايخي والأخصائي الاجتماعي…",
+          "localPath": "/activity-media/6b0edac2725b2cb9f94c4fe6.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVQw52IbsAA1WV1?format=webp&name=large",
+          "alt": "ضمن برنامج القيم الاجتماعية، قدّم الأخصائي النفسي أ. خالد المشايخي والأخصائي الاجتماعي…",
+          "localPath": "/activity-media/48215e16f3c846270be117a9.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2113367904465060291",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-23"
+    },
+    {
+      "id": "x-2113340354934296651",
+      "sourceId": "2113340354934296651",
+      "date": "2026-10-22",
+      "title": "نفّذ أ. أحمد المطاعني، معلم المهارات الموسيقية، حصة تفاعلية لطلبة الصف السابع/4 بعنوان…",
+      "description": "نفّذ أ. أحمد المطاعني، معلم المهارات الموسيقية، حصة تفاعلية لطلبة الصف السابع/4 بعنوان «شخصية موسيقية عالمية: موتسارت»، تناولت أبرز محطات حياته وإسهاماته الفنية، وتضمنت أنشطة وأسئلة تفاعلية عززت معرفة الطلبة بالتاريخ الموسيقي وتنمية التذوق الفني لديهم.",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        7
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2113340313855279105/img/CHsu_3rZuv_zmznk?format=webp&name=medium",
+          "alt": "فيديو: نفّذ أ. أحمد المطاعني، معلم المهارات الموسيقية، حصة تفاعلية لطلبة الصف السابع/4 بعنوان…",
+          "localPath": "/activity-media/774c0acb49adec4b4c3cf281.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2113340354934296651",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-23"
+    },
+    {
+      "id": "x-2113337697922437405",
+      "sourceId": "2113337697922437405",
+      "date": "2026-10-22",
+      "title": "ضمن تفعيل استراتيجية المعلم الصغير، قدّم الطالبان فهد المطاعني وصقر المسروري حصة تعليمية…",
+      "description": "ضمن تفعيل استراتيجية المعلم الصغير، قدّم الطالبان فهد المطاعني وصقر المسروري حصة تعليمية لطلبة الصف السابع/5 بعنوان «كتابة المعادلات وحلها»، بإشراف أ. أحمد العويسي؛ بما عزز مشاركة الطلبة، وتنمية مهارات الشرح والتفكير الرياضي والثقة بالنفس.",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        7
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2113337489939480576/img/XOadhALRr4GBa7Zn?format=webp&name=medium",
+          "alt": "فيديو: ضمن تفعيل استراتيجية المعلم الصغير، قدّم الطالبان فهد المطاعني وصقر المسروري حصة تعليمية…",
+          "localPath": "/activity-media/6899a84daee6ab54ed1ed376.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2113337697922437405",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-23"
+    },
     {
       "id": "x-2108812356574994687",
       "sourceId": "2108812356574994687",
