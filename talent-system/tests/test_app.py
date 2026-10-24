@@ -15,6 +15,7 @@ init_db()
 for scope in list(SECTIONS) + ["registry"]:
     install_pin(scope, "0000")
 provision_user("teacher01","معلم معتمد تجريبي","TestingPassword123!", ["math","art","science","resources"])
+provision_user("teacher02","معلم آخر تجريبي","TestingPassword123!", ["art"])
 provision_user("reviewer01","أخصائي تجريبي","TestingPassword123!", ["counseling"],True,True)
 provision_user("register01","مسؤول سجل تجريبي","TestingPassword123!", ["counseling"],True,False)
 
@@ -125,3 +126,34 @@ def test_disabled_user_sessions_are_revoked():
     with TestClient(app) as client:
         login(client,"resources")
         assert client.get("/api/criteria").status_code==200
+
+def test_private_draft_and_owned_nomination_history():
+    with TestClient(app) as client:
+        login(client,"art")
+        saved=client.put("/api/my/draft",json={"payload":{"student_name":"طالب وهمي","grade":"7"}})
+        assert saved.status_code==200
+        assert client.get("/api/my/draft").json()["draft"]["student_name"]=="طالب وهمي"
+        info=client.get("/api/criteria").json()
+        form={
+            "student_name":"طالب تجريبي لعرض السجل","grade":7,"classroom":"3",
+            "teacher_name":"شخص محاول انتحال","talent_type":info["types"][0],
+            "answers":{str(i):"yes" for i in range(10)}
+        }
+        created=client.post("/api/nominations",json=form)
+        assert created.status_code==200,created.text
+        item_id=created.json()["id"]
+        assert client.get("/api/my/draft").json()["draft"] is None
+        assert any(r["id"]==item_id for r in client.get("/api/my/records").json()["records"])
+        assert client.get(f"/api/records/{item_id}").status_code==200
+        response=client.post("/api/login",json={
+            "scope":"art","pin":"0000","username":"teacher02","password":"TestingPassword123!"
+        })
+        assert response.status_code==200
+        assert client.get(f"/api/records/{item_id}").status_code==403
+        assert not any(r["id"]==item_id for r in client.get("/api/my/records").json()["records"])
+
+def test_review_requires_reviewer_permission_even_on_counseling_portal():
+    with TestClient(app) as client:
+        # Registry view user may enter registry but cannot post review.
+        login(client,"registry")
+        assert client.post("/api/records/1/review",json={"review_note":"محاولة"}).status_code==403
