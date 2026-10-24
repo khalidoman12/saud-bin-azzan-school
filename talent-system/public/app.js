@@ -90,6 +90,33 @@ async function renderNominationForm(){
   $("talent_type").addEventListener("change",()=>{
     const other=$("talent_type").value==="موهبة أخرى";$("otherTypeBox").classList.toggle("hide",!other);$("otherType").required=other;
   });
+  const toolbar=document.createElement("div");toolbar.className="actions noPrint";
+  const drafts=document.createElement("button");drafts.type="button";drafts.className="btn outline";drafts.textContent="حفظ كمسودة";
+  drafts.addEventListener("click",saveDraft);
+  const mine=document.createElement("button");mine.type="button";mine.className="btn outline";mine.textContent="ترشيحاتي السابقة";
+  mine.addEventListener("click",renderMyRecords);
+  toolbar.append(drafts,mine);
+  $("nominationForm").querySelector(".actions").append(drafts);
+  const nav=document.createElement("div");nav.className="actions noPrint";nav.append(mine);
+  $("workContent").prepend(nav);
+  try{const saved=await api("/api/my/draft");
+    if(saved.draft){
+      const form=$("nominationForm");
+      for(const [name,value] of Object.entries(saved.draft)){
+        const target=form.elements.namedItem(name);
+        if(!target || value===null)continue;
+        if(name.startsWith("q")){
+          const radio=form.querySelector('input[name="'+name+'"][value="'+String(value)+'"]');
+          if(radio)radio.checked=true;
+        } else if(typeof value==="string" && target instanceof HTMLElement && "value" in target && name!=="teacher_name"){
+          target.value=value;
+        }
+      }
+      $("talent_type").dispatchEvent(new Event("change"));
+      alertMsg("تم استرجاع المسودة المحفوظة.");
+    }
+  }catch(err){alertMsg("تعذر استرجاع المسودة: "+err.message);}
+
 }
 function field(label,name,type,required){
   return '<div class="field"><label for="'+name+'">'+htmlEscape(label)+(required?' <b class="required">*</b>':'')+'</label><input id="'+name+'" name="'+name+'" type="'+type+'" maxlength="180" '+(required?'required':'')+'></div>';
@@ -97,6 +124,27 @@ function field(label,name,type,required){
 function area(label,name,max){
   return '<div class="field wide"><label for="'+name+'">'+htmlEscape(label)+'</label><textarea name="'+name+'" id="'+name+'" maxlength="'+max+'"></textarea></div>';
 }
+async function saveDraft(){
+  const form=$("nominationForm");
+  if(!form)return;
+  const data=new FormData(form),payload={};
+  for(const [key,value] of data.entries())if(key!=="teacher_name")payload[key]=String(value);
+  try{await api("/api/my/draft",{method:"PUT",body:JSON.stringify({payload})});alertMsg("تم حفظ المسودة على خادم المدرسة.");}
+  catch(err){alertMsg("لم تُحفظ المسودة: "+err.message);}
+}
+async function renderMyRecords(){
+  $("workTitle").textContent="ترشيحاتي السابقة";
+  $("workContent").innerHTML='<div class="panel"><div class="sectionHeading"><h3>استماراتي المحفوظة</h3><button id="backForm" type="button" class="btn outline">عودة لاستمارة جديدة</button></div><div class="tableWrap"><table><thead><tr><th>الرقم</th><th>اسم الطالب</th><th>الصف والشعبة</th><th>الموهبة</th><th>تاريخ الترشيح</th><th>عرض وطباعة</th></tr></thead><tbody id="myRecordsBody"><tr><td colspan="6">جارٍ التحميل...</td></tr></tbody></table></div></div>';
+  $("backForm").addEventListener("click",showCurrent);
+  try{
+    const results=await api("/api/my/records");
+    $("myRecordsBody").innerHTML=results.records.length?results.records.map(r=>
+      '<tr><td>'+r.id+'</td><td>'+htmlEscape(r.student_name)+'</td><td>'+r.grade+'/'+htmlEscape(r.classroom)+'</td><td>'+htmlEscape(r.talent_type)+'</td><td>'+htmlEscape(r.created_at)+'</td><td><button class="btn outline viewMine" data-id="'+r.id+'">عرض</button></td></tr>'
+    ).join(""):'<tr><td colspan="6">لم تسجل ترشيحات بعد.</td></tr>';
+    document.querySelectorAll(".viewMine").forEach(b=>b.addEventListener("click",()=>openRecord(Number(b.dataset.id))));
+  }catch(err){alertMsg(err.message);}
+}
+
 async function submitNomination(e){
   e.preventDefault();
   const f=e.currentTarget, form=new FormData(f);
