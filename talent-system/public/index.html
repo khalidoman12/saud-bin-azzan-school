@@ -53,11 +53,15 @@
     <form id="pinForm" class="dialogBody">
       <div class="lockIcon">🔒</div><h2>فتح القسم</h2>
       <p id="pinSectionTitle" class="subtle"></p>
+      <label for="usernameInput">اسم المستخدم الوظيفي</label>
+      <input id="usernameInput" type="text" autocomplete="username" maxlength="50" required placeholder="مثال: teacher01" dir="ltr">
+      <label for="passwordInput">كلمة المرور الشخصية</label>
+      <input id="passwordInput" type="password" autocomplete="current-password" minlength="12" required placeholder="كلمة المرور المخصصة لك" dir="ltr">
       <label for="pinInput">الرمز الخاص بالقسم (4 أرقام)</label>
       <input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" autocomplete="off" required aria-label="رمز القسم الرباعي">
       <p id="pinError" class="error" aria-live="polite"></p>
       <div class="actions"><button type="submit" class="btn primary">فتح القسم</button><button type="button" id="cancelPin" class="btn outline">إلغاء</button></div>
-      <p class="tiny muted">الرمز الرباعي وحده ليس بديلًا عن حسابات المعلمين الفردية والتحقق المؤسسي.</p>
+      <p class="tiny muted">الدخول يحتاج حساب المعلم الشخصي والرمز الرباعي للقسم. لا تشارك بيانات الدخول مع الآخرين.</p>
     </form>
   </dialog>
   <dialog id="detailDialog"><div class="detailShell">
