@@ -6,6 +6,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN groupadd -r talent && useradd -r -g talent -u 10001 talent
 COPY --chown=talent:talent criteria.py server.py setup_pins.py manage_users.py ./
 COPY --chown=talent:talent public ./public
+COPY --chown=talent:talent tools ./tools
 RUN mkdir -p /data && chown talent:talent /data
 USER talent
 ENV TALENT_DB_PATH=/data/talent.sqlite3 TALENT_COOKIE_SECURE=true
