@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>رصد الموهبة | مدرسة سعود بن عزان البوسعيدي</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topflex">
+      <div class="schoolbrand">
+        <span class="crest" aria-hidden="true">✦</span>
+        <div><div class="tiny">سلطنة عُمان · محافظة جنوب الشرقية</div><strong>مدرسة سعود بن عزان البوسعيدي</strong><div class="tiny">للتعليم الأساسي (5–8) · 2026/2027</div></div>
+      </div>
+      <div id="sessionActions" class="topactions" hidden>
+        <span id="currentScope" class="scopechip"></span>
+        <button id="closeSection" class="btn outline" type="button">🔒 إغلاق القسم</button>
+      </div>
+    </div>
+  </header>
+  <main class="shell" id="main">
+    <section class="hero" id="hero">
+      <div class="eyebrow">من الملاحظة الصفية إلى اكتشاف الموهبة</div>
+      <h1>رصد <span>الموهبة</span></h1>
+      <p>النظام الإلكتروني للكشف عن الطلبة الموهوبين</p>
+      <div class="heroNote">عزيزي المعلم، اختر المادة أو القسم لتوثيق مؤشرات الموهبة وفق معايير منظمة وأدلة تربوية. لا تعتمد نتائج الترشيح وحدها بوصفها حكمًا نهائيًا على الموهبة.</div>
+    </section>
+    <section id="landing">
+      <div class="sectionHeading"><div><p class="eyebrow">بوابات النظام</p><h2>اختر المادة أو القسم</h2></div><span class="subtle">كل بوابة محمية برمز مستقل</span></div>
+      <div id="sectionCards" class="cards"><div class="loading">جارٍ تحميل المواد...</div></div>
+      <p class="privacyLine">🔐 لا تُدخل بيانات الطلبة في نشر عام أو نسخة تجريبية. يجب تشغيل هذا النظام على خادم خاص مع إعداد الرموز والصلاحيات قبل الاستخدام المدرسي.</p>
+    </section>
+    <section id="workspace" class="workspace" hidden>
+      <div class="workhead">
+        <div><span class="eyebrow" id="workKind">بوابة مخصصة</span><h2 id="workTitle"></h2></div>
+        <button id="backHome" type="button" class="btn outline">العودة للبوابات</button>
+      </div>
+      <div id="workContent"></div>
+    </section>
+    <div id="alert" role="status" aria-live="polite"></div>
+  </main>
+  <footer class="footer"><div class="shell">
+    <strong>رصد الموهبة | مدرسة سعود بن عزان البوسعيدي</strong>
+    <p>إعداد الأخصائيين النفسيين والاجتماعيين</p>
+    <p>الأخصائي النفسي: أ. خالد المشايخي · الأخصائي النفسي: أ. حمد الشماخي</p>
+    <p>الأخصائي الاجتماعي: أ. شهاب الهاشمي · الأخصائي الاجتماعي: أ. خميس الساعدي</p>
+    <small>الاستمارات مؤشرات ترشيح أولي وليست اختبارات نفسية مقننة.</small>
+  </div></footer>
+
+  <dialog id="pinDialog">
+    <form id="pinForm" class="dialogBody">
+      <div class="lockIcon">🔒</div><h2>فتح القسم</h2>
+      <p id="pinSectionTitle" class="subtle"></p>
+      <label for="pinInput">الرمز الخاص بالقسم (4 أرقام)</label>
+      <input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" autocomplete="off" required aria-label="رمز القسم الرباعي">
+      <p id="pinError" class="error" aria-live="polite"></p>
+      <div class="actions"><button type="submit" class="btn primary">فتح القسم</button><button type="button" id="cancelPin" class="btn outline">إلغاء</button></div>
+      <p class="tiny muted">الرمز الرباعي وحده ليس بديلًا عن حسابات المعلمين الفردية والتحقق المؤسسي.</p>
+    </form>
+  </dialog>
+  <dialog id="detailDialog"><div class="detailShell">
+    <div class="detailTop noPrint"><h2>تفاصيل الترشيح</h2><button type="button" class="btn outline" id="closeDetail">إغلاق</button></div>
+    <div id="detailBody"></div>
+  </div></dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>
