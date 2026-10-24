@@ -1,0 +1,90 @@
+"""Automated tests use invented data and a temporary database, never student data."""
+import os
+import tempfile
+from pathlib import Path
+
+tmp = tempfile.TemporaryDirectory()
+os.environ["TALENT_DB_PATH"] = str(Path(tmp.name) / "test.sqlite3")
+os.environ["TALENT_COOKIE_SECURE"] = "false"
+
+from fastapi.testclient import TestClient
+from criteria import SECTIONS
+from server import app, init_db, install_pin
+
+init_db()
+for scope in list(SECTIONS) + ["registry"]:
+    install_pin(scope, "0000")
+
+
+def login(client, scope):
+    result=client.post("/api/login",json={"scope":scope,"pin":"0000"})
+    assert result.status_code == 200, result.text
+
+
+def test_sections_include_every_subject_and_new_departments():
+    with TestClient(app) as client:
+        result=client.get("/api/sections")
+        assert result.status_code==200
+        names=[x["title"] for x in result.json()["sections"]]
+        assert len(names)==12
+        assert "الفنون التشكيلية" in names
+        assert "مسؤول مصادر التعلم" in names
+        assert "الأخصائي النفسي والاجتماعي" in names
+        assert "سجل تقييم الطلبة الموهوبين" in names
+        assert all(len(s["criteria"])==10 for s in SECTIONS.values())
+
+
+def test_login_is_required_and_teacher_cannot_open_full_registry():
+    with TestClient(app) as client:
+        assert client.get("/api/records").status_code==401
+        assert client.post("/api/login",json={"scope":"math","pin":"1234"}).status_code==401
+        login(client,"math")
+        assert client.get("/api/criteria").status_code==200
+        assert client.get("/api/records").status_code==403
+
+
+def test_complete_nomination_and_optional_review():
+    with TestClient(app) as client:
+        login(client,"art")
+        criteria=client.get("/api/criteria").json()
+        body={
+            "student_name":"طالب تجريبي وهمي","grade":7,"classroom":"1",
+            "teacher_name":"معلم تجريبي","talent_type":criteria["types"][0],
+            "talent_details":"عمل فني تجريبي","answers":{str(i):"unknown" for i in range(10)}
+        }
+        response=client.post("/api/nominations",json=body)
+        assert response.status_code==200, response.text
+        record_id=response.json()["id"]
+        assert client.get("/api/records").status_code==403
+        login(client,"registry")
+        record=client.get(f"/api/records/{record_id}").json()["record"]
+        assert record["student_name"]=="طالب تجريبي وهمي"
+        assert record["review_note"]==""
+        assert record["review_status"]=="لم تتم المراجعة بعد"
+        assert client.post(f"/api/records/{record_id}/review",json={"review_note":"اختبار"}).status_code==403
+        login(client,"counseling")
+        update=client.post(f"/api/records/{record_id}/review",json={"review_note":"يحتاج تحديًا إضافيًا","review_status":"بحاجة إلى ملاحظات إضافية"})
+        assert update.status_code==200,update.text
+        check=client.get(f"/api/records/{record_id}").json()["record"]
+        assert check["review_note"]=="يحتاج تحديًا إضافيًا"
+        export=client.get("/api/export.csv")
+        assert export.status_code==200
+        assert "طالب تجريبي وهمي" in export.text
+
+
+def test_nomination_requires_complete_rubric():
+    with TestClient(app) as client:
+        login(client,"science")
+        result=client.post("/api/nominations",json={
+            "student_name":"طالب وهمي آخر","grade":5,"classroom":"2","teacher_name":"معلم العلوم",
+            "talent_type":"الاستقصاء والبحث","answers":{"0":"yes"}
+        })
+        assert result.status_code==422
+
+
+def test_logout_locks_section():
+    with TestClient(app) as client:
+        login(client,"resources")
+        assert client.get("/api/criteria").status_code==200
+        assert client.post("/api/logout").status_code==200
+        assert client.get("/api/criteria").status_code==401
