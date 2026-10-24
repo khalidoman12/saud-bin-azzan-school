@@ -26,3 +26,7 @@ jobs:
         run: python -m compileall -q .
       - name: Validate JavaScript syntax
         run: node --check public/app.js
+      - name: Build production Docker image
+        working-directory: talent-system
+        run: docker build -t talent-school:ci .
+
