@@ -14,6 +14,7 @@ import sqlite3
 import time
 from contextlib import contextmanager
 from pathlib import Path
+from urllib.parse import urlparse
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Request, Response
@@ -54,8 +55,23 @@ def init_db():
         CREATE TABLE IF NOT EXISTS pins(
           scope TEXT PRIMARY KEY, salt BLOB NOT NULL, digest BLOB NOT NULL, updated_at TEXT DEFAULT CURRENT_TIMESTAMP
         );
+        CREATE TABLE IF NOT EXISTS users(
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          username TEXT NOT NULL UNIQUE,
+          display_name TEXT NOT NULL,
+          salt BLOB NOT NULL,
+          digest BLOB NOT NULL,
+          allowed_scopes TEXT NOT NULL,
+          can_view_registry INTEGER NOT NULL DEFAULT 0,
+          can_review INTEGER NOT NULL DEFAULT 0,
+          is_active INTEGER NOT NULL DEFAULT 1,
+          failed_attempts INTEGER NOT NULL DEFAULT 0,
+          locked_until INTEGER NOT NULL DEFAULT 0,
+          created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
         CREATE TABLE IF NOT EXISTS sessions(
-          token_hash TEXT PRIMARY KEY, scope TEXT NOT NULL, expires_at INTEGER NOT NULL
+          token_hash TEXT PRIMARY KEY, scope TEXT NOT NULL, user_id INTEGER, expires_at INTEGER NOT NULL,
+          FOREIGN KEY (user_id) REFERENCES users(id)
         );
         CREATE TABLE IF NOT EXISTS nominations(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -79,9 +95,18 @@ def init_db():
         CREATE TABLE IF NOT EXISTS audit(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           action TEXT NOT NULL, scope TEXT NOT NULL, record_id INTEGER,
+          user_id INTEGER,
           created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
         );
         """)
+        # Upgrade older local development databases without retaining old PIN-only sessions
+        session_cols={r["name"] for r in con.execute("PRAGMA table_info(sessions)")}
+        if "user_id" not in session_cols:
+            con.execute("ALTER TABLE sessions ADD COLUMN user_id INTEGER")
+        con.execute("DELETE FROM sessions WHERE user_id IS NULL")
+        audit_cols={r["name"] for r in con.execute("PRAGMA table_info(audit)")}
+        if "user_id" not in audit_cols:
+            con.execute("ALTER TABLE audit ADD COLUMN user_id INTEGER")
 
 @app.on_event("startup")
 def start():
@@ -99,26 +124,69 @@ def install_pin(scope: str, pin: str):
         con.execute("INSERT OR REPLACE INTO pins(scope,salt,digest,updated_at) VALUES(?,?,?,CURRENT_TIMESTAMP)", (scope, salt, digest))
         con.execute("DELETE FROM sessions WHERE scope=?", (scope,))
 
-def add_audit(con, action: str, scope: str, record_id=None):
-    con.execute("INSERT INTO audit(action,scope,record_id) VALUES(?,?,?)", (action,scope,record_id))
+def add_audit(con, action: str, scope: str, record_id=None, user_id=None):
+    con.execute("INSERT INTO audit(action,scope,record_id,user_id) VALUES(?,?,?,?)", (action,scope,record_id,user_id))
+
+def provision_user(username: str, display_name: str, password: str, allowed_scopes: list[str],
+                   can_view_registry: bool=False, can_review: bool=False):
+    if not re.fullmatch(r"[a-zA-Z0-9_.-]{3,50}", username):
+        raise ValueError("اسم المستخدم يجب أن يتكون من 3-50 حرفًا/رقمًا إنجليزيًا")
+    if len(password)<12 or len(password)>256:
+        raise ValueError("كلمة المرور يجب أن تكون 12 حرفًا على الأقل")
+    if not display_name.strip() or len(display_name)>180 or not allowed_scopes or set(allowed_scopes)-set(SECTIONS):
+        raise ValueError("الاسم والصلاحيات غير صحيحة")
+    salt=secrets.token_bytes(32)
+    digest=hash_pin(password,salt)
+    with database() as con:
+        con.execute("""INSERT INTO users(username,display_name,salt,digest,allowed_scopes,can_view_registry,can_review)
+          VALUES(?,?,?,?,?,?,?)""",(username,display_name.strip(),salt,digest,json.dumps(allowed_scopes),
+                                    int(can_view_registry or can_review),int(can_review)))
+    return True
+
+def auth_user(request: Request, allowed: set[str] | None=None):
+    token=request.cookies.get(COOKIE_NAME, "")
+    if not token:
+        raise HTTPException(401,"القسم مغلق. سجّل الدخول أولًا.")
+    token_hash=hashlib.sha256(token.encode()).hexdigest()
+    with database() as con:
+        row=con.execute("""SELECT s.scope,s.expires_at,u.id AS user_id,u.username,u.display_name,
+                          u.allowed_scopes,u.can_review,u.can_view_registry,u.is_active
+                          FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token_hash=?""",(token_hash,)).fetchone()
+    if row is None or row["expires_at"]<int(time.time()) or not row["is_active"]:
+        raise HTTPException(401,"انتهت الجلسة أو أُلغي الحساب.")
+    scope=row["scope"]
+    allowed_scopes=json.loads(row["allowed_scopes"])
+    if scope not in allowed_scopes and not (scope=="registry" and row["can_view_registry"]):
+        raise HTTPException(403,"لا توجد صلاحية لهذا القسم.")
+    if allowed is not None and scope not in allowed:
+        raise HTTPException(403,"ليست لديك صلاحية الاطلاع على هذا القسم.")
+    return dict(row)
+
+def check_origin(request: Request):
+    origin=request.headers.get("origin")
+    if origin and urlparse(origin).netloc!=request.url.netloc:
+        raise HTTPException(403,"مصدر الطلب غير مسموح به.")
+
+@app.middleware("http")
+async def security_headers(request: Request,call_next):
+    response=await call_next(request)
+    response.headers["X-Content-Type-Options"]="nosniff"
+    response.headers["X-Frame-Options"]="DENY"
+    response.headers["Referrer-Policy"]="no-referrer"
+    response.headers["Cache-Control"]="no-store"
+    response.headers["Content-Security-Policy"]="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; form-action 'self'; frame-ancestors 'none'; base-uri 'none'"
+    if request.url.scheme=="https":
+        response.headers["Strict-Transport-Security"]="max-age=31536000; includeSubDomains"
+    return response
 
 def auth(request: Request, allowed: set[str] | None = None) -> str:
-    token = request.cookies.get(COOKIE_NAME, "")
-    if not token:
-        raise HTTPException(401, "القسم مغلق. أدخل الرمز أولًا.")
-    token_hash = hashlib.sha256(token.encode()).hexdigest()
-    with database() as con:
-        row = con.execute("SELECT scope,expires_at FROM sessions WHERE token_hash=?", (token_hash,)).fetchone()
-    if row is None or row["expires_at"] < int(time.time()):
-        raise HTTPException(401, "انتهت الجلسة. افتح القسم مجددًا.")
-    scope = row["scope"]
-    if allowed is not None and scope not in allowed:
-        raise HTTPException(403, "ليست لديك صلاحية الاطلاع على هذا القسم.")
-    return scope
+    return auth_user(request,allowed)["scope"]
 
 class Login(BaseModel):
     scope: str
     pin: str
+    username: str
+    password: str
 
 @app.get("/")
 def home():
@@ -140,34 +208,49 @@ def sections():
 
 @app.post("/api/login")
 def login(data: Login, request: Request, response: Response):
-    if data.scope not in SCOPES or not re.fullmatch(r"[0-9]{4}", data.pin):
-        raise HTTPException(401, "الرمز غير صحيح.")
-    ip = request.client.host if request.client else "unknown"
-    key = ip + ":" + data.scope
-    now = time.monotonic()
-    ATTEMPTS[key] = [t for t in ATTEMPTS.get(key, []) if now - t < LOCK_SECONDS]
-    if len(ATTEMPTS[key]) >= MAX_LOGIN_ATTEMPTS:
-        raise HTTPException(429, "تم تجاوز محاولات الدخول. حاول بعد 15 دقيقة.")
+    check_origin(request)
+    if data.scope not in SCOPES or not re.fullmatch(r"[0-9]{4}",data.pin):
+        raise HTTPException(401,"بيانات الدخول غير صحيحة.")
+    ip=request.client.host if request.client else "unknown"
+    key=ip+":"+data.scope
+    now=time.monotonic()
+    ATTEMPTS[key]=[t for t in ATTEMPTS.get(key,[]) if now-t<LOCK_SECONDS]
+    if len(ATTEMPTS[key])>=MAX_LOGIN_ATTEMPTS:
+        raise HTTPException(429,"تم تجاوز محاولات الدخول، حاول بعد 15 دقيقة.")
     with database() as con:
-        row = con.execute("SELECT salt,digest FROM pins WHERE scope=?", (data.scope,)).fetchone()
-    if not row:
-        raise HTTPException(503, "لم تُهيأ رموز الدخول على الخادم بعد.")
-    valid = hmac.compare_digest(hash_pin(data.pin, row["salt"]), row["digest"])
-    if not valid:
-        ATTEMPTS[key].append(now)
-        raise HTTPException(401, "الرمز غير صحيح.")
-    ATTEMPTS.pop(key, None)
-    token = secrets.token_urlsafe(32)
-    with database() as con:
-        con.execute("DELETE FROM sessions WHERE expires_at < ?", (int(time.time()),))
-        con.execute("INSERT INTO sessions(token_hash,scope,expires_at) VALUES(?,?,?)",
-                    (hashlib.sha256(token.encode()).hexdigest(),data.scope,int(time.time())+TTL))
-        add_audit(con,"login",data.scope)
+        user=con.execute("SELECT * FROM users WHERE username=?",(data.username,)).fetchone()
+        pin_row=con.execute("SELECT salt,digest FROM pins WHERE scope=?",(data.scope,)).fetchone()
+        if not user or not user["is_active"] or not pin_row:
+            ATTEMPTS[key].append(now)
+            raise HTTPException(401,"بيانات الدخول غير صحيحة أو الحساب غير مهيأ.")
+        if user["locked_until"]>int(time.time()):
+            raise HTTPException(429,"الحساب مقفل مؤقتًا بسبب محاولات دخول خاطئة.")
+        account_ok=hmac.compare_digest(hash_pin(data.password,user["salt"]),user["digest"])
+        pin_ok=hmac.compare_digest(hash_pin(data.pin,pin_row["salt"]),pin_row["digest"])
+        scope_ok=data.scope in json.loads(user["allowed_scopes"]) or (data.scope=="registry" and user["can_view_registry"])
+        if not (account_ok and pin_ok and scope_ok):
+            ATTEMPTS[key].append(now)
+            failures=user["failed_attempts"]+1
+            lock=int(time.time())+LOCK_SECONDS if failures>=MAX_LOGIN_ATTEMPTS else 0
+            con.execute("UPDATE users SET failed_attempts=?,locked_until=? WHERE id=?",
+                        (0 if lock else failures,lock,user["id"]))
+            add_audit(con,"login_denied",data.scope,user_id=user["id"])
+            raise HTTPException(401,"بيانات الدخول غير صحيحة أو الصلاحية غير متاحة.")
+        con.execute("UPDATE users SET failed_attempts=0,locked_until=0 WHERE id=?",(user["id"],))
+        token=secrets.token_urlsafe(32)
+        con.execute("DELETE FROM sessions WHERE expires_at<?",(int(time.time()),))
+        con.execute("INSERT INTO sessions(token_hash,scope,user_id,expires_at) VALUES(?,?,?,?)",
+                  (hashlib.sha256(token.encode()).hexdigest(),data.scope,user["id"],int(time.time())+TTL))
+        add_audit(con,"login",data.scope,user_id=user["id"])
+    ATTEMPTS.pop(key,None)
     response.set_cookie(COOKIE_NAME,token,httponly=True,secure=COOKIE_SECURE,samesite="strict",max_age=TTL,path="/")
-    return {"scope":data.scope,"title":SECTIONS[data.scope]["title"] if data.scope in SECTIONS else "سجل تقييم الطلبة الموهوبين"}
+    return {"scope":data.scope,"title":SECTIONS[data.scope]["title"] if data.scope in SECTIONS else "سجل تقييم الطلبة الموهوبين",
+            "display_name":user["display_name"]}
+
 
 @app.post("/api/logout")
 def logout(request: Request, response: Response):
+    check_origin(request)
     token = request.cookies.get(COOKIE_NAME, "")
     if token:
         with database() as con:
@@ -177,8 +260,10 @@ def logout(request: Request, response: Response):
 
 @app.get("/api/session")
 def session(request: Request):
-    scope = auth(request)
-    return {"scope":scope,"title": SECTIONS[scope]["title"] if scope in SECTIONS else "سجل تقييم الطلبة الموهوبين"}
+    user=auth_user(request)
+    scope=user["scope"]
+    return {"scope":scope,"title":SECTIONS[scope]["title"] if scope in SECTIONS else "سجل تقييم الطلبة الموهوبين",
+            "display_name":user["display_name"],"can_review":bool(user["can_review"]),"can_view_registry":bool(user["can_view_registry"])}
 
 @app.get("/api/criteria")
 def criteria(request: Request):
@@ -208,7 +293,9 @@ class Nomination(BaseModel):
 
 @app.post("/api/nominations")
 def nominate(data: Nomination, request: Request):
-    scope = auth(request, set(SECTIONS))
+    check_origin(request)
+    user=auth_user(request,set(SECTIONS))
+    scope=user["scope"]
     required = {str(i) for i in range(len(SECTIONS[scope]["criteria"]))}
     if set(data.answers) != required:
         raise HTTPException(422, "يرجى تقييم جميع المؤشرات أو اختيار عدم توفر فرصة للملاحظة.")
@@ -219,11 +306,11 @@ def nominate(data: Nomination, request: Request):
         INSERT INTO nominations(scope,student_name,grade,classroom,teacher_name,talent_type,
         talent_details,comments,evidence_note,answers_json)
         VALUES(?,?,?,?,?,?,?,?,?,?)
-        """,(scope,data.student_name,data.grade,data.classroom,data.teacher_name,
+        """,(scope,data.student_name,data.grade,data.classroom,user["display_name"],
              data.talent_type,data.talent_details,data.comments,data.evidence_note,
              json.dumps(data.answers,ensure_ascii=False)))
         rid=cursor.lastrowid
-        add_audit(con,"nomination_create",scope,rid)
+        add_audit(con,"nomination_create",scope,rid,user["user_id"])
     return {"ok":True,"id":rid,"message":"تم حفظ استمارة ترشيح الطالب بنجاح"}
 
 def full_record(row):
@@ -234,7 +321,10 @@ def full_record(row):
 
 @app.get("/api/records")
 def records(request: Request, scope: str | None = None, grade: int | None = None, search: str = ""):
-    viewer=auth(request, {"registry","counseling"})
+    user=auth_user(request,{"registry","counseling"})
+    if not user["can_view_registry"]:
+        raise HTTPException(403,"لا تملك صلاحية السجل الشامل.")
+    viewer=user["scope"]
     query="SELECT * FROM nominations WHERE 1=1"
     args=[]
     if scope in SECTIONS:
@@ -251,7 +341,10 @@ def records(request: Request, scope: str | None = None, grade: int | None = None
 
 @app.get("/api/records/{record_id}")
 def get_record(record_id: int, request: Request):
-    viewer=auth(request, {"registry","counseling"})
+    user=auth_user(request,{"registry","counseling"})
+    if not user["can_view_registry"]:
+        raise HTTPException(403,"لا تملك صلاحية السجل الشامل.")
+    viewer=user["scope"]
     with database() as con:
         row=con.execute("SELECT * FROM nominations WHERE id=?", (record_id,)).fetchone()
         if row:
@@ -262,7 +355,9 @@ def get_record(record_id: int, request: Request):
 
 @app.get("/api/stats")
 def stats(request: Request):
-    auth(request, {"registry","counseling"})
+    user=auth_user(request,{"registry","counseling"})
+    if not user["can_view_registry"]:
+        raise HTTPException(403,"لا تملك صلاحية السجل الشامل.")
     with database() as con:
         count=con.execute("SELECT COUNT(*) c FROM nominations").fetchone()["c"]
         # Deduplication by normalized name + grade; production import should use internal student ID.
@@ -278,7 +373,10 @@ class Review(BaseModel):
 
 @app.post("/api/records/{record_id}/review")
 def review(record_id: int, data: Review, request: Request):
-    auth(request, {"counseling"})
+    check_origin(request)
+    user=auth_user(request,{"counseling"})
+    if not user["can_review"]:
+        raise HTTPException(403,"تعديل رأي اللجنة يقتصر على الأعضاء المخولين.")
     if data.review_status not in REVIEW_STATES:
         raise HTTPException(422, "حالة المراجعة غير معروفة.")
     with database() as con:
@@ -287,7 +385,7 @@ def review(record_id: int, data: Review, request: Request):
             raise HTTPException(404, "السجل غير موجود.")
         con.execute("UPDATE nominations SET review_note=?,review_status=?,reviewed_at=CURRENT_TIMESTAMP WHERE id=?",
                     (data.review_note,data.review_status,record_id))
-        add_audit(con,"review_update","counseling",record_id)
+        add_audit(con,"review_update","counseling",record_id,user["user_id"])
     return {"ok":True}
 
 def csv_safe(v):
@@ -298,7 +396,10 @@ def csv_safe(v):
 
 @app.get("/api/export.csv")
 def export_csv(request: Request):
-    viewer=auth(request, {"registry","counseling"})
+    user=auth_user(request,{"registry","counseling"})
+    if not user["can_view_registry"]:
+        raise HTTPException(403,"لا تملك صلاحية تصدير بيانات الطلبة.")
+    viewer=user["scope"]
     buffer=io.StringIO()
     writer=csv.writer(buffer)
     writer.writerow(["رقم","المادة","اسم الطالب","الصف","الشعبة","اسم المعلم","الموهبة","الوصف","الملاحظات","دليل الموهبة","رأي اللجنة","حالة المراجعة","تاريخ التسجيل"])
