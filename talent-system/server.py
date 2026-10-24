@@ -85,12 +85,19 @@ def init_db():
           comments TEXT NOT NULL DEFAULT '',
           evidence_note TEXT NOT NULL DEFAULT '',
           answers_json TEXT NOT NULL,
+          creator_user_id INTEGER,
           review_note TEXT NOT NULL DEFAULT '',
           review_status TEXT NOT NULL DEFAULT 'لم تتم المراجعة بعد',
           created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
           reviewed_at TEXT
         );
         CREATE INDEX IF NOT EXISTS nominations_scope_idx ON nominations(scope);
+        CREATE TABLE IF NOT EXISTS drafts(
+          user_id INTEGER NOT NULL, scope TEXT NOT NULL, payload_json TEXT NOT NULL,
+          updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY(user_id,scope),
+          FOREIGN KEY (user_id) REFERENCES users(id)
+        );
         CREATE INDEX IF NOT EXISTS nominations_grade_idx ON nominations(grade);
         CREATE TABLE IF NOT EXISTS audit(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -99,6 +106,9 @@ def init_db():
           created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
         );
         """)
+        nomination_cols={r["name"] for r in con.execute("PRAGMA table_info(nominations)")}
+        if "creator_user_id" not in nomination_cols:
+            con.execute("ALTER TABLE nominations ADD COLUMN creator_user_id INTEGER")
         # Upgrade older local development databases without retaining old PIN-only sessions
         session_cols={r["name"] for r in con.execute("PRAGMA table_info(sessions)")}
         if "user_id" not in session_cols:
@@ -304,12 +314,13 @@ def nominate(data: Nomination, request: Request):
     with database() as con:
         cursor=con.execute("""
         INSERT INTO nominations(scope,student_name,grade,classroom,teacher_name,talent_type,
-        talent_details,comments,evidence_note,answers_json)
-        VALUES(?,?,?,?,?,?,?,?,?,?)
+        talent_details,comments,evidence_note,answers_json,creator_user_id)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?)
         """,(scope,data.student_name,data.grade,data.classroom,user["display_name"],
              data.talent_type,data.talent_details,data.comments,data.evidence_note,
-             json.dumps(data.answers,ensure_ascii=False)))
+             json.dumps(data.answers,ensure_ascii=False),user["user_id"]))
         rid=cursor.lastrowid
+        con.execute("DELETE FROM drafts WHERE user_id=? AND scope=?", (user["user_id"],scope))
         add_audit(con,"nomination_create",scope,rid,user["user_id"])
     return {"ok":True,"id":rid,"message":"تم حفظ استمارة ترشيح الطالب بنجاح"}
 
@@ -339,19 +350,56 @@ def records(request: Request, scope: str | None = None, grade: int | None = None
         add_audit(con,"records_view",viewer)
     return {"records":rows,"limit":1000}
 
+@app.get("/api/my/records")
+def my_records(request: Request):
+    user=auth_user(request,set(SECTIONS))
+    with database() as con:
+        rows=[full_record(row) for row in con.execute(
+            "SELECT * FROM nominations WHERE creator_user_id=? AND scope=? ORDER BY id DESC LIMIT 300",
+            (user["user_id"],user["scope"]))]
+        add_audit(con,"my_records_view",user["scope"],user_id=user["user_id"])
+    return {"records":rows}
+
+@app.get("/api/my/draft")
+def get_draft(request: Request):
+    user=auth_user(request,set(SECTIONS))
+    with database() as con:
+        row=con.execute("SELECT payload_json,updated_at FROM drafts WHERE user_id=? AND scope=?",
+                        (user["user_id"],user["scope"])).fetchone()
+    return {"draft":json.loads(row["payload_json"]) if row else None,
+            "updated_at":row["updated_at"] if row else None}
+
+class Draft(BaseModel):
+    payload: dict
+
+@app.put("/api/my/draft")
+def save_draft(data: Draft, request: Request):
+    check_origin(request)
+    user=auth_user(request,set(SECTIONS))
+    serialized=json.dumps(data.payload,ensure_ascii=False)
+    if len(serialized)>20000:
+        raise HTTPException(413,"حجم المسودة كبير جدًا.")
+    with database() as con:
+        con.execute("""INSERT INTO drafts(user_id,scope,payload_json) VALUES(?,?,?)
+          ON CONFLICT(user_id,scope) DO UPDATE SET payload_json=excluded.payload_json,
+          updated_at=CURRENT_TIMESTAMP""",(user["user_id"],user["scope"],serialized))
+        add_audit(con,"draft_save",user["scope"],user_id=user["user_id"])
+    return {"ok":True}
+
 @app.get("/api/records/{record_id}")
 def get_record(record_id: int, request: Request):
-    user=auth_user(request,{"registry","counseling"})
-    if not user["can_view_registry"]:
-        raise HTTPException(403,"لا تملك صلاحية السجل الشامل.")
-    viewer=user["scope"]
+    user=auth_user(request)
     with database() as con:
         row=con.execute("SELECT * FROM nominations WHERE id=?", (record_id,)).fetchone()
-        if row:
-            add_audit(con,"record_view",viewer,record_id)
-    if not row:
-        raise HTTPException(404, "السجل غير موجود.")
+        if not row:
+            raise HTTPException(404,"السجل غير موجود.")
+        self_owned=row["creator_user_id"]==user["user_id"] and row["scope"]==user["scope"]
+        privileged=user["scope"] in {"registry","counseling"} and user["can_view_registry"]
+        if not (self_owned or privileged):
+            raise HTTPException(403,"لا يمكنك الاطلاع على استمارة مستخدم آخر.")
+        add_audit(con,"record_view",user["scope"],record_id,user["user_id"])
     return {"record":full_record(row),"criteria":SECTIONS[row["scope"]]["criteria"]}
+
 
 @app.get("/api/stats")
 def stats(request: Request):
