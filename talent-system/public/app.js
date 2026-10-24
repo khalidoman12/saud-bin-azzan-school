@@ -1,7 +1,7 @@
 "use strict";
 const $ = id => document.getElementById(id);
 const htmlEscape = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
-const state = {sections:[], scope:null, section:null, criteria:null, records:[]};
+const state = {sections:[], scope:null, section:null, criteria:null, records:[], display_name:'',can_review:false,can_view_registry:false};
 const ratingLabels = {yes:"تنطبق بوضوح",partial:"تنطبق جزئيًا",no:"لا تنطبق",unknown:"لم تتوفر فرصة للملاحظة"};
 const reviewStatuses = ["لم تتم المراجعة بعد","بحاجة إلى ملاحظات إضافية","يوصى بإتاحة نشاط إثرائي","يوصى بإجراء تقييم تخصصي إضافي","تمت مراجعة الحالة"];
 let desiredScope = "";
@@ -26,7 +26,7 @@ function renderCards(){
 function askPin(scope){
   desiredScope=scope;
   $("pinError").textContent="";
-  $("pinInput").value="";
+  $("pinInput").value="";$("passwordInput").value="";
   const sec=state.sections.find(s=>s.id===scope);
   $("pinSectionTitle").textContent=sec?.title||"";
   $("pinDialog").showModal();
@@ -37,14 +37,15 @@ async function login(e){
   const btn=$("pinForm").querySelector('button[type="submit"]');
   btn.disabled=true;$("pinError").textContent="";
   try {
-    const result=await api("/api/login",{method:"POST",body:JSON.stringify({scope:desiredScope,pin:$("pinInput").value})});
-    state.scope=result.scope;$("pinDialog").close();$("pinInput").value="";
+    const result=await api("/api/login",{method:"POST",body:JSON.stringify({scope:desiredScope,pin:$("pinInput").value,username:$("usernameInput").value.trim(),password:$("passwordInput").value})});
+    state.scope=result.scope;state.display_name=result.display_name;state.can_review=false;state.can_view_registry=false;$("pinDialog").close();$("pinInput").value="";$("passwordInput").value="";
+    const current=await api("/api/session");state.can_review=current.can_review;state.can_view_registry=current.can_view_registry;
     await showCurrent();
   } catch(err){$("pinError").textContent=err.message;} finally {btn.disabled=false;}
 }
 async function logout(){
   try {await api("/api/logout",{method:"POST"});} catch {}
-  state.scope=null;state.criteria=null;state.records=[];
+  state.scope=null;state.criteria=null;state.records=[];state.display_name="";state.can_view_registry=false;state.can_review=false;
   setScreen(false);$("workContent").replaceChildren();alertMsg("تم إغلاق القسم.");
 }
 async function showCurrent(){
@@ -57,9 +58,11 @@ async function showCurrent(){
   if(state.scope==="registry"||state.scope==="counseling"){
     if(state.scope==="counseling"){
       await renderNominationForm();
-      const link=document.createElement("button");link.type="button";link.className="btn outline";link.textContent="عرض سجل المرشحين ومراجعات اللجنة";
-      link.addEventListener("click",()=>renderRegistry(true));
-      $("workContent").prepend(link);
+      if(state.can_view_registry){
+        const link=document.createElement("button");link.type="button";link.className="btn outline";link.textContent="عرض سجل المرشحين ومراجعات اللجنة";
+        link.addEventListener("click",()=>renderRegistry(true));
+        $("workContent").prepend(link);
+      }
     } else await renderRegistry(false);
   } else await renderNominationForm();
 }
@@ -72,7 +75,8 @@ async function renderNominationForm(){
   '<div class="panel"><h3>أولًا: بيانات الطالب والمعلم</h3><div class="gridForm">'+
   field("اسم الطالب كاملًا","student_name","text",true)+
   '<div class="field"><label for="grade">الصف الدراسي <b class="required">*</b></label><select required name="grade" id="grade"><option value="">اختر الصف</option><option value="5">الخامس</option><option value="6">السادس</option><option value="7">السابع</option><option value="8">الثامن</option></select></div>'+
-  field("الشعبة","classroom","text",true)+field("اسم المعلم / مكتشف الموهبة","teacher_name","text",true)+
+  field("الشعبة","classroom","text",true)+
+  '<div class="field"><label for="teacher_name">اسم المعلم / مكتشف الموهبة</label><input id="teacher_name" name="teacher_name" value="'+htmlEscape(state.display_name)+'" readonly></div>'+
   '<div class="field"><label for="talent_type">الموهبة المكتشفة <b class="required">*</b></label><select required name="talent_type" id="talent_type">'+typeOptions(info.types)+'</select></div>'+
   '<div class="field hide" id="otherTypeBox"><label for="otherType">تحديد الموهبة الأخرى</label><input id="otherType" name="otherType" maxlength="200"></div>'+
   '<div class="field wide"><label for="talent_details">وصف مختصر للموهبة (اختياري)</label><textarea id="talent_details" name="talent_details" maxlength="1500"></textarea></div>'+
@@ -155,14 +159,14 @@ async function openRecord(id){
     content+='<div class="panel">'+fields.map(([name,val])=>'<div class="detailRow"><span class="detailLabel">'+htmlEscape(name)+': </span>'+htmlEscape(val||"—")+'</div>').join("")+'</div>';
     content+='<div class="panel"><h3>نتائج المؤشرات</h3><ol class="detailCriteria">'+criteria.map((q,i)=>'<li><span>'+htmlEscape(q)+'</span> <strong class="tag">'+htmlEscape(ratingLabels[r.answers[String(i)]]||"—")+'</strong></li>').join("")+'</ol></div>';
     content+='<div class="panel"><h3>رأي لجنة الموهوبين</h3><p>'+htmlEscape(r.review_note||"لم تكتب اللجنة رأيًا بعد.")+'</p><p class="notice">'+htmlEscape(r.review_status)+'</p>';
-    if(state.scope==="counseling"){
+    if(state.scope==="counseling" && state.can_review){
       content+='<form id="reviewForm" class="noPrint"><div class="field"><label for="reviewNote">رأي اللجنة (اختياري)</label><textarea id="reviewNote" maxlength="3000">'+htmlEscape(r.review_note)+'</textarea></div><div class="field"><label for="reviewStatus">حالة المراجعة</label><select id="reviewStatus">'+reviewStatuses.map(s=>'<option '+(s===r.review_status?'selected':'')+' value="'+htmlEscape(s)+'">'+htmlEscape(s)+'</option>').join("")+'</select></div><div class="actions"><button class="btn primary" type="submit">حفظ رأي اللجنة</button></div></form>';
     }
     content+='</div><p class="notice">إعداد الأخصائيين النفسيين والاجتماعيين: أ. خالد المشايخي، أ. حمد الشماخي، أ. شهاب الهاشمي، أ. خميس الساعدي.</p>'+
     '<div class="actions noPrint"><button type="button" class="btn outline" id="printRecord">طباعة الاستمارة</button></div>';
     $("detailBody").innerHTML=content;$("detailDialog").showModal();
     $("printRecord").addEventListener("click",()=>window.print());
-    if(state.scope==="counseling") $("reviewForm").addEventListener("submit",async e=>{
+    if(state.scope==="counseling" && state.can_review) $("reviewForm").addEventListener("submit",async e=>{
       e.preventDefault();
       try {await api("/api/records/"+id+"/review",{method:"POST",body:JSON.stringify({review_note:$("reviewNote").value,review_status:$("reviewStatus").value})});
         alertMsg("تم حفظ رأي اللجنة.");$("detailDialog").close();await loadRecords();
@@ -179,7 +183,7 @@ async function init(){
   try{
     const data=await api("/api/sections");
     state.sections=data.sections;renderCards();
-    try{const s=await api("/api/session");state.scope=s.scope;await showCurrent();}catch{setScreen(false);}
+    try{const s=await api("/api/session");state.scope=s.scope;state.display_name=s.display_name;state.can_review=s.can_review;state.can_view_registry=s.can_view_registry;await showCurrent();}catch{setScreen(false);}
   }catch(err){$("sectionCards").textContent="تعذر تحميل المواد: "+err.message;}
 }
 document.addEventListener("DOMContentLoaded",init);
