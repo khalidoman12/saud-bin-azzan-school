@@ -1,0 +1,12 @@
+.git
+.env
+.env.*
+!*.example
+private
+__pycache__
+*.pyc
+.pytest_cache
+tests
+compose.yaml
+Caddyfile
+README.md
