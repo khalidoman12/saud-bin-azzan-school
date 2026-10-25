@@ -100,7 +100,9 @@ function setupTalentForms() {
     }
     // Link native per-form response tabs to the same private master workbook.
     // Google creates one response tab for each form.
-    if (form.getDestinationId()!==ss.getId()) form.setDestination(FormApp.DestinationType.SPREADSHEET,ss.getId());
+    let destinationId='';
+    try {destinationId=form.getDestinationId()||'';} catch(err) {destinationId='';}
+    if (destinationId!==ss.getId()) form.setDestination(FormApp.DestinationType.SPREADSHEET,ss.getId());
     if (!triggerIds.has(form.getId())){
       ScriptApp.newTrigger('onTalentFormSubmit').forForm(form).onFormSubmit().create();
       triggerIds.add(form.getId());
