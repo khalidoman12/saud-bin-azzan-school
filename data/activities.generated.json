@@ -3,13 +3,159 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-10-23",
-    "lastSyncedAt": "2026-10-23T18:17:16Z",
+    "rangeEnd": "2026-10-26",
+    "lastSyncedAt": "2026-10-26T19:15:05Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2114782102130671961",
+      "sourceId": "2114782102130671961",
+      "date": "2026-10-26",
+      "title": "قدّم أ. عبدالله الجمري، معلم الرياضيات، حصة تعليمية لطلبة الصف السادس بعنوان «التعامل مع…",
+      "description": "قدّم أ. عبدالله الجمري، معلم الرياضيات، حصة تعليمية لطلبة الصف السادس بعنوان «التعامل مع الطول»، وظّف خلالها أنشطة ورقية وألعابًا تعليمية تفاعلية؛ بهدف تعزيز فهم المفاهيم المرتبطة بالقياس، وتنمية مهارات التطبيق والحساب، وترسيخ التعلم من خلال الممارسة والمشاركة.",
+      "category": "teaching",
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        6
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2114782039400759296/img/PpY7jWFzUe7Em0Ya?format=webp&name=medium",
+          "alt": "فيديو: قدّم أ. عبدالله الجمري، معلم الرياضيات، حصة تعليمية لطلبة الصف السادس بعنوان «التعامل مع…",
+          "localPath": "/activity-media/2557f62228413bdcaa739ee7.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2114782102130671961",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-26"
+    },
+    {
+      "id": "x-2114741764536053839",
+      "sourceId": "2114741764536053839",
+      "date": "2026-10-26",
+      "title": "احتفت المدرسةباليوم العُماني للنشاط البدني من خلال برنامج تضمن فقرات إذاعية توعوية حول…",
+      "description": "احتفت المدرسةباليوم العُماني للنشاط البدني من خلال برنامج تضمن فقرات إذاعية توعوية حول أهمية ممارسة النشاط البدني وأثره في الصحة واللياقة،أعقبها تنفيذ مجموعة من الألعاب الحركية واللياقية والتحديات التنافسية بإشراف معلمي الرياضة المدرسية ومشاركة الطلبة؛بما عزز روح التفاعل الإيجابي",
+      "category": "student-life",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVkLCEQagAA691n?format=webp&name=large",
+          "alt": "احتفت المدرسةباليوم العُماني للنشاط البدني من خلال برنامج تضمن فقرات إذاعية توعوية حول…",
+          "localPath": "/activity-media/f4c7d7c9440e99182923aca4.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVkLCm2boAEnx6R?format=webp&name=large",
+          "alt": "احتفت المدرسةباليوم العُماني للنشاط البدني من خلال برنامج تضمن فقرات إذاعية توعوية حول…",
+          "localPath": "/activity-media/6b12f7e5cab102bd1f4ea29d.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVkLDYoacAAADaT?format=webp&name=large",
+          "alt": "احتفت المدرسةباليوم العُماني للنشاط البدني من خلال برنامج تضمن فقرات إذاعية توعوية حول…",
+          "localPath": "/activity-media/5444430f7e951ea1f005bd49.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2114733140619268096/img/gO7SVgbq9gM2HWO0?format=webp&name=medium",
+          "alt": "فيديو: احتفت المدرسةباليوم العُماني للنشاط البدني من خلال برنامج تضمن فقرات إذاعية توعوية حول…",
+          "localPath": "/activity-media/bd974149e4d57327455c75e5.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2114741764536053839",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-26"
+    },
+    {
+      "id": "x-2114700478366028174",
+      "sourceId": "2114700478366028174",
+      "date": "2026-10-26",
+      "title": "زيارة من قِبل أ.خالد الغزالي،مدير دائرة التوجيه المهني والإرشاد الطلابي،للاطلاع على سير…",
+      "description": "زيارة من قِبل أ.خالد الغزالي،مدير دائرة التوجيه المهني والإرشاد الطلابي،للاطلاع على سير العمل الإرشادي المقدّم بالمدرسة،وما ينفذه الأخصائيون النفسيون والاجتماعيون من برامج توعويةوإرشادية إلى جانب مراجعة السجلات وآليات المتابعة والتوثيق للوقوف على جودة الممارسات والخدمات الإرشادية",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVjs2-9b0AACfMT?format=webp&name=large",
+          "alt": "زيارة من قِبل أ.خالد الغزالي،مدير دائرة التوجيه المهني والإرشاد الطلابي،للاطلاع على سير…",
+          "localPath": "/activity-media/0d58357b9375844a89756619.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVjs3fIbcAAZ3i3?format=webp&name=large",
+          "alt": "زيارة من قِبل أ.خالد الغزالي،مدير دائرة التوجيه المهني والإرشاد الطلابي،للاطلاع على سير…",
+          "localPath": "/activity-media/e056d113aeec1d07dd3bff1a.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HVjs3_haoAAfxk8?format=webp&name=large",
+          "alt": "زيارة من قِبل أ.خالد الغزالي،مدير دائرة التوجيه المهني والإرشاد الطلابي،للاطلاع على سير…",
+          "localPath": "/activity-media/0ac51e1c5cb9aa375ed808df.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2114700478366028174",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-26"
+    },
+    {
+      "id": "x-2114595693180633475",
+      "sourceId": "2114595693180633475",
+      "date": "2026-10-26",
+      "title": "فعاليات مادة الدراسات الاجتماعية عنوان الدرس: علاقة عمان بالدولة العباسية اليوم :…",
+      "description": "فعاليات مادة الدراسات الاجتماعية عنوان الدرس: علاقة عمان بالدولة العباسية اليوم : الاثنين التاريخ : ٢٦/ ١٠ /٢٠٢٧م الصف : السابع ١ الحصة : الثانية نوع الفعالية : العصف الذهني الأستاذ :محمد العويسي",
+      "category": "guidance",
+      "audiences": [
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HViNkTsa0AA25kN?format=webp&name=large",
+          "alt": "فعاليات مادة الدراسات الاجتماعية عنوان الدرس: علاقة عمان بالدولة العباسية اليوم :…",
+          "localPath": "/activity-media/405124f00517e765c957f68e.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HViNkTqbUAAFflw?format=webp&name=large",
+          "alt": "فعاليات مادة الدراسات الاجتماعية عنوان الدرس: علاقة عمان بالدولة العباسية اليوم :…",
+          "localPath": "/activity-media/a9866531222a72611036fde4.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HViNkTsaUAAEoi3?format=webp&name=large",
+          "alt": "فعاليات مادة الدراسات الاجتماعية عنوان الدرس: علاقة عمان بالدولة العباسية اليوم :…",
+          "localPath": "/activity-media/f5c76b668b78dcf0e70f9387.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2114595693180633475",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-10-26"
+    },
     {
       "id": "x-2113556189631951099",
       "sourceId": "2113556189631951099",
