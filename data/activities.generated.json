@@ -3,13 +3,170 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-10-26",
-    "lastSyncedAt": "2026-10-26T19:15:05Z",
+    "rangeEnd": "2026-11-04",
+    "lastSyncedAt": "2026-11-04T18:37:08Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2117987876449427565",
+      "sourceId": "2117987876449427565",
+      "date": "2026-11-04",
+      "title": "قدّم الأستاذ حمود الراجحي حصةً نموذجيةً في درس «الكشف عن السكر والنشا» لطلبة الصف الثامن…",
+      "description": "قدّم الأستاذ حمود الراجحي حصةً نموذجيةً في درس «الكشف عن السكر والنشا» لطلبة الصف الثامن (6)، موظفًا أسلوب الاستكشاف في تنفيذ التجارب العلمية؛ لتنمية مهارات الملاحظة والتجريب والاستنتاج لدى الطلبة. #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [
+        8
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSauYKaAAAs5k8?format=webp&name=large",
+          "alt": "قدّم الأستاذ حمود الراجحي حصةً نموذجيةً في درس «الكشف عن السكر والنشا» لطلبة الصف الثامن…",
+          "localPath": "/activity-media/f5fc657da44716844653e5a0.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSauYFaYAEEfBt?format=webp&name=large",
+          "alt": "قدّم الأستاذ حمود الراجحي حصةً نموذجيةً في درس «الكشف عن السكر والنشا» لطلبة الصف الثامن…",
+          "localPath": "/activity-media/d1887aad4e43af6f54d6037f.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSauYOaoAAPwrP?format=webp&name=large",
+          "alt": "قدّم الأستاذ حمود الراجحي حصةً نموذجيةً في درس «الكشف عن السكر والنشا» لطلبة الصف الثامن…",
+          "localPath": "/activity-media/686d2b029bee0f319c9a7c03.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2117987876449427565",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "x-2117987247526166736",
+      "sourceId": "2117987247526166736",
+      "date": "2026-11-04",
+      "title": "نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة تفاعلية بعنوان «المساحة والمحيط»، وظّف…",
+      "description": "نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة تفاعلية بعنوان «المساحة والمحيط»، وظّف خلالها مقطعًا مرئيًا من إنتاجه بأسلوب قصصي مبتكر، مستوحى من البيئة العُمانية،جسّد فيه مفهوم المحيط بتتبّع حدود الأشكال، والمساحة باستخدام شبكة المربعات،بما يعزز الفهم البصري ويربط المفاهيم الرياضية",
+      "category": "teaching",
+      "audiences": [
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSaJpxakAEBLym?format=webp&name=large",
+          "alt": "نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة تفاعلية بعنوان «المساحة والمحيط»، وظّف…",
+          "localPath": "/activity-media/2b2525d03253b59366f2f4d0.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSaKJObYAAw85g?format=webp&name=large",
+          "alt": "نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة تفاعلية بعنوان «المساحة والمحيط»، وظّف…",
+          "localPath": "/activity-media/3226f7062428a62ffe1e2b3c.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSaK17bMAAtybg?format=webp&name=large",
+          "alt": "نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة تفاعلية بعنوان «المساحة والمحيط»، وظّف…",
+          "localPath": "/activity-media/88950a784c1c8e82f92917e2.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2117987180102795265/img/WCTffFU1g2P0BvWK?format=webp&name=medium",
+          "alt": "فيديو: نفّذ أ. عبدالله الجمري، معلم الرياضيات، حصة تفاعلية بعنوان «المساحة والمحيط»، وظّف…",
+          "localPath": "/activity-media/be6833e9fd9e00ccdb2bdfdb.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2117987247526166736",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "x-2117983057630396855",
+      "sourceId": "2117983057630396855",
+      "date": "2026-11-04",
+      "title": "ضمن خطة الإنماء المهني لمادة التربية الإسلامية،قدّم الأستاذ سعيد الراجحي ورقة عمل…",
+      "description": "ضمن خطة الإنماء المهني لمادة التربية الإسلامية،قدّم الأستاذ سعيد الراجحي ورقة عمل بعنوان«التشويق والدافعية وأثرهما في عملية التعلّم»تناولت مفهوم التشويق والدافعية وأهميتهما في تعزيز التعلّم،ودور معلم التربية الإسلامية في إثارة دافعية الطلبة وتشويقهم خلال المواقف التعليمية اليومية",
+      "category": "student-life",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSWVfobIAELreg?format=webp&name=large",
+          "alt": "ضمن خطة الإنماء المهني لمادة التربية الإسلامية،قدّم الأستاذ سعيد الراجحي ورقة عمل…",
+          "localPath": "/activity-media/86c1859cfa36fd13a93ab358.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSWWRHaYAACyy-?format=webp&name=large",
+          "alt": "ضمن خطة الإنماء المهني لمادة التربية الإسلامية،قدّم الأستاذ سعيد الراجحي ورقة عمل…",
+          "localPath": "/activity-media/efcebf661982fd7ad6fe2dc0.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSWW8VbIAAI7TZ?format=webp&name=large",
+          "alt": "ضمن خطة الإنماء المهني لمادة التربية الإسلامية،قدّم الأستاذ سعيد الراجحي ورقة عمل…",
+          "localPath": "/activity-media/60a137dc54ad32cd036c0b63.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2117983057630396855",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "x-2117971261641076975",
+      "sourceId": "2117971261641076975",
+      "date": "2026-11-04",
+      "title": "حرصًا على صحة الطلبة وسلامتهم، زار مدير المدرسة الأستاذ راشد السنيدي المقصف المدرسي؛…",
+      "description": "حرصًا على صحة الطلبة وسلامتهم، زار مدير المدرسة الأستاذ راشد السنيدي المقصف المدرسي؛ للاطلاع على جودة الخدمات المقدمة، والتأكد من الالتزام بالاشتراطات الصحية، بما يعزز بيئة مدرسية آمنة وصحية. #مدارسنا_مستقبل_واعد",
+      "category": "health",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSLnC-asAIxc9F?format=webp&name=large",
+          "alt": "حرصًا على صحة الطلبة وسلامتهم، زار مدير المدرسة الأستاذ راشد السنيدي المقصف المدرسي؛…",
+          "localPath": "/activity-media/47dafddba2349894c8cfaf35.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSLnDSakAAqWJi?format=webp&name=large",
+          "alt": "حرصًا على صحة الطلبة وسلامتهم، زار مدير المدرسة الأستاذ راشد السنيدي المقصف المدرسي؛…",
+          "localPath": "/activity-media/17732f700cc9bb4710ae666b.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HWSLnC-asAMzrGN?format=webp&name=large",
+          "alt": "حرصًا على صحة الطلبة وسلامتهم، زار مدير المدرسة الأستاذ راشد السنيدي المقصف المدرسي؛…",
+          "localPath": "/activity-media/85c1e85ee36746a8ec7ac380.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2117971261641076975",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-04"
+    },
     {
       "id": "x-2114782102130671961",
       "sourceId": "2114782102130671961",
