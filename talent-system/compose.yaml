@@ -1,0 +1,47 @@
+name: talent-school
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=32m
+    environment:
+      TALENT_DB_PATH: /data/talent.sqlite3
+      TALENT_COOKIE_SECURE: "true"
+    volumes:
+      - talent_private_data:/data
+    expose:
+      - "8088"
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://127.0.0.1:8088/healthz',timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks: [talent_internal]
+  web:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on: [app]
+    environment:
+      TALENT_DOMAIN: ${TALENT_DOMAIN:?Set TALENT_DOMAIN in .env to a verified domain pointing at this host}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [talent_internal]
+    security_opt:
+      - no-new-privileges:true
+networks:
+  talent_internal:
+    driver: bridge
+volumes:
+  talent_private_data:
+  caddy_data:
+  caddy_config:
