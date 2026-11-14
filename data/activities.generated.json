@@ -3,13 +3,146 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-11-12",
-    "lastSyncedAt": "2026-11-12T18:14:43Z",
+    "rangeEnd": "2026-11-13",
+    "lastSyncedAt": "2026-11-14T10:17:04Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2121298013369053511",
+      "sourceId": "2121298013369053511",
+      "date": "2026-11-13",
+      "title": "دشّنت المدرسة المرحلة الأولى من مشروع الشاشات التعليمية الذكية، بتوفير سبع عشرة شاشة…",
+      "description": "دشّنت المدرسة المرحلة الأولى من مشروع الشاشات التعليمية الذكية، بتوفير سبع عشرة شاشة ذكية، في خطوة نوعية نحو تطوير البيئة التعليمية وتعزيز التحول الرقمي، تمهيدًا لاستكمال المرحلة الثانية لتشمل بقية الفصول الدراسية، بما يسهم في إيجاد بيئة تعليمية أكثر تفاعلًا وإبداعًا. @EduGovSsq #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "teaching",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2121297422832017408/img/xopsWPT7oWZ3XGyb?format=webp&name=medium",
+          "alt": "فيديو: دشّنت المدرسة المرحلة الأولى من مشروع الشاشات التعليمية الذكية، بتوفير سبع عشرة شاشة…",
+          "localPath": "/activity-media/83f31175b47950e439846dbd.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2121298013369053511",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "x-2121142692394746358",
+      "sourceId": "2121142692394746358",
+      "date": "2026-11-13",
+      "title": "زيارة من قبل أ. عبدالله العلوي، عضو فني اختبارات، لمناقشة استعدادات المدرسة لاختبارات…",
+      "description": "زيارة من قبل أ. عبدالله العلوي، عضو فني اختبارات، لمناقشة استعدادات المدرسة لاختبارات (TIMSS) تيمز، والاطلاع على مستوى الجاهزية والترتيبات التنظيمية والفنية المرتبطة بالتنفيذ؛ بما يسهم في رفع كفاءة الاستعداد وضمان سير الاختبارات وفق المتطلبات المحددة.",
+      "category": "visits",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HW_QAwnacAA9ug2?format=webp&name=large",
+          "alt": "زيارة من قبل أ. عبدالله العلوي، عضو فني اختبارات، لمناقشة استعدادات المدرسة لاختبارات…",
+          "localPath": "/activity-media/91789ad361d013044c259dff.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HW_QBfvbUAAMSuh?format=webp&name=large",
+          "alt": "زيارة من قبل أ. عبدالله العلوي، عضو فني اختبارات، لمناقشة استعدادات المدرسة لاختبارات…",
+          "localPath": "/activity-media/18a8596b3fef801328580efb.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HW_QCGWaYAE_H9m?format=webp&name=large",
+          "alt": "زيارة من قبل أ. عبدالله العلوي، عضو فني اختبارات، لمناقشة استعدادات المدرسة لاختبارات…",
+          "localPath": "/activity-media/c7d34adb779ab2a2d9045a3d.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2121142692394746358",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "x-2121133676251787391",
+      "sourceId": "2121133676251787391",
+      "date": "2026-11-13",
+      "title": "ضمن فعاليات «أسبوع العلوم»، نفّذ معلمو مادة العلوم بالمدرسة مجموعة من الأنشطة والتجارب…",
+      "description": "ضمن فعاليات «أسبوع العلوم»، نفّذ معلمو مادة العلوم بالمدرسة مجموعة من الأنشطة والتجارب العلمية داخل المختبر، بمشاركة فاعلة من الطلبة وحضور عدد من أعضاء الهيئة الإدارية والتدريسية، بهدف تعزيز التعلم بالتجربة والاكتشاف، وتنمية مهارات الملاحظة والاستقصاء والتفكير العلمي، وربط المفاهيم النظرية بالتطبيقات العملية.",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2121133626268192768/img/mDy7rbndGCgzIHTJ?format=webp&name=medium",
+          "alt": "فيديو: ضمن فعاليات «أسبوع العلوم»، نفّذ معلمو مادة العلوم بالمدرسة مجموعة من الأنشطة والتجارب…",
+          "localPath": "/activity-media/2939be3884fe258b6467341f.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2121133676251787391",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "x-2120972650273177800",
+      "sourceId": "2120972650273177800",
+      "date": "2026-11-13",
+      "title": "نفّذ الأخصائيون النفسيون والاجتماعيون بالمدرسة برنامجًا توعويًا بعنوان «وعي رقمي يحميك..…",
+      "description": "نفّذ الأخصائيون النفسيون والاجتماعيون بالمدرسة برنامجًا توعويًا بعنوان «وعي رقمي يحميك.. وسلوك مسؤول يميزك»، تضمّن فقرات إذاعية خلال التهيئة الصباحية، بمشاركة الأخصائيين والهيئة التدريسية والطلبة، إلى جانب حصص توجيهية وإرشادية. ويهدف البرنامج إلى تعزيز الوعي الرقمي لدى الطلبة، Show more",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "المعلمون",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HW81Wv_bAAAmkyt?format=webp&name=large",
+          "alt": "نفّذ الأخصائيون النفسيون والاجتماعيون بالمدرسة برنامجًا توعويًا بعنوان «وعي رقمي يحميك..…",
+          "localPath": "/activity-media/4dba0e8afb30f573a7171102.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HW81YZEasAAQ_2J?format=webp&name=large",
+          "alt": "نفّذ الأخصائيون النفسيون والاجتماعيون بالمدرسة برنامجًا توعويًا بعنوان «وعي رقمي يحميك..…",
+          "localPath": "/activity-media/73a3fc164c04bc6e97c089cb.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2120972583613153280/img/5n9j1jyRRqysw8Ru?format=webp&name=medium",
+          "alt": "فيديو: نفّذ الأخصائيون النفسيون والاجتماعيون بالمدرسة برنامجًا توعويًا بعنوان «وعي رقمي يحميك..…",
+          "localPath": "/activity-media/9e58eae77991ed8ec86b9186.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2120972623517798400/img/LzfLfqKsCyKGQZtH?format=webp&name=medium",
+          "alt": "فيديو: نفّذ الأخصائيون النفسيون والاجتماعيون بالمدرسة برنامجًا توعويًا بعنوان «وعي رقمي يحميك..…",
+          "localPath": "/activity-media/cf84fc45c180b79861c9ddf1.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2120972650273177800",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-14"
+    },
     {
       "id": "x-2120847095133585914",
       "sourceId": "2120847095133585914",
