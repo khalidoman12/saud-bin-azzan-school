@@ -3,13 +3,57 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-11-15",
-    "lastSyncedAt": "2026-11-16T01:59:19Z",
+    "rangeEnd": "2026-11-16",
+    "lastSyncedAt": "2026-11-16T09:34:22Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2122193114341212540",
+      "sourceId": "2122193114341212540",
+      "date": "2026-11-16",
+      "title": "ضمن تفعيل مجتمعات التعلم المهنية، نفّذ مساعد مدير المدرسة الأستاذ سلطان الجابري،…",
+      "description": "ضمن تفعيل مجتمعات التعلم المهنية، نفّذ مساعد مدير المدرسة الأستاذ سلطان الجابري، بالتعاون مع المعلم الأول لمادة اللغة العربية، لقاءً مهنيًا تناول سبل تطوير الممارسات التدريسية، وتبادل الخبرات التربوية، ومناقشة الاستراتيجيات الحديثة في تدريس اللغة العربية، بما يسهم في رفع مستوى التحصيل الدراسي، وتعزيز مهارات القراءة والكتابة لدى الطلبة. #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "administration",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXOLYSMbUAAeDZB?format=webp&name=large",
+          "alt": "ضمن تفعيل مجتمعات التعلم المهنية، نفّذ مساعد مدير المدرسة الأستاذ سلطان الجابري،…",
+          "localPath": "/activity-media/cbb51d23cb4033db45a456c1.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXOLYSMaUAAIOGc?format=webp&name=large",
+          "alt": "ضمن تفعيل مجتمعات التعلم المهنية، نفّذ مساعد مدير المدرسة الأستاذ سلطان الجابري،…",
+          "localPath": "/activity-media/ade08bbdd1201626c0af3cce.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXOLYSQaUAAoBxZ?format=webp&name=large",
+          "alt": "ضمن تفعيل مجتمعات التعلم المهنية، نفّذ مساعد مدير المدرسة الأستاذ سلطان الجابري،…",
+          "localPath": "/activity-media/3156b099c26d2fee367880e1.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXOLYSUboAAryLY?format=webp&name=large",
+          "alt": "ضمن تفعيل مجتمعات التعلم المهنية، نفّذ مساعد مدير المدرسة الأستاذ سلطان الجابري،…",
+          "localPath": "/activity-media/24c0ce773db1c7a7c6df5686.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2122193114341212540",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-16"
+    },
     {
       "id": "x-2122007301431439756",
       "sourceId": "2122007301431439756",
