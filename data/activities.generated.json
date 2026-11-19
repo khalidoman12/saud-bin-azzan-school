@@ -3,13 +3,156 @@
     "account": "@EduGovSsq5302",
     "accountUrl": "https://x.com/EduGovSsq5302",
     "rangeStart": "2026-08-30",
-    "rangeEnd": "2026-11-16",
-    "lastSyncedAt": "2026-11-16T09:34:22Z",
+    "rangeEnd": "2026-11-19",
+    "lastSyncedAt": "2026-11-19T03:20:39Z",
     "syncMethod": "مزامنة مجانية للمنشورات المتاحة من صفحة X العامة",
     "coverage": "partial",
     "reviewedThrough": "2026-09-21"
   },
   "activities": [
+    {
+      "id": "x-2123158250619367898",
+      "sourceId": "2123158250619367898",
+      "date": "2026-11-19",
+      "title": "في إطار الاحتفاء باليوم الوطني العُماني، استضافت المدرسة وفدًا طلابيًا من مدرسة السلطان…",
+      "description": "في إطار الاحتفاء باليوم الوطني العُماني، استضافت المدرسة وفدًا طلابيًا من مدرسة السلطان تركي بن سعيد للبنين (9–12)، قدّم إذاعة مدرسية وطنية تضمنت فقرات متنوعة جسّدت مشاعر الفخر والاعتزاز بالوطن، واستحضرت منجزات النهضة العُمانية ومسيرة البناء والتطوير، بما يعزز قيم المواطنة والانتماء والهوية الوطنية لدى الطلبة، ويجسّد أواصر التعاون والتكامل بين المدرستين. #اليوم_الوطني_العُماني",
+      "category": "honors",
+      "audiences": [
+        "الطلبة"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXb5KalaEAArNJ7?format=webp&name=large",
+          "alt": "في إطار الاحتفاء باليوم الوطني العُماني، استضافت المدرسة وفدًا طلابيًا من مدرسة السلطان…",
+          "localPath": "/activity-media/9c63d7c1ad37a135dbc6b572.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXb5K9GagAAAYC5?format=webp&name=large",
+          "alt": "في إطار الاحتفاء باليوم الوطني العُماني، استضافت المدرسة وفدًا طلابيًا من مدرسة السلطان…",
+          "localPath": "/activity-media/9065a9e235fc7fc2a4f6a001.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2123158154515255296/img/KJFFoKUF5DEZm9CN?format=webp&name=medium",
+          "alt": "فيديو: في إطار الاحتفاء باليوم الوطني العُماني، استضافت المدرسة وفدًا طلابيًا من مدرسة السلطان…",
+          "localPath": "/activity-media/010959199d4a08f66591ca4f.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2123158199117422592/img/Je2wRiHgPqEPhiwT?format=webp&name=medium",
+          "alt": "فيديو: في إطار الاحتفاء باليوم الوطني العُماني، استضافت المدرسة وفدًا طلابيًا من مدرسة السلطان…",
+          "localPath": "/activity-media/d1d06353c0470a5d9774181f.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2123158250619367898",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-19"
+    },
+    {
+      "id": "x-2123155020078362993",
+      "sourceId": "2123155020078362993",
+      "date": "2026-11-19",
+      "title": "نفّذ أ. بدر الساعدي معلم العلوم استقصاءً علمياً لطلاب الصف الخامس بعنوان «هل يمكن…",
+      "description": "نفّذ أ. بدر الساعدي معلم العلوم استقصاءً علمياً لطلاب الصف الخامس بعنوان «هل يمكن استعادة الملح من المحلول؟»، حيث أتاح للطلاب فرصة تنفيذ خطوات الاستقصاء بأنفسهم، بدءاً من الملاحظة وطرح التوقعات، مروراً بإجراء التجربة ومتابعة النتائج، وصولاً إلى استخلاص الاستنتاج. وقد كان الهدف Show more",
+      "category": "teaching",
+      "audiences": [
+        "الطلبة",
+        "المعلمون"
+      ],
+      "people": [],
+      "grades": [
+        5
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXb2O4SbMAA-15q?format=webp&name=large",
+          "alt": "نفّذ أ. بدر الساعدي معلم العلوم استقصاءً علمياً لطلاب الصف الخامس بعنوان «هل يمكن…",
+          "localPath": "/activity-media/dedf09ceb719346d489d5b1e.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2123154958027821056/img/fq678goHHj3Ddn2l?format=webp&name=medium",
+          "alt": "فيديو: نفّذ أ. بدر الساعدي معلم العلوم استقصاءً علمياً لطلاب الصف الخامس بعنوان «هل يمكن…",
+          "localPath": "/activity-media/fd233c08758115119d0e2047.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2123155020078362993",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-19"
+    },
+    {
+      "id": "x-2123125351350177999",
+      "sourceId": "2123125351350177999",
+      "date": "2026-11-18",
+      "title": "نفّذ الأستاذ مسعود الحميدي نشاطًا تعليميًا لطلبة الصف الخامس باستخدام المختبر الافتراضي،…",
+      "description": "نفّذ الأستاذ مسعود الحميدي نشاطًا تعليميًا لطلبة الصف الخامس باستخدام المختبر الافتراضي، بعنوان «هل تؤثر المساحة السطحية لفتحة الوعاء على التبخر؟»، مستهدفًا توظيف التقنيات الرقمية في محاكاة التجارب العلمية؛ بما يعزز مهارات الاستقصاء والتعلم بالتجربة. #تعلم_مستدام #مدارسنا_مستقبل_واعد",
+      "category": "teaching",
+      "audiences": [
+        "المجتمع المدرسي"
+      ],
+      "people": [],
+      "grades": [
+        5
+      ],
+      "specialist": false,
+      "media": [
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2123125261571162112/img/KFUNX0NEzYZohZYp?format=webp&name=medium",
+          "alt": "فيديو: نفّذ الأستاذ مسعود الحميدي نشاطًا تعليميًا لطلبة الصف الخامس باستخدام المختبر الافتراضي،…",
+          "localPath": "/activity-media/81e872df30a812899d479ae7.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2123125351350177999",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-19"
+    },
+    {
+      "id": "x-2123081303356842470",
+      "sourceId": "2123081303356842470",
+      "date": "2026-11-18",
+      "title": "ضمن فعاليات  ، فعّل أ. طارق المشايخي، معلم الدراسات الاجتماعية، شاشة المدرسة بعرض مرئي…",
+      "description": "ضمن فعاليات #أسبوع_الوعي_الجغرافي ، فعّل أ. طارق المشايخي، معلم الدراسات الاجتماعية، شاشة المدرسة بعرض مرئي بعنوان «جنوب الشرقية بين جمال الطبيعة وعبق التاريخ»، بحضور مدير المدرسة ومعلمي الدراسات الاجتماعية؛ واستعرض أبرز المقومات الطبيعية والتاريخية بالمحافظة، من السواحل والأودية والجبال إلى الحصون والقلاع والمعالم التراثية، بما يعزز معرفة الطلبة بثراء المكان وارتباط الجغرافيا بالتاريخ والهوية.",
+      "category": "guidance",
+      "audiences": [
+        "الطلبة",
+        "المعلمون",
+        "الأخصائيون"
+      ],
+      "people": [],
+      "grades": [],
+      "specialist": true,
+      "media": [
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXazKyAbMAAOMLy?format=webp&name=large",
+          "alt": "ضمن فعاليات  ، فعّل أ. طارق المشايخي، معلم الدراسات الاجتماعية، شاشة المدرسة بعرض مرئي…",
+          "localPath": "/activity-media/18e9074e0a086a78ce4dab0f.webp"
+        },
+        {
+          "type": "image",
+          "url": "https://pbs.twimg.com/media/HXazLxtaAAAufaR?format=webp&name=large",
+          "alt": "ضمن فعاليات  ، فعّل أ. طارق المشايخي، معلم الدراسات الاجتماعية، شاشة المدرسة بعرض مرئي…",
+          "localPath": "/activity-media/3ccf34e3b46257233f1564d6.webp"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2123081107197575169/img/TZ-ipTyHTpPz5_Ja?format=webp&name=medium",
+          "alt": "فيديو: ضمن فعاليات  ، فعّل أ. طارق المشايخي، معلم الدراسات الاجتماعية، شاشة المدرسة بعرض مرئي…",
+          "localPath": "/activity-media/9ec48c31ba0c71372b781ec0.webp"
+        }
+      ],
+      "sourceUrl": "https://x.com/EduGovSsq5302/status/2123081303356842470",
+      "sourceLabel": "عرض المنشور الأصلي",
+      "verifiedAt": "2026-11-19"
+    },
     {
       "id": "x-2122193114341212540",
       "sourceId": "2122193114341212540",
